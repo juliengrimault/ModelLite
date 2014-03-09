@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F9364DAB18CC2FC8002F0768 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAA18CC2FC8002F0768 /* Foundation.framework */; };
+		F9364DAD18CC2FC8002F0768 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAC18CC2FC8002F0768 /* CoreGraphics.framework */; };
+		F9364DAF18CC2FC8002F0768 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAE18CC2FC8002F0768 /* UIKit.framework */; };
+		F9364DB518CC2FC8002F0768 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9364DB318CC2FC8002F0768 /* InfoPlist.strings */; };
+		F9364DB718CC2FC8002F0768 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F9364DB618CC2FC8002F0768 /* main.m */; };
+		F9364DBB18CC2FC8002F0768 /* JGRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F9364DBA18CC2FC8002F0768 /* JGRAppDelegate.m */; };
+		F9364DBD18CC2FC8002F0768 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9364DBC18CC2FC8002F0768 /* Images.xcassets */; };
+		F9364DC418CC2FC9002F0768 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DC318CC2FC9002F0768 /* XCTest.framework */; };
+		F9364DC518CC2FC9002F0768 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAA18CC2FC8002F0768 /* Foundation.framework */; };
+		F9364DC618CC2FC9002F0768 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAE18CC2FC8002F0768 /* UIKit.framework */; };
+		F9364DCE18CC2FC9002F0768 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9364DCC18CC2FC9002F0768 /* InfoPlist.strings */; };
+		F9364DD018CC2FC9002F0768 /* JGRModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F9364DCF18CC2FC9002F0768 /* JGRModelTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F9364DC718CC2FC9002F0768 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9364D9F18CC2FC8002F0768 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9364DA618CC2FC8002F0768;
+			remoteInfo = JGRModel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F9364DA718CC2FC8002F0768 /* JGRModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JGRModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9364DAA18CC2FC8002F0768 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F9364DAC18CC2FC8002F0768 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F9364DAE18CC2FC8002F0768 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F9364DB218CC2FC8002F0768 /* JGRModel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JGRModel-Info.plist"; sourceTree = "<group>"; };
+		F9364DB418CC2FC8002F0768 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F9364DB618CC2FC8002F0768 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F9364DB818CC2FC8002F0768 /* JGRModel-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JGRModel-Prefix.pch"; sourceTree = "<group>"; };
+		F9364DB918CC2FC8002F0768 /* JGRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGRAppDelegate.h; sourceTree = "<group>"; };
+		F9364DBA18CC2FC8002F0768 /* JGRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGRAppDelegate.m; sourceTree = "<group>"; };
+		F9364DBC18CC2FC8002F0768 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F9364DC218CC2FC9002F0768 /* JGRModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JGRModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9364DC318CC2FC9002F0768 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F9364DCB18CC2FC9002F0768 /* JGRModelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JGRModelTests-Info.plist"; sourceTree = "<group>"; };
+		F9364DCD18CC2FC9002F0768 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F9364DCF18CC2FC9002F0768 /* JGRModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGRModelTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F9364DA418CC2FC8002F0768 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9364DAD18CC2FC8002F0768 /* CoreGraphics.framework in Frameworks */,
+				F9364DAF18CC2FC8002F0768 /* UIKit.framework in Frameworks */,
+				F9364DAB18CC2FC8002F0768 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9364DBF18CC2FC9002F0768 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9364DC418CC2FC9002F0768 /* XCTest.framework in Frameworks */,
+				F9364DC618CC2FC9002F0768 /* UIKit.framework in Frameworks */,
+				F9364DC518CC2FC9002F0768 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F9364D9E18CC2FC8002F0768 = {
+			isa = PBXGroup;
+			children = (
+				F9364DB018CC2FC8002F0768 /* JGRModel */,
+				F9364DC918CC2FC9002F0768 /* JGRModelTests */,
+				F9364DA918CC2FC8002F0768 /* Frameworks */,
+				F9364DA818CC2FC8002F0768 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F9364DA818CC2FC8002F0768 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9364DA718CC2FC8002F0768 /* JGRModel.app */,
+				F9364DC218CC2FC9002F0768 /* JGRModelTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9364DA918CC2FC8002F0768 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F9364DAA18CC2FC8002F0768 /* Foundation.framework */,
+				F9364DAC18CC2FC8002F0768 /* CoreGraphics.framework */,
+				F9364DAE18CC2FC8002F0768 /* UIKit.framework */,
+				F9364DC318CC2FC9002F0768 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9364DB018CC2FC8002F0768 /* JGRModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9364DB918CC2FC8002F0768 /* JGRAppDelegate.h */,
+				F9364DBA18CC2FC8002F0768 /* JGRAppDelegate.m */,
+				F9364DBC18CC2FC8002F0768 /* Images.xcassets */,
+				F9364DB118CC2FC8002F0768 /* Supporting Files */,
+			);
+			path = JGRModel;
+			sourceTree = "<group>";
+		};
+		F9364DB118CC2FC8002F0768 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F9364DB218CC2FC8002F0768 /* JGRModel-Info.plist */,
+				F9364DB318CC2FC8002F0768 /* InfoPlist.strings */,
+				F9364DB618CC2FC8002F0768 /* main.m */,
+				F9364DB818CC2FC8002F0768 /* JGRModel-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F9364DC918CC2FC9002F0768 /* JGRModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				F9364DCF18CC2FC9002F0768 /* JGRModelTests.m */,
+				F9364DCA18CC2FC9002F0768 /* Supporting Files */,
+			);
+			path = JGRModelTests;
+			sourceTree = "<group>";
+		};
+		F9364DCA18CC2FC9002F0768 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F9364DCB18CC2FC9002F0768 /* JGRModelTests-Info.plist */,
+				F9364DCC18CC2FC9002F0768 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F9364DA618CC2FC8002F0768 /* JGRModel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9364DD318CC2FC9002F0768 /* Build configuration list for PBXNativeTarget "JGRModel" */;
+			buildPhases = (
+				F9364DA318CC2FC8002F0768 /* Sources */,
+				F9364DA418CC2FC8002F0768 /* Frameworks */,
+				F9364DA518CC2FC8002F0768 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JGRModel;
+			productName = JGRModel;
+			productReference = F9364DA718CC2FC8002F0768 /* JGRModel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F9364DC118CC2FC9002F0768 /* JGRModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9364DD618CC2FC9002F0768 /* Build configuration list for PBXNativeTarget "JGRModelTests" */;
+			buildPhases = (
+				F9364DBE18CC2FC9002F0768 /* Sources */,
+				F9364DBF18CC2FC9002F0768 /* Frameworks */,
+				F9364DC018CC2FC9002F0768 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9364DC818CC2FC9002F0768 /* PBXTargetDependency */,
+			);
+			name = JGRModelTests;
+			productName = JGRModelTests;
+			productReference = F9364DC218CC2FC9002F0768 /* JGRModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F9364D9F18CC2FC8002F0768 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JGR;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = juliengrimault;
+				TargetAttributes = {
+					F9364DC118CC2FC9002F0768 = {
+						TestTargetID = F9364DA618CC2FC8002F0768;
+					};
+				};
+			};
+			buildConfigurationList = F9364DA218CC2FC8002F0768 /* Build configuration list for PBXProject "JGRModel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F9364D9E18CC2FC8002F0768;
+			productRefGroup = F9364DA818CC2FC8002F0768 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9364DA618CC2FC8002F0768 /* JGRModel */,
+				F9364DC118CC2FC9002F0768 /* JGRModelTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F9364DA518CC2FC8002F0768 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9364DB518CC2FC8002F0768 /* InfoPlist.strings in Resources */,
+				F9364DBD18CC2FC8002F0768 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9364DC018CC2FC9002F0768 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9364DCE18CC2FC9002F0768 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F9364DA318CC2FC8002F0768 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9364DBB18CC2FC8002F0768 /* JGRAppDelegate.m in Sources */,
+				F9364DB718CC2FC8002F0768 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9364DBE18CC2FC9002F0768 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9364DD018CC2FC9002F0768 /* JGRModelTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F9364DC818CC2FC9002F0768 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9364DA618CC2FC8002F0768 /* JGRModel */;
+			targetProxy = F9364DC718CC2FC9002F0768 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F9364DB318CC2FC8002F0768 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9364DB418CC2FC8002F0768 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F9364DCC18CC2FC9002F0768 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9364DCD18CC2FC9002F0768 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F9364DD118CC2FC9002F0768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F9364DD218CC2FC9002F0768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F9364DD418CC2FC9002F0768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JGRModel/JGRModel-Prefix.pch";
+				INFOPLIST_FILE = "JGRModel/JGRModel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F9364DD518CC2FC9002F0768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JGRModel/JGRModel-Prefix.pch";
+				INFOPLIST_FILE = "JGRModel/JGRModel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F9364DD718CC2FC9002F0768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JGRModel.app/JGRModel";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JGRModel/JGRModel-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "JGRModelTests/JGRModelTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F9364DD818CC2FC9002F0768 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JGRModel.app/JGRModel";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JGRModel/JGRModel-Prefix.pch";
+				INFOPLIST_FILE = "JGRModelTests/JGRModelTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F9364DA218CC2FC8002F0768 /* Build configuration list for PBXProject "JGRModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9364DD118CC2FC9002F0768 /* Debug */,
+				F9364DD218CC2FC9002F0768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9364DD318CC2FC9002F0768 /* Build configuration list for PBXNativeTarget "JGRModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9364DD418CC2FC9002F0768 /* Debug */,
+				F9364DD518CC2FC9002F0768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F9364DD618CC2FC9002F0768 /* Build configuration list for PBXNativeTarget "JGRModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9364DD718CC2FC9002F0768 /* Debug */,
+				F9364DD818CC2FC9002F0768 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F9364D9F18CC2FC8002F0768 /* Project object */;
+}

@@ -11,7 +11,7 @@
 @interface JGRDatabaseController ()
 
 @property (nonatomic, strong) dispatch_queue_t serialQueue;
-@property (nonatomic, copy) NSString *dbPath;
+@property (nonatomic, strong) NSURL *dbURL;
 @property (nonatomic, strong) FMDatabase *db;
-
+@property (nonatomic, strong) NSDictionary *databaseMappings;
 @end

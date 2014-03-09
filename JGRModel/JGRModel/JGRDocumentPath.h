@@ -8,5 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-NSString *jgr_UserDocumentPath();
-NSString *jgr_PathRelativeToUserDocument(NSString *relativePath);
+NSURL *jgr_UserDocumentURL();
+NSURL *jgr_URLRelativeToUserDocument(NSString *relativePath);

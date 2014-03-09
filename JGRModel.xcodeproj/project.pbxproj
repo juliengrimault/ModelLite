@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E10ED05853940C8BFDAEFC8 /* libPods-JGRModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 451EFE241FA34375AA8B7BA9 /* libPods-JGRModel.a */; };
+		D5556408A8944A09986F8E35 /* libPods-JGRModelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C84E42631F9F4694A6AF8244 /* libPods-JGRModelTests.a */; };
 		F9364DAB18CC2FC8002F0768 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAA18CC2FC8002F0768 /* Foundation.framework */; };
 		F9364DAD18CC2FC8002F0768 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAC18CC2FC8002F0768 /* CoreGraphics.framework */; };
 		F9364DAF18CC2FC8002F0768 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAE18CC2FC8002F0768 /* UIKit.framework */; };
@@ -18,7 +20,10 @@
 		F9364DC518CC2FC9002F0768 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAA18CC2FC8002F0768 /* Foundation.framework */; };
 		F9364DC618CC2FC9002F0768 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAE18CC2FC8002F0768 /* UIKit.framework */; };
 		F9364DCE18CC2FC9002F0768 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9364DCC18CC2FC9002F0768 /* InfoPlist.strings */; };
-		F9364DD018CC2FC9002F0768 /* JGRModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F9364DCF18CC2FC9002F0768 /* JGRModelTests.m */; };
+		F9364DDD18CC3361002F0768 /* JGRDatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9364DDC18CC3361002F0768 /* JGRDatabaseController.m */; };
+		F9364DE018CC3FA5002F0768 /* JGRDatabaseControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F9364DDF18CC3FA5002F0768 /* JGRDatabaseControllerSpec.m */; };
+		F9FC3C0118CC406200F6CA88 /* JGRDatabaseIntegrationSpecSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FC3C0018CC406200F6CA88 /* JGRDatabaseIntegrationSpecSpec.m */; };
+		F9FC3C0618CC46C600F6CA88 /* JGRDocumentPath.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FC3C0518CC46C600F6CA88 /* JGRDocumentPath.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		451EFE241FA34375AA8B7BA9 /* libPods-JGRModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JGRModel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		629F76BFB4F84EA3B67503C1 /* Pods-JGRModelTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGRModelTests.xcconfig"; path = "Pods/Pods-JGRModelTests.xcconfig"; sourceTree = "<group>"; };
+		C84E42631F9F4694A6AF8244 /* libPods-JGRModelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JGRModelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F119CB8E7A94409D9D819707 /* Pods-JGRModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGRModel.xcconfig"; path = "Pods/Pods-JGRModel.xcconfig"; sourceTree = "<group>"; };
 		F9364DA718CC2FC8002F0768 /* JGRModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JGRModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9364DAA18CC2FC8002F0768 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F9364DAC18CC2FC8002F0768 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,7 +56,13 @@
 		F9364DC318CC2FC9002F0768 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F9364DCB18CC2FC9002F0768 /* JGRModelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JGRModelTests-Info.plist"; sourceTree = "<group>"; };
 		F9364DCD18CC2FC9002F0768 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F9364DCF18CC2FC9002F0768 /* JGRModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGRModelTests.m; sourceTree = "<group>"; };
+		F9364DDB18CC3361002F0768 /* JGRDatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRDatabaseController.h; sourceTree = "<group>"; };
+		F9364DDC18CC3361002F0768 /* JGRDatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRDatabaseController.m; sourceTree = "<group>"; };
+		F9364DDF18CC3FA5002F0768 /* JGRDatabaseControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRDatabaseControllerSpec.m; sourceTree = "<group>"; };
+		F9FC3C0018CC406200F6CA88 /* JGRDatabaseIntegrationSpecSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRDatabaseIntegrationSpecSpec.m; sourceTree = "<group>"; };
+		F9FC3C0318CC42A300F6CA88 /* JGRDatabaseController_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGRDatabaseController_Private.h; sourceTree = "<group>"; };
+		F9FC3C0418CC46C600F6CA88 /* JGRDocumentPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRDocumentPath.h; sourceTree = "<group>"; };
+		F9FC3C0518CC46C600F6CA88 /* JGRDocumentPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRDocumentPath.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,7 @@
 				F9364DAD18CC2FC8002F0768 /* CoreGraphics.framework in Frameworks */,
 				F9364DAF18CC2FC8002F0768 /* UIKit.framework in Frameworks */,
 				F9364DAB18CC2FC8002F0768 /* Foundation.framework in Frameworks */,
+				1E10ED05853940C8BFDAEFC8 /* libPods-JGRModel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +84,7 @@
 				F9364DC418CC2FC9002F0768 /* XCTest.framework in Frameworks */,
 				F9364DC618CC2FC9002F0768 /* UIKit.framework in Frameworks */,
 				F9364DC518CC2FC9002F0768 /* Foundation.framework in Frameworks */,
+				D5556408A8944A09986F8E35 /* libPods-JGRModelTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,8 +98,13 @@
 				F9364DC918CC2FC9002F0768 /* JGRModelTests */,
 				F9364DA918CC2FC8002F0768 /* Frameworks */,
 				F9364DA818CC2FC8002F0768 /* Products */,
+				F119CB8E7A94409D9D819707 /* Pods-JGRModel.xcconfig */,
+				629F76BFB4F84EA3B67503C1 /* Pods-JGRModelTests.xcconfig */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
+			usesTabs = 0;
 		};
 		F9364DA818CC2FC8002F0768 /* Products */ = {
 			isa = PBXGroup;
@@ -100,6 +122,8 @@
 				F9364DAC18CC2FC8002F0768 /* CoreGraphics.framework */,
 				F9364DAE18CC2FC8002F0768 /* UIKit.framework */,
 				F9364DC318CC2FC9002F0768 /* XCTest.framework */,
+				451EFE241FA34375AA8B7BA9 /* libPods-JGRModel.a */,
+				C84E42631F9F4694A6AF8244 /* libPods-JGRModelTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,6 +135,10 @@
 				F9364DBA18CC2FC8002F0768 /* JGRAppDelegate.m */,
 				F9364DBC18CC2FC8002F0768 /* Images.xcassets */,
 				F9364DB118CC2FC8002F0768 /* Supporting Files */,
+				F9364DDB18CC3361002F0768 /* JGRDatabaseController.h */,
+				F9364DDC18CC3361002F0768 /* JGRDatabaseController.m */,
+				F9FC3C0418CC46C600F6CA88 /* JGRDocumentPath.h */,
+				F9FC3C0518CC46C600F6CA88 /* JGRDocumentPath.m */,
 			);
 			path = JGRModel;
 			sourceTree = "<group>";
@@ -129,7 +157,9 @@
 		F9364DC918CC2FC9002F0768 /* JGRModelTests */ = {
 			isa = PBXGroup;
 			children = (
-				F9364DCF18CC2FC9002F0768 /* JGRModelTests.m */,
+				F9FC3C0318CC42A300F6CA88 /* JGRDatabaseController_Private.h */,
+				F9364DE118CC3FAF002F0768 /* Integration */,
+				F9364DDE18CC3FA5002F0768 /* Spec */,
 				F9364DCA18CC2FC9002F0768 /* Supporting Files */,
 			);
 			path = JGRModelTests;
@@ -144,6 +174,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F9364DDE18CC3FA5002F0768 /* Spec */ = {
+			isa = PBXGroup;
+			children = (
+				F9364DDF18CC3FA5002F0768 /* JGRDatabaseControllerSpec.m */,
+			);
+			path = Spec;
+			sourceTree = "<group>";
+		};
+		F9364DE118CC3FAF002F0768 /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				F9FC3C0018CC406200F6CA88 /* JGRDatabaseIntegrationSpecSpec.m */,
+			);
+			path = Integration;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9364DD318CC2FC9002F0768 /* Build configuration list for PBXNativeTarget "JGRModel" */;
 			buildPhases = (
+				6F65916A689741B19B6EDD62 /* Check Pods Manifest.lock */,
 				F9364DA318CC2FC8002F0768 /* Sources */,
 				F9364DA418CC2FC8002F0768 /* Frameworks */,
 				F9364DA518CC2FC8002F0768 /* Resources */,
+				387683FD17D640A1B5A4B94C /* Warn for TODO and FIXME comments */,
+				7721365AB01C48508C2F4DB4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9364DD618CC2FC9002F0768 /* Build configuration list for PBXNativeTarget "JGRModelTests" */;
 			buildPhases = (
+				22E1C4C67A7A425F9D067D3D /* Check Pods Manifest.lock */,
 				F9364DBE18CC2FC9002F0768 /* Sources */,
 				F9364DBF18CC2FC9002F0768 /* Frameworks */,
 				F9364DC018CC2FC9002F0768 /* Resources */,
+				B901CE5DA9FF4B1C9841B873 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,13 +286,92 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		22E1C4C67A7A425F9D067D3D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		387683FD17D640A1B5A4B94C /* Warn for TODO and FIXME comments */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Warn for TODO and FIXME comments";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nFILE_EXTENSIONS=\"h|m|mm|c|cpp\"\nfind -E \"${SRCROOT}\" -ipath \"${SRCROOT}/pods\" -prune -o \\( -regex \".*\\.($FILE_EXTENSIONS)$\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
+		6F65916A689741B19B6EDD62 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7721365AB01C48508C2F4DB4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-JGRModel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B901CE5DA9FF4B1C9841B873 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-JGRModelTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F9364DA318CC2FC8002F0768 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9364DDD18CC3361002F0768 /* JGRDatabaseController.m in Sources */,
 				F9364DBB18CC2FC8002F0768 /* JGRAppDelegate.m in Sources */,
 				F9364DB718CC2FC8002F0768 /* main.m in Sources */,
+				F9FC3C0618CC46C600F6CA88 /* JGRDocumentPath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +379,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9364DD018CC2FC9002F0768 /* JGRModelTests.m in Sources */,
+				F9FC3C0118CC406200F6CA88 /* JGRDatabaseIntegrationSpecSpec.m in Sources */,
+				F9364DE018CC3FA5002F0768 /* JGRDatabaseControllerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,10 +424,12 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -310,13 +443,24 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -331,10 +475,12 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -342,12 +488,23 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -355,6 +512,7 @@
 		};
 		F9364DD418CC2FC9002F0768 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F119CB8E7A94409D9D819707 /* Pods-JGRModel.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -368,6 +526,7 @@
 		};
 		F9364DD518CC2FC9002F0768 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F119CB8E7A94409D9D819707 /* Pods-JGRModel.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -381,6 +540,7 @@
 		};
 		F9364DD718CC2FC9002F0768 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 629F76BFB4F84EA3B67503C1 /* Pods-JGRModelTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JGRModel.app/JGRModel";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -403,6 +563,7 @@
 		};
 		F9364DD818CC2FC9002F0768 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 629F76BFB4F84EA3B67503C1 /* Pods-JGRModelTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JGRModel.app/JGRModel";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -438,6 +599,7 @@
 				F9364DD518CC2FC9002F0768 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F9364DD618CC2FC9002F0768 /* Build configuration list for PBXNativeTarget "JGRModelTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +608,7 @@
 				F9364DD818CC2FC9002F0768 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

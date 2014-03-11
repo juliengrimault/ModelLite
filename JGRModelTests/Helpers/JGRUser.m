@@ -18,6 +18,12 @@
     return @(self.id);
 }
 
+- (instancetype)detachedCopy
+{
+    //TODO: implement detachedCopy
+    return self;
+}
+
 @end
 
 @implementation JGRUser (SpecFactory)

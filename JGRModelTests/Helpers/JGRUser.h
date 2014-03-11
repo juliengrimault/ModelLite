@@ -17,6 +17,9 @@
 @property (nonatomic, copy) NSDate *dob;
 @property (nonatomic, getter = isDeleted) BOOL deleted;
 
+
+@property (nonatomic) BOOL hasAwakeFromFetchBeenCalled;
+
 @end
 
 @interface JGRUser (SpecFactory)

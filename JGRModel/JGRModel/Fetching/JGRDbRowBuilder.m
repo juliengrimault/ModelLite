@@ -50,6 +50,10 @@
         [instance setValue:value forKey:propertyName];
     }
     
+    if ([instance respondsToSelector:@selector(awakeFromFetch)]) {
+        [instance awakeFromFetch];
+    }
+    
     return instance;
 }
 

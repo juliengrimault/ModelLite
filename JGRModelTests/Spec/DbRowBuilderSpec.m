@@ -11,6 +11,9 @@
 #import "MockResultSet.h"
 #import "JGRDbMapping.h"
 
+@interface JGRUserSubclass :JGRUser
+@end
+
 SpecBegin(JGRDbRowBuilderSpec)
 
 describe(@"JGRDbRowBuilder", ^{
@@ -45,6 +48,19 @@ describe(@"JGRDbRowBuilder", ^{
                 __unused JGRUser *user = [builder buildInstanceFromRow:mockResultSet];
                 expect(mockResultSet.currentRowIndex).to.equal(0);
             });
+            
+            it(@"has not called awakeFromFetch since it is not implemented", ^{
+                JGRUser *user = [builder buildInstanceFromRow:mockResultSet];
+                expect(user.hasAwakeFromFetchBeenCalled).to.beFalsy();
+            });
+        });
+        
+        describe(@"optional awakeFromFetch", ^{
+            it(@"calls awakeFromFetch when implemented", ^{
+                builder = [[JGRDbRowBuilder alloc] initWithMapping:[JGRUserSubclass databaseMapping]];
+                JGRUserSubclass *u = [builder buildInstanceFromRow:mockResultSet];
+                expect(u.hasAwakeFromFetchBeenCalled).to.beTruthy();
+            });
         });
     });
     
@@ -68,3 +84,10 @@ describe(@"JGRDbRowBuilder", ^{
 });
 
 SpecEnd
+
+@implementation JGRUserSubclass
+- (void)awakeFromFetch
+{
+    self.hasAwakeFromFetchBeenCalled = YES;
+}
+@end

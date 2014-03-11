@@ -109,4 +109,9 @@ SpecEnd
     return @(self.id);
 }
 
+- (instancetype)detachedCopy
+{
+    return nil;
+}
+
 @end

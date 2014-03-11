@@ -13,6 +13,8 @@
 
 @property (nonatomic, readonly) id primaryKeyValue;
 
+- (instancetype)detachedCopy;
+
 @optional
 - (void)awakeFromFetch;
 @end

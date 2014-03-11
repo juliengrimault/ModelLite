@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1E10ED05853940C8BFDAEFC8 /* libPods-JGRModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 451EFE241FA34375AA8B7BA9 /* libPods-JGRModel.a */; };
 		D5556408A8944A09986F8E35 /* libPods-JGRModelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C84E42631F9F4694A6AF8244 /* libPods-JGRModelTests.a */; };
-		F910F7A718CD55D500089567 /* JGRDbResultSetBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F910F79D18CD55D500089567 /* JGRDbResultSetBuilder.m */; };
-		F910F7A818CD55D500089567 /* JGRDbRowBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F910F79F18CD55D500089567 /* JGRDbRowBuilder.m */; };
 		F910F7A918CD55D500089567 /* JGRDatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = F910F7A118CD55D500089567 /* JGRDatabaseController.m */; };
 		F910F7AB18CD55D500089567 /* JGRDocumentPath.m in Sources */ = {isa = PBXBuildFile; fileRef = F910F7A618CD55D500089567 /* JGRDocumentPath.m */; };
 		F910F7AF18CD55F500089567 /* FMResultSet+JGRModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F910F7AE18CD55F500089567 /* FMResultSet+JGRModel.m */; };
@@ -40,6 +38,8 @@
 		F956D63418CEA29500011444 /* FetchIntegrationTestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F956D63318CEA29500011444 /* FetchIntegrationTestSpec.m */; };
 		F956D63718CEA4C600011444 /* Integration.m in Sources */ = {isa = PBXBuildFile; fileRef = F956D63618CEA4C600011444 /* Integration.m */; };
 		F956D63C18CEB2EB00011444 /* DbControllerFetchSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F956D63B18CEB2EB00011444 /* DbControllerFetchSpec.m */; };
+		F9B784B018CF23F500D33735 /* JGRResultSetBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B784AB18CF23F500D33735 /* JGRResultSetBuilder.m */; };
+		F9B784B618CF24A300D33735 /* JGRRowFetchBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B784B518CF24A300D33735 /* JGRRowFetchBuilder.m */; };
 		F9FC3C0118CC406200F6CA88 /* DatabaseIntegrationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FC3C0018CC406200F6CA88 /* DatabaseIntegrationSpec.m */; };
 /* End PBXBuildFile section */
 
@@ -58,13 +58,8 @@
 		629F76BFB4F84EA3B67503C1 /* Pods-JGRModelTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGRModelTests.xcconfig"; path = "Pods/Pods-JGRModelTests.xcconfig"; sourceTree = "<group>"; };
 		C84E42631F9F4694A6AF8244 /* libPods-JGRModelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JGRModelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F119CB8E7A94409D9D819707 /* Pods-JGRModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGRModel.xcconfig"; path = "Pods/Pods-JGRModel.xcconfig"; sourceTree = "<group>"; };
-		F910F79C18CD55D500089567 /* JGRDbResultSetBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRDbResultSetBuilder.h; sourceTree = "<group>"; };
-		F910F79D18CD55D500089567 /* JGRDbResultSetBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRDbResultSetBuilder.m; sourceTree = "<group>"; };
-		F910F79E18CD55D500089567 /* JGRDbRowBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRDbRowBuilder.h; sourceTree = "<group>"; };
-		F910F79F18CD55D500089567 /* JGRDbRowBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRDbRowBuilder.m; sourceTree = "<group>"; };
 		F910F7A018CD55D500089567 /* JGRDatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRDatabaseController.h; sourceTree = "<group>"; };
 		F910F7A118CD55D500089567 /* JGRDatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRDatabaseController.m; sourceTree = "<group>"; };
-		F910F7A418CD55D500089567 /* JGRDbObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JGRDbObject.h; path = ../JGRDbObject.h; sourceTree = "<group>"; };
 		F910F7A518CD55D500089567 /* JGRDocumentPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRDocumentPath.h; sourceTree = "<group>"; };
 		F910F7A618CD55D500089567 /* JGRDocumentPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRDocumentPath.m; sourceTree = "<group>"; };
 		F910F7AD18CD55F500089567 /* FMResultSet+JGRModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMResultSet+JGRModel.h"; sourceTree = "<group>"; };
@@ -106,6 +101,11 @@
 		F956D63518CEA4C600011444 /* Integration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Integration.h; sourceTree = "<group>"; };
 		F956D63618CEA4C600011444 /* Integration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Integration.m; sourceTree = "<group>"; };
 		F956D63B18CEB2EB00011444 /* DbControllerFetchSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbControllerFetchSpec.m; sourceTree = "<group>"; };
+		F9B784AA18CF23F500D33735 /* JGRResultSetBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRResultSetBuilder.h; sourceTree = "<group>"; };
+		F9B784AB18CF23F500D33735 /* JGRResultSetBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRResultSetBuilder.m; sourceTree = "<group>"; };
+		F9B784B318CF240000D33735 /* JGRDbObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGRDbObject.h; sourceTree = "<group>"; };
+		F9B784B418CF24A300D33735 /* JGRRowFetchBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRRowFetchBuilder.h; sourceTree = "<group>"; };
+		F9B784B518CF24A300D33735 /* JGRRowFetchBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRRowFetchBuilder.m; sourceTree = "<group>"; };
 		F9FC3C0018CC406200F6CA88 /* DatabaseIntegrationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseIntegrationSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,27 +138,16 @@
 		F910F79A18CD55D500089567 /* JGRModel */ = {
 			isa = PBXGroup;
 			children = (
+				F9B784A918CF23F500D33735 /* CRUD */,
 				F910F7B918CD63B800089567 /* Mapping */,
 				F910F7AC18CD55F500089567 /* Categories */,
-				F910F79B18CD55D500089567 /* Fetching */,
 				F910F7A018CD55D500089567 /* JGRDatabaseController.h */,
 				F910F7A118CD55D500089567 /* JGRDatabaseController.m */,
+				F9B784B318CF240000D33735 /* JGRDbObject.h */,
 				F910F7A518CD55D500089567 /* JGRDocumentPath.h */,
 				F910F7A618CD55D500089567 /* JGRDocumentPath.m */,
 			);
 			path = JGRModel;
-			sourceTree = "<group>";
-		};
-		F910F79B18CD55D500089567 /* Fetching */ = {
-			isa = PBXGroup;
-			children = (
-				F910F7A418CD55D500089567 /* JGRDbObject.h */,
-				F910F79C18CD55D500089567 /* JGRDbResultSetBuilder.h */,
-				F910F79D18CD55D500089567 /* JGRDbResultSetBuilder.m */,
-				F910F79E18CD55D500089567 /* JGRDbRowBuilder.h */,
-				F910F79F18CD55D500089567 /* JGRDbRowBuilder.m */,
-			);
-			path = Fetching;
 			sourceTree = "<group>";
 		};
 		F910F7AC18CD55F500089567 /* Categories */ = {
@@ -299,6 +288,17 @@
 				F956D63318CEA29500011444 /* FetchIntegrationTestSpec.m */,
 			);
 			path = Integration;
+			sourceTree = "<group>";
+		};
+		F9B784A918CF23F500D33735 /* CRUD */ = {
+			isa = PBXGroup;
+			children = (
+				F9B784AA18CF23F500D33735 /* JGRResultSetBuilder.h */,
+				F9B784AB18CF23F500D33735 /* JGRResultSetBuilder.m */,
+				F9B784B418CF24A300D33735 /* JGRRowFetchBuilder.h */,
+				F9B784B518CF24A300D33735 /* JGRRowFetchBuilder.m */,
+			);
+			path = CRUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,13 +481,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F910F7A918CD55D500089567 /* JGRDatabaseController.m in Sources */,
-				F910F7A818CD55D500089567 /* JGRDbRowBuilder.m in Sources */,
 				F910F7AB18CD55D500089567 /* JGRDocumentPath.m in Sources */,
 				F9364DBB18CC2FC8002F0768 /* JGRAppDelegate.m in Sources */,
+				F9B784B018CF23F500D33735 /* JGRResultSetBuilder.m in Sources */,
 				F956D61518CD777900011444 /* JGRDbPropertyType.m in Sources */,
-				F910F7A718CD55D500089567 /* JGRDbResultSetBuilder.m in Sources */,
 				F910F7AF18CD55F500089567 /* FMResultSet+JGRModel.m in Sources */,
 				F910F7BF18CD63C800089567 /* JGRDbMappingLoader.m in Sources */,
+				F9B784B618CF24A300D33735 /* JGRRowFetchBuilder.m in Sources */,
 				F910F7BC18CD63B800089567 /* JGRDbMapping.m in Sources */,
 				F9364DB718CC2FC8002F0768 /* main.m in Sources */,
 			);

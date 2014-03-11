@@ -6,11 +6,11 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 
-#import "JGRDbResultSetBuilder.h"
+#import "JGRResultSetBuilder.h"
 #import "JGRUser.h"
 #import "MockResultSet.h"
 
-@interface JGRDbResultSetBuilder ()
+@interface JGRResultSetBuilder ()
 @property (nonatomic, strong) NSMapTable *instanceCache;
 @end
 
@@ -18,21 +18,21 @@ SpecBegin(JGRDbResultSetBuilder)
 describe(@"sanity checks", ^{
     it(@"raises exception if mapping is nil", ^{
         expect(^{
-            __unused id b = [[JGRDbResultSetBuilder alloc] initWithInstanceCache:[NSMapTable strongToWeakObjectsMapTable]
+            __unused id b = [[JGRResultSetBuilder alloc] initWithInstanceCache:[NSMapTable strongToWeakObjectsMapTable]
                                                                          mapping:nil];
         }).to.raiseAny();
     });
     
     it(@"raises exception if instance cache is nil", ^{
         expect(^{
-            __unused id b = [[JGRDbResultSetBuilder alloc] initWithInstanceCache:nil
+            __unused id b = [[JGRResultSetBuilder alloc] initWithInstanceCache:nil
                                                                          mapping:[JGRUser databaseMapping]];
         }).to.raiseAny();
     });
 });
 
 describe(@"JGRDbResultSetBuilder", ^{
-    __block JGRDbResultSetBuilder *builder;
+    __block JGRResultSetBuilder *builder;
     __block NSMapTable *instanceCache;
     
     __block NSArray *users;
@@ -41,7 +41,7 @@ describe(@"JGRDbResultSetBuilder", ^{
     __block NSArray *fetchedUsers;
     beforeEach(^{
         instanceCache = [NSMapTable strongToWeakObjectsMapTable];
-        builder = [[JGRDbResultSetBuilder alloc] initWithInstanceCache:instanceCache mapping:[JGRUser databaseMapping]];
+        builder = [[JGRResultSetBuilder alloc] initWithInstanceCache:instanceCache mapping:[JGRUser databaseMapping]];
     });
     
     it(@"assign the class", ^{

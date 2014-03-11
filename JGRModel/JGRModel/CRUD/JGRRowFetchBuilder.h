@@ -1,5 +1,5 @@
 //
-//  JGRDbRowBuilder.h
+//  JGRRowFetchBuilder
 //  JGRModel
 //
 //  Created by Julien on 9/3/14.
@@ -11,7 +11,7 @@
 @class JGRDbMapping;
 @class FMResultSet;
 
-@interface JGRDbRowBuilder : NSObject
+@interface JGRRowFetchBuilder : NSObject
 
 @property (nonatomic, strong, readonly) JGRDbMapping *mapping;
 

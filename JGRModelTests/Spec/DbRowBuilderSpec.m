@@ -6,7 +6,7 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 
-#import "JGRDbRowBuilder.h"
+#import "JGRRowFetchBuilder.h"
 #import "JGRUser.h"
 #import "MockResultSet.h"
 #import "JGRDbMapping.h"
@@ -17,11 +17,11 @@
 SpecBegin(JGRDbRowBuilderSpec)
 
 describe(@"JGRDbRowBuilder", ^{
-    __block JGRDbRowBuilder *builder;
+    __block JGRRowFetchBuilder *builder;
     __block MockResultSet *mockResultSet;
     
     beforeEach(^{
-        builder = [[JGRDbRowBuilder alloc] initWithMapping:[JGRUser databaseMapping]];
+        builder = [[JGRRowFetchBuilder alloc] initWithMapping:[JGRUser databaseMapping]];
     });
     
     describe(@"matching result set", ^{
@@ -57,7 +57,7 @@ describe(@"JGRDbRowBuilder", ^{
         
         describe(@"optional awakeFromFetch", ^{
             it(@"calls awakeFromFetch when implemented", ^{
-                builder = [[JGRDbRowBuilder alloc] initWithMapping:[JGRUserSubclass databaseMapping]];
+                builder = [[JGRRowFetchBuilder alloc] initWithMapping:[JGRUserSubclass databaseMapping]];
                 JGRUserSubclass *u = [builder buildInstanceFromRow:mockResultSet];
                 expect(u.hasAwakeFromFetchBeenCalled).to.beTruthy();
             });

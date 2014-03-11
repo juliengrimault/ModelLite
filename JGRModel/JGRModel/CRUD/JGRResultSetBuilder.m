@@ -1,24 +1,24 @@
 //
-//  JGRDbResultSetBuilder.m
+//  JGRResultSetBuilder
 //  JGRModel
 //
 //  Created by Julien on 10/3/14.
 //  Copyright (c) 2014 juliengrimault. All rights reserved.
 //
 
-#import "JGRDbResultSetBuilder.h"
+#import "JGRResultSetBuilder.h"
 #import "JGRDbMapping.h"
-#import "JGRDbRowBuilder.h"
+#import "JGRRowFetchBuilder.h"
 #import "FMResultSet+JGRModel.h"
 
-@interface JGRDbResultSetBuilder()
+@interface JGRResultSetBuilder()
 @property (nonatomic, strong) NSMapTable *instanceCache;
 
-@property (nonatomic, strong) JGRDbRowBuilder *rowBuilder;
+@property (nonatomic, strong) JGRRowFetchBuilder *rowBuilder;
 @property (nonatomic, strong) JGRDbMapping *mapping;
 @end
 
-@implementation JGRDbResultSetBuilder
+@implementation JGRResultSetBuilder
 
 - (id)initWithInstanceCache:(NSMapTable *)instanceCache mapping:(JGRDbMapping *)mapping
 {
@@ -30,7 +30,7 @@
     
     self.mapping = mapping;
     self.instanceCache = instanceCache;
-    self.rowBuilder = [[JGRDbRowBuilder alloc] initWithMapping:mapping];
+    self.rowBuilder = [[JGRRowFetchBuilder alloc] initWithMapping:mapping];
     
     return self;
 }

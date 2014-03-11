@@ -1,5 +1,5 @@
 //
-//  JGRDbRowBuilder.m
+//  JGRRowFetchBuilder
 //  JGRModel
 //
 //  Created by Julien on 9/3/14.
@@ -7,16 +7,16 @@
 //
 
 #import <objc/objc-runtime.h>
-#import "JGRDbRowBuilder.h"
+#import "JGRRowFetchBuilder.h"
 #import <FMDB/FMResultSet.h>
 #import "FMResultSet+JGRModel.h"
 #import "JGRDbObject.h"
 
-@interface JGRDbRowBuilder()
+@interface JGRRowFetchBuilder()
 @property (nonatomic, strong) JGRDbMapping *mapping;
 @end
 
-@implementation JGRDbRowBuilder
+@implementation JGRRowFetchBuilder
 
 - (id)initWithMapping:(JGRDbMapping *)mapping
 {

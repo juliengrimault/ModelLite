@@ -11,7 +11,7 @@
 #import "JGRDbObject.h"
 #import "JGRDbMapping.h"
 #import "FMResultSet+JGRModel.h"
-#import "JGRDbResultSetBuilder.h"
+#import "JGRResultSetBuilder.h"
 #import "JGRDbMappingLoader.h"
 
 NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.databasecontroller.nestedTransactionCount";
@@ -98,7 +98,7 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
 - (NSArray *)databaseObjectsWithResultSet:(FMResultSet *)resultSet mapping:(JGRDbMapping *)mapping
 {
     NSMapTable *instanceCache = [self instanceCacheForClass:mapping.modelClass];
-    JGRDbResultSetBuilder *resultSetBuilder = [[JGRDbResultSetBuilder alloc] initWithInstanceCache:instanceCache mapping:mapping];
+    JGRResultSetBuilder *resultSetBuilder = [[JGRResultSetBuilder alloc] initWithInstanceCache:instanceCache mapping:mapping];
     return [resultSetBuilder buildInstancesFromResultSet:resultSet];
 }
 

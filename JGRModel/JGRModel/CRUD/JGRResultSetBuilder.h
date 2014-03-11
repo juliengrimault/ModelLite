@@ -1,5 +1,5 @@
 //
-//  JGRDbResultSetBuilder.h
+//  JGRResultSetBuilder
 //  JGRModel
 //
 //  Created by Julien on 10/3/14.
@@ -10,7 +10,7 @@
 @class JGRDbMapping;
 @class FMResultSet;
 
-@interface JGRDbResultSetBuilder : NSObject
+@interface JGRResultSetBuilder : NSObject
 
 @property (nonatomic, strong, readonly) JGRDbMapping *mapping;
 

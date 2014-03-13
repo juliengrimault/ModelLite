@@ -40,6 +40,7 @@
 		F956D63C18CEB2EB00011444 /* DbControllerFetchSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F956D63B18CEB2EB00011444 /* DbControllerFetchSpec.m */; };
 		F9B784B018CF23F500D33735 /* JGRResultSetBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B784AB18CF23F500D33735 /* JGRResultSetBuilder.m */; };
 		F9B784B618CF24A300D33735 /* JGRRowFetchBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B784B518CF24A300D33735 /* JGRRowFetchBuilder.m */; };
+		F9DBA2B018D1924A00E9CB90 /* NSArray+JGR.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DBA2AF18D1924A00E9CB90 /* NSArray+JGR.m */; };
 		F9FC3C0118CC406200F6CA88 /* DatabaseIntegrationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FC3C0018CC406200F6CA88 /* DatabaseIntegrationSpec.m */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,8 @@
 		F9B784B318CF240000D33735 /* JGRDbObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGRDbObject.h; sourceTree = "<group>"; };
 		F9B784B418CF24A300D33735 /* JGRRowFetchBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRRowFetchBuilder.h; sourceTree = "<group>"; };
 		F9B784B518CF24A300D33735 /* JGRRowFetchBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRRowFetchBuilder.m; sourceTree = "<group>"; };
+		F9DBA2AE18D1924A00E9CB90 /* NSArray+JGR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JGR.h"; sourceTree = "<group>"; };
+		F9DBA2AF18D1924A00E9CB90 /* NSArray+JGR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JGR.m"; sourceTree = "<group>"; };
 		F9FC3C0018CC406200F6CA88 /* DatabaseIntegrationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseIntegrationSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +158,8 @@
 			children = (
 				F910F7AD18CD55F500089567 /* FMResultSet+JGRModel.h */,
 				F910F7AE18CD55F500089567 /* FMResultSet+JGRModel.m */,
+				F9DBA2AE18D1924A00E9CB90 /* NSArray+JGR.h */,
+				F9DBA2AF18D1924A00E9CB90 /* NSArray+JGR.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -485,6 +490,7 @@
 				F9364DBB18CC2FC8002F0768 /* JGRAppDelegate.m in Sources */,
 				F9B784B018CF23F500D33735 /* JGRResultSetBuilder.m in Sources */,
 				F956D61518CD777900011444 /* JGRDbPropertyType.m in Sources */,
+				F9DBA2B018D1924A00E9CB90 /* NSArray+JGR.m in Sources */,
 				F910F7AF18CD55F500089567 /* FMResultSet+JGRModel.m in Sources */,
 				F910F7BF18CD63C800089567 /* JGRDbMappingLoader.m in Sources */,
 				F9B784B618CF24A300D33735 /* JGRRowFetchBuilder.m in Sources */,

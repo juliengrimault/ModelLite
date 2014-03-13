@@ -12,6 +12,10 @@
 			<string>int64</string>
 			<key>name</key>
 			<string>string</string>
+			<key>dob</key>
+			<string>date</string>
+			<key>deleted</key>
+			<string>boolean</string>
 		</dict>
 	</dict>
 </dict>

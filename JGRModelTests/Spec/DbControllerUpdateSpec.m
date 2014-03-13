@@ -6,68 +6,21 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 
-#import "JGRDatabaseController.h"
-#import "JGRDatabaseController_Private.h"
+#import "SpecHelpers.h"
 #import <FMDB/FMDatabase.h>
-#import "JGRDocumentPath.h"
-#import "MockResultSet.h"
-#import "JGRUser.h"
 #import "JGRDbMappingLoader.h"
-#import "JGRDbMapping.h"
+#import "JGRDocumentPath.h"
 
 SpecBegin(JGRDatabaseControllerUpdate)
 
 describe(@"DatabaseController", ^{
-
-    NSURL *dbURL = jgr_URLRelativeToUserDocument(@"test.sqlite3");
     NSURL *mappingURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"TestMapping" withExtension:@"plist"];
-    
     __block JGRDatabaseController *controller;
+    
     beforeEach(^{
-        controller = [[JGRDatabaseController alloc] initWithMappingURL:mappingURL dbURL:dbURL];
-    });
-    
-    describe(@"init", ^{
-        it(@"has the correct path", ^{
-            expect(controller.dbURL).to.equal(dbURL);
-        });
-        
-        it(@"has a database initialized", ^{
-            expect(controller.db).toNot.beNil();
-            expect(controller.db.databasePath).to.equal([dbURL path]);
-        });
-        
-        it(@"has a serial queue", ^{
-            expect(controller.serialQueue).toNot.beNil();
-        });
-        
-        it(@"has database mappings", ^{
-            JGRDbMappingLoader *mappingLoader = [[JGRDbMappingLoader alloc] initWithMappingURL:mappingURL];
-            for (JGRDbMapping *m in mappingLoader.allMappings) {
-                expect(controller.databaseMappings[m.modelClass]).to.equal(m);
-            }
-        });
-    });
-    
-    describe(@"wrong initialization", ^{
-        it(@"raises if no db url is given", ^{
-            expect(^{
-                __unused id c = [[JGRDatabaseController alloc] initWithMappingURL:mappingURL dbURL:nil];
-            }).to.raiseAny();
-        });
-        
-        it(@"raises if no mapping url is given", ^{
-            expect(^{
-                __unused id c = [[JGRDatabaseController alloc] initWithMappingURL:nil dbURL:dbURL];
-            }).to.raiseAny();
-        });
-        
-        it(@"raises if the db url cannot be opened", ^{
-            expect(^{
-                NSURL *garbageURL = [NSURL fileURLWithPath:@"/yada/youpi/super.sqlite3"];
-                __unused id c = [[JGRDatabaseController alloc] initWithMappingURL:mappingURL dbURL:garbageURL];
-            }).to.raiseAny();
-        });
+        // in memory database
+        controller = [[JGRDatabaseController alloc] initWithMappingURL:mappingURL dbURL:nil];
+        controller.db.traceExecution = YES;
     });
     
     describe(@"run transaction", ^{
@@ -106,6 +59,41 @@ describe(@"DatabaseController", ^{
             
             expect(ranOnQueue).will.equal(controller.serialQueue);
         });
+    });
+    
+    describe(@"save instance", ^{
+        __block JGRUser *instance;
+        beforeEach(^{
+            // run directly against the db so that it's synchronous
+            [controller.db executeUpdate:[JGRUser createTableStatement]];
+            
+            instance = [[JGRUser alloc] init];
+            instance.id = 123;
+            instance.name = @"Julien";
+            instance.dob = [NSDate date];
+            instance.deleted = NO;
+        });
+        
+        it(@"insert a new row in the user table", ^{
+            [controller saveInstance:instance];
+            
+            __block NSInteger idFetched = 0;
+            dispatch_async(controller.serialQueue, ^{
+                FMResultSet * rs = [controller.db executeQuery:@"SELECT * FROM User WHERE id = ?", @(instance.id)];
+                if ([rs next]) {
+                    idFetched = [rs intForColumnIndex:0];
+                }
+            });
+            
+            expect(idFetched).will.equal(instance.id);
+        });
+        
+        it(@"adds the instance to the entity cache", ^{
+            [controller saveInstance:instance];
+            
+            expect([controller.classCache[[JGRUser class]] objectForKey:@(instance.id)]).willNot.beNil();
+        });
+        
     });
 });
 

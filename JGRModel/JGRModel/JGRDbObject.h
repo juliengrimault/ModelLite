@@ -9,11 +9,9 @@
 #import <Foundation/Foundation.h>
 @class JGRDbMapping;
 
-@protocol JGRDbObject <NSObject>
+@protocol JGRDbObject <NSObject, NSCopying>
 
 @property (nonatomic, readonly) id primaryKeyValue;
-
-- (instancetype)detachedCopy;
 
 @optional
 - (void)awakeFromFetch;

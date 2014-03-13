@@ -14,4 +14,5 @@
 @property (nonatomic, strong) NSURL *dbURL;
 @property (nonatomic, strong) FMDatabase *db;
 @property (nonatomic, strong) NSDictionary *databaseMappings;
+@property (nonatomic, strong) NSMutableDictionary *classCache;
 @end

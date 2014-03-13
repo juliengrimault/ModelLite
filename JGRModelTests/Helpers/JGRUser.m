@@ -18,9 +18,8 @@
     return @(self.id);
 }
 
-- (instancetype)detachedCopy
+- (id)copyWithZone:(NSZone *)zone
 {
-    //TODO: implement detachedCopy
     return self;
 }
 

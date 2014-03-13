@@ -19,13 +19,18 @@ typedef  void(^JGRDatabaseFetchResultsBlock)(NSArray *items);
 
 @property (nonatomic, readonly, strong) NSURL *dbURL;
 
+#pragma mark - Initialization
 - (id)initWithMappingURL:(NSURL *)mappingURL dbURL:(NSURL *)dbURL;
 
-
+#pragma mark - Updates
 - (void)runInTransaction:(JGRDatabaseUpdateBlock)block;
+- (void)saveInstance:(NSObject<JGRDbObject> *)instance;
 
+#pragma mark - Query
 - (void)runFetchForClass:(Class<JGRDbObject>)klass
               fetchBlock:(JGRDatabaseFetchBlock)fetchBlock
        fetchResultsBlock:(JGRDatabaseFetchResultsBlock)fetchResultBlock;
+
+
 
 @end

@@ -6,10 +6,9 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 
+#import "SpecHelpers.h"
 #import "JGRRowFetchBuilder.h"
-#import "JGRUser.h"
-#import "MockResultSet.h"
-#import "JGRDbMapping.h"
+
 
 @interface JGRUserSubclass :JGRUser
 @end

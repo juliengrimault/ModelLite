@@ -6,12 +6,10 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 
+#import "SpecHelpers.h"
 #import "JGRDatabaseController.h"
-#import "JGRDatabaseController_Private.h"
-#import <FMDB/FMDatabase.h>
 #import "JGRDocumentPath.h"
-#import "MockResultSet.h"
-#import "JGRUser.h"
+#import <FMDB/FMDatabase.h>
 
 @interface T : NSObject<JGRDbObject>
 @property (nonatomic) int64_t id;
@@ -109,9 +107,9 @@ SpecEnd
     return @(self.id);
 }
 
-- (instancetype)detachedCopy
+- (id)copyWithZone:(NSZone *)zone
 {
-    return nil;
+    return self;
 }
 
 @end

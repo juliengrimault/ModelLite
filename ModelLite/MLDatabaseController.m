@@ -126,7 +126,9 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
         }
         
         NSArray *fetchedObjects = [self databaseObjectsWithResultSet:rs mapping:mapping];
-        fetchResultBlock(fetchedObjects);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            fetchResultBlock(fetchedObjects);
+        });
     });
 }
 

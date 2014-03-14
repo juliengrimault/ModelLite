@@ -92,6 +92,18 @@ describe(@"DatabaseController Fetch", ^{
                            }];
                 expect(receivedItems).willNot.beNil();
             });
+
+            it(@"callback is called on the main thread", ^{
+                __block BOOL isCallbackOnMainThread;
+                [controller runFetchForClass:[JGRUser class]
+                                  fetchBlock:^FMResultSet *(FMDatabase *db) {
+                                      return [db executeQuery:@"SELECT * FROM User"];
+                                  }
+                           fetchResultsBlock:^(NSArray *items) {
+                               isCallbackOnMainThread = [NSThread isMainThread];
+                           }];
+                expect(isCallbackOnMainThread).will.equal(YES);
+            });
         });
     });
 

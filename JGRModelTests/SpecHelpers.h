@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 juliengrimault. All rights reserved.
 //
 
-#import "EXPMatchers+beCaseInsensitiveEqual.h"
 #import "NSArray+JGR.h"
 #import "Integration.h"
 #import "JGRDbMapping.h"

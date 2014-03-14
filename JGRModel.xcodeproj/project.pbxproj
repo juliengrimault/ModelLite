@@ -40,7 +40,6 @@
 		F956D63C18CEB2EB00011444 /* DbControllerFetchSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F956D63B18CEB2EB00011444 /* DbControllerFetchSpec.m */; };
 		F99073E818D066BA00833ECE /* DbControllerInitSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F99073E718D066BA00833ECE /* DbControllerInitSpec.m */; };
 		F9B784B018CF23F500D33735 /* JGRResultSetBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B784AB18CF23F500D33735 /* JGRResultSetBuilder.m */; };
-		F9B784B618CF24A300D33735 /* JGRRowFetchBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B784B518CF24A300D33735 /* JGRRowFetchBuilder.m */; };
 		F9B784BB18CF254900D33735 /* RowInsertBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B784BA18CF254900D33735 /* RowInsertBuilderSpec.m */; };
 		F9B784BE18CF255A00D33735 /* JGRRowInsertBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B784BD18CF255A00D33735 /* JGRRowInsertBuilder.m */; };
 		F9B784C118CF264800D33735 /* JGRComment.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B784C018CF264800D33735 /* JGRComment.m */; };
@@ -110,8 +109,6 @@
 		F9B784AA18CF23F500D33735 /* JGRResultSetBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRResultSetBuilder.h; sourceTree = "<group>"; };
 		F9B784AB18CF23F500D33735 /* JGRResultSetBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRResultSetBuilder.m; sourceTree = "<group>"; };
 		F9B784B318CF240000D33735 /* JGRDbObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGRDbObject.h; sourceTree = "<group>"; };
-		F9B784B418CF24A300D33735 /* JGRRowFetchBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRRowFetchBuilder.h; sourceTree = "<group>"; };
-		F9B784B518CF24A300D33735 /* JGRRowFetchBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRRowFetchBuilder.m; sourceTree = "<group>"; };
 		F9B784BA18CF254900D33735 /* RowInsertBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowInsertBuilderSpec.m; sourceTree = "<group>"; };
 		F9B784BC18CF255A00D33735 /* JGRRowInsertBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRRowInsertBuilder.h; sourceTree = "<group>"; };
 		F9B784BD18CF255A00D33735 /* JGRRowInsertBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRRowInsertBuilder.m; sourceTree = "<group>"; };
@@ -317,8 +314,6 @@
 			children = (
 				F9B784AA18CF23F500D33735 /* JGRResultSetBuilder.h */,
 				F9B784AB18CF23F500D33735 /* JGRResultSetBuilder.m */,
-				F9B784B418CF24A300D33735 /* JGRRowFetchBuilder.h */,
-				F9B784B518CF24A300D33735 /* JGRRowFetchBuilder.m */,
 				F9B784BC18CF255A00D33735 /* JGRRowInsertBuilder.h */,
 				F9B784BD18CF255A00D33735 /* JGRRowInsertBuilder.m */,
 			);
@@ -520,7 +515,6 @@
 				F9DBA2B018D1924A00E9CB90 /* NSArray+JGR.m in Sources */,
 				F910F7AF18CD55F500089567 /* FMResultSet+JGRModel.m in Sources */,
 				F910F7BF18CD63C800089567 /* JGRDbMappingLoader.m in Sources */,
-				F9B784B618CF24A300D33735 /* JGRRowFetchBuilder.m in Sources */,
 				F910F7BC18CD63B800089567 /* JGRDbMapping.m in Sources */,
 				F9364DB718CC2FC8002F0768 /* main.m in Sources */,
 			);

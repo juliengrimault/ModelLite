@@ -1,1 +1,2 @@
 *.pbxproj text merge=union
+*.pbxproj binary merge=union

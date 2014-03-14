@@ -31,21 +31,17 @@ describe(@"DatabaseController", ^{
         });
         
         it(@"wraps block in a transaction", ^{
-            dispatch_semaphore_t sema = dispatch_semaphore_create(0);
             
             [controller runInTransaction:^(FMDatabase *db) {
-                dispatch_semaphore_signal(sema);
             }];
-            
-            [controller runInTransaction:^(FMDatabase *db) {
-                dispatch_semaphore_signal(sema);
-            }];
-            
-            dispatch_semaphore_wait(sema, 1.0);
-            [verifyCount(mockDb, atLeastOnce()) beginTransaction];
-            
-            dispatch_semaphore_wait(sema, 1.0);
-            [verifyCount(mockDb, atLeastOnce()) commit];
+
+            __block BOOL mockVerificationRan = NO;
+            dispatch_async(controller.serialQueue, ^{
+                [verify(mockDb) beginTransaction];
+                [verify(mockDb) commit];
+                mockVerificationRan = YES;
+            });
+            expect(mockVerificationRan).will.equal(YES);
         });
         
         it(@"executes the block in the serial queue", ^{

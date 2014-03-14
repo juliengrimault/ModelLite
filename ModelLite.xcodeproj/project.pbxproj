@@ -20,7 +20,6 @@
 		F93BE4CC18D2DBFA00A63831 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE4C518D2DBFA00A63831 /* main.m */; };
 		F93BE4CD18D2DBFA00A63831 /* MLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE4C718D2DBFA00A63831 /* MLAppDelegate.m */; };
 		F93BE4CF18D2DC7100A63831 /* FMResultSet+ModelLite.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE44C18D2BC3F00A63831 /* FMResultSet+ModelLite.m */; };
-		F93BE4D018D2DC7100A63831 /* NSArray+JG.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE44E18D2BC3F00A63831 /* NSArray+JG.m */; };
 		F93BE4D118D2DC7700A63831 /* MLResultSetBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45118D2BC3F00A63831 /* MLResultSetBuilder.m */; };
 		F93BE4D218D2DC7700A63831 /* MLRowInsertBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45318D2BC3F00A63831 /* MLRowInsertBuilder.m */; };
 		F93BE4D418D2DC8000A63831 /* MLDbMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45918D2BC3F00A63831 /* MLDbMapping.m */; };
@@ -68,8 +67,6 @@
 		F9364DC318CC2FC9002F0768 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F93BE44B18D2BC3F00A63831 /* FMResultSet+ModelLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMResultSet+ModelLite.h"; sourceTree = "<group>"; };
 		F93BE44C18D2BC3F00A63831 /* FMResultSet+ModelLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMResultSet+ModelLite.m"; sourceTree = "<group>"; };
-		F93BE44D18D2BC3F00A63831 /* NSArray+JG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JG.h"; sourceTree = "<group>"; };
-		F93BE44E18D2BC3F00A63831 /* NSArray+JG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JG.m"; sourceTree = "<group>"; };
 		F93BE45018D2BC3F00A63831 /* MLResultSetBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLResultSetBuilder.h; sourceTree = "<group>"; };
 		F93BE45118D2BC3F00A63831 /* MLResultSetBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLResultSetBuilder.m; sourceTree = "<group>"; };
 		F93BE45218D2BC3F00A63831 /* MLRowInsertBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRowInsertBuilder.h; sourceTree = "<group>"; };
@@ -192,8 +189,6 @@
 			children = (
 				F93BE44B18D2BC3F00A63831 /* FMResultSet+ModelLite.h */,
 				F93BE44C18D2BC3F00A63831 /* FMResultSet+ModelLite.m */,
-				F93BE44D18D2BC3F00A63831 /* NSArray+JG.h */,
-				F93BE44E18D2BC3F00A63831 /* NSArray+JG.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -504,7 +499,6 @@
 				F9AC70E418D2E3C700941E1A /* JGDocumentPath.m in Sources */,
 				F93BE4D518D2DC8000A63831 /* MLDbMappingLoader.m in Sources */,
 				F93BE4D418D2DC8000A63831 /* MLDbMapping.m in Sources */,
-				F93BE4D018D2DC7100A63831 /* NSArray+JG.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

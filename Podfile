@@ -3,6 +3,7 @@
 
 target "ModelLite" do
   pod 'FMDB', '~>2.2'
+  pod 'ObjectiveSugar', '~> 1.1.0'
 end
 
 target "ModelLiteTests" do

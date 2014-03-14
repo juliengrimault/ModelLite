@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 juliengrimault. See included LICENSE file.
 //
 
-#import "NSArray+JG.h"
 #import "Integration.h"
 #import "MLDbMapping.h"
 

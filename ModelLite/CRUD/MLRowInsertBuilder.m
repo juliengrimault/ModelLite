@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 juliengrimault. See included LICENSE file.
 //
 
-#import "MLRowInsertBuilder.h"
-#import "NSArray+JG.h"
 #import <FMDB/FMDatabase.h>
+#import <ObjectiveSugar/ObjectiveSugar.h>
+#import "MLRowInsertBuilder.h"
 #import "MLDbMapping.h"
 
 @interface MLRowInsertBuilder ()
@@ -42,7 +42,7 @@
 {
     NSArray *columns = [self.mapping.properties allKeys];
     
-    NSArray *values = [columns jg_map:^id(NSString *columnName) {
+    NSArray *values = [columns map:^id(NSString *columnName) {
         id value = [self.instance valueForKey:columnName];
         if (value == nil) {
             value = [NSNull null];
@@ -50,7 +50,7 @@
         return value;
     }];
     
-    NSString *valuePlaceHolders = [[columns jg_map:^id(id object) {
+    NSString *valuePlaceHolders = [[columns map:^id(id object) {
         return @"?";
     }] componentsJoinedByString:@", "];
     

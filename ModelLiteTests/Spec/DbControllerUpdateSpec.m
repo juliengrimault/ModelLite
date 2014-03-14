@@ -8,6 +8,7 @@
 
 #import "SpecHelpers.h"
 #import <FMDB/FMDatabase.h>
+#import <ObjectiveSugar/ObjectiveSugar.h>
 
 SpecBegin(JGRDatabaseControllerUpdate)
 
@@ -64,7 +65,7 @@ describe(@"DatabaseController", ^{
             instance = [[JGRUser alloc] init];
             instance.id = 123;
             instance.name = @"Julien";
-            instance.dob = [NSDate date];
+            instance.dob = [[@20 years] ago];
             instance.deleted = NO;
         });
         
@@ -86,6 +87,47 @@ describe(@"DatabaseController", ^{
             [controller saveInstance:instance];
             
             expect([controller.classCache[[JGRUser class]] objectForKey:@(instance.id)]).willNot.beNil();
+        });
+
+        describe(@"existing row in the db", ^{
+            beforeEach(^{
+                BOOL success = [controller.db executeUpdate:@"INSERT INTO User (id, name, dob, deleted) VALUES (?, ?, ?, ?)"
+                                       withArgumentsInArray:@[@(instance.id), @"Another Name", [NSDate date] , @(instance.deleted)]];
+                expect(success).to.beTruthy();
+            });
+
+            it(@"it does not create a new row", ^{
+                [controller saveInstance:instance];
+
+                __block NSInteger rowCount = 0;
+                dispatch_async(controller.serialQueue, ^{
+                    FMResultSet *rs = [controller.db executeQuery:@"SELECT COUNT(*) FROM User"];
+                    if ([rs next]) {
+                        rowCount = [rs intForColumnIndex:0];
+                    }
+                });
+
+                expect(rowCount).will.equal(1);
+            });
+
+            it(@"it updates the existing row", ^{
+                [controller saveInstance:instance];
+
+                __block BOOL rowFetched = NO;
+                dispatch_async(controller.serialQueue, ^{
+                    FMResultSet *rs = [controller.db executeQuery:@"SELECT * FROM User"];
+                    if ([rs next]) {
+                        rowFetched = YES;
+
+                        expect([rs intForColumn:@"id"]).to.equal(instance.id);
+                        expect([rs stringForColumn:@"name"]).to.equal(instance.name);
+                        expect([rs dateForColumn:@"dob"]).to.equal(instance.dob);
+                        expect([rs boolForColumn:@"deleted"]).to.equal(instance.deleted);
+                    }
+                });
+
+                expect(rowFetched).will.equal(YES);
+            });
         });
         
     });

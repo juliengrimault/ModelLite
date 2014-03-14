@@ -1,5 +1,5 @@
 //
-//  MLDbObject.h
+//  MLDatabaseObject.h
 //  ModelLite
 //
 //  Created by Julien on 9/3/14.
@@ -7,9 +7,9 @@
 //
 
 @import Foundation;
-@class MLDbMapping;
+@class MLPropertyMapping;
 
-@protocol MLDbObject <NSObject, NSCopying>
+@protocol MLDatabaseObject <NSObject, NSCopying>
 
 @property (nonatomic, readonly) id primaryKeyValue;
 

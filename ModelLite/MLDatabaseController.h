@@ -9,7 +9,7 @@
 @import Foundation;
 @class FMDatabase;
 @class FMResultSet;
-@protocol MLDbObject;
+@protocol MLDatabaseObject;
 
 typedef void(^MLDatabaseUpdateBlock)(FMDatabase *db);
 typedef FMResultSet *(^MLDatabaseFetchBlock)(FMDatabase *db);
@@ -24,10 +24,10 @@ typedef  void(^MLDatabaseFetchResultsBlock)(NSArray *items);
 
 #pragma mark - Updates
 - (void)runInTransaction:(MLDatabaseUpdateBlock)block;
-- (void)saveInstance:(NSObject<MLDbObject> *)instance;
+- (void)saveInstance:(NSObject<MLDatabaseObject> *)instance;
 
 #pragma mark - Query
-- (void)runFetchForClass:(Class<MLDbObject>)klass
+- (void)runFetchForClass:(Class<MLDatabaseObject>)klass
               fetchBlock:(MLDatabaseFetchBlock)fetchBlock
        fetchResultsBlock:(MLDatabaseFetchResultsBlock)fetchResultBlock;
 

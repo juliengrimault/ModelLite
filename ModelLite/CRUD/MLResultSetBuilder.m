@@ -7,18 +7,18 @@
 //
 @import ObjectiveC.runtime;
 #import "MLResultSetBuilder.h"
-#import "MLDbMapping.h"
+#import "MLPropertyMapping.h"
 #import "FMResultSet+ModelLite.h"
 
 @interface MLResultSetBuilder ()
 @property (nonatomic, strong) NSMapTable *instanceCache;
 
-@property (nonatomic, strong) MLDbMapping *mapping;
+@property (nonatomic, strong) MLPropertyMapping *mapping;
 @end
 
 @implementation MLResultSetBuilder
 
-- (id)initWithInstanceCache:(NSMapTable *)instanceCache mapping:(MLDbMapping *)mapping
+- (id)initWithInstanceCache:(NSMapTable *)instanceCache mapping:(MLPropertyMapping *)mapping
 {
     NSParameterAssert(instanceCache != nil);
     NSParameterAssert(mapping != nil);
@@ -37,7 +37,7 @@
     NSMutableArray *instances = [NSMutableArray array];
     while ([resultSet next]) {
         id primaryKeyValue = [resultSet valueForColumnName:DbMappingPrimaryKeyName type:self.mapping.primaryKeyType];
-        id<MLDbObject> instance = [self.instanceCache objectForKey:primaryKeyValue];
+        id<MLDatabaseObject> instance = [self.instanceCache objectForKey:primaryKeyValue];
         
         if (instance == nil) {
             instance = [self buildInstanceFromRow:resultSet];
@@ -51,7 +51,7 @@
 
 }
 
-- (id<MLDbObject>)buildInstanceFromRow:(FMResultSet *)row
+- (id<MLDatabaseObject>)buildInstanceFromRow:(FMResultSet *)row
 {
     id instance = [[(Class)self.mapping.modelClass alloc] init];
 
@@ -67,7 +67,7 @@
             continue;
         }
 
-        DbPropertyType propertyType = [self.mapping.properties[propertyName] integerValue];
+        MLPropertyType propertyType = (MLPropertyType)[self.mapping.properties[propertyName] integerValue];
         id value = [row valueForColumnName:propertyName type:propertyType];
 
         [instance setValue:value forKey:propertyName];

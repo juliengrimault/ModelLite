@@ -7,7 +7,7 @@
 //
 
 #import "JGRComment.h"
-#import "MLDbMapping.h"
+#import "MLPropertyMapping.h"
 
 @implementation JGRComment
 
@@ -23,13 +23,13 @@
 @implementation JGRComment (SpecFactory)
 
 
-+ (MLDbMapping *)databaseMapping
++ (MLPropertyMapping *)databaseMapping
 {
-    MLDbMapping *mapping = [[MLDbMapping alloc] initWithClass:[self class]
+    MLPropertyMapping *mapping = [[MLPropertyMapping alloc] initWithClass:[self class]
                                                       tableName:@"Comment"
-                                                     properties:@{@"id" : @(DbPropertyInt64),
-                                                                  @"text": @(DbPropertyString),
-                                                                  @"createdAt" : @(DbPropertyDate)}];
+                                                     properties:@{@"id" : @(MLPropertyInt64),
+                                                                  @"text": @(MLPropertyString),
+                                                                  @"createdAt" : @(MLPropertyDate)}];
     return mapping;
 }
 

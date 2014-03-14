@@ -9,7 +9,7 @@
 #import "SpecHelpers.h"
 #import "JGDocumentPath.h"
 #import <FMDB/FMDatabase.h>
-#import "MLDbMappingLoader.h"
+#import "MLMappingLoader.h"
 
 SpecBegin(DbControllerInitSpec)
 
@@ -40,9 +40,9 @@ describe(@"DbControllerInit", ^{
         });
         
         it(@"has database mappings", ^{
-            MLDbMappingLoader *mappingLoader = [[MLDbMappingLoader alloc] initWithMappingURL:mappingURL];
+            MLMappingLoader *mappingLoader = [[MLMappingLoader alloc] initWithMappingURL:mappingURL];
             for (
-MLDbMapping *m in mappingLoader.allMappings) {
+MLPropertyMapping *m in mappingLoader.allMappings) {
                 expect(controller.databaseMappings[m.modelClass]).to.equal(m);
             }
         });

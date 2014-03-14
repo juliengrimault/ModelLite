@@ -7,11 +7,11 @@
 //
 
 #import <FMDB/FMResultSet.h>
-#import "MLDbMapping.h"
-#import "MLDbPropertyType.h"
+#import "MLPropertyMapping.h"
+#import "MLPropertyType.h"
 
 @interface FMResultSet (ModelLite)
 
-- (id)valueForColumnName:(NSString *)name type:(DbPropertyType)propertyType;
+- (id)valueForColumnName:(NSString *)name type:(MLPropertyType)propertyType;
 
 @end

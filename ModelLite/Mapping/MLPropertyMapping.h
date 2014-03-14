@@ -7,21 +7,21 @@
 //
 
 @import Foundation;
-#import "MLDbPropertyType.h"
-#import "MLDbObject.h"
+#import "MLPropertyType.h"
+#import "MLDatabaseObject.h"
 
 extern NSString *const DbMappingPrimaryKeyName;
 
 
-@interface MLDbMapping : NSObject
+@interface MLPropertyMapping : NSObject
 
-@property (nonatomic, strong, readonly) Class<MLDbObject> modelClass;
+@property (nonatomic, strong, readonly) Class<MLDatabaseObject> modelClass;
 
 @property (nonatomic, copy, readonly) NSString *tableName;
 
-@property (nonatomic, readonly) DbPropertyType primaryKeyType;
+@property (nonatomic, readonly) MLPropertyType primaryKeyType;
 
-// the properties persisted to the databse - the dictionary is propertyName --> propertyType
+// the properties persisted to the database - the dictionary is propertyName --> propertyType
 @property (nonatomic, copy, readonly) NSDictionary *properties;
 
 - (id)initWithClass:(Class)modelClass

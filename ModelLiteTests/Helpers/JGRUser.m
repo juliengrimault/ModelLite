@@ -7,7 +7,7 @@
 //
 
 #import "JGRUser.h"
-#import "MLDbMapping.h"
+#import "MLPropertyMapping.h"
 #import "MockResultSet.h"
 
 @implementation JGRUser
@@ -27,14 +27,14 @@
 
 @implementation JGRUser (SpecFactory)
 
-+ (MLDbMapping *)databaseMapping
++ (MLPropertyMapping *)databaseMapping
 {
-    MLDbMapping *mapping = [[MLDbMapping alloc] initWithClass:[self class]
+    MLPropertyMapping *mapping = [[MLPropertyMapping alloc] initWithClass:[self class]
                                                       tableName:@"User"
-                                                     properties:@{@"id" : @(DbPropertyInt64),
-                                                                  @"name": @(DbPropertyString),
-                                                                  @"dob" : @(DbPropertyDate),
-                                                                  @"deleted": @(DbPropertyBOOL)}];
+                                                     properties:@{@"id" : @(MLPropertyInt64),
+                                                                  @"name": @(MLPropertyString),
+                                                                  @"dob" : @(MLPropertyDate),
+                                                                  @"deleted": @(MLPropertyBOOL)}];
     return mapping;
 }
 

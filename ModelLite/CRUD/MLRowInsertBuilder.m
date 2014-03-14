@@ -9,11 +9,11 @@
 #import <FMDB/FMDatabase.h>
 #import <ObjectiveSugar/ObjectiveSugar.h>
 #import "MLRowInsertBuilder.h"
-#import "MLDbMapping.h"
+#import "MLPropertyMapping.h"
 
 @interface MLRowInsertBuilder ()
-@property (nonatomic, strong) NSObject<MLDbObject> *instance;
-@property (nonatomic, strong) MLDbMapping *mapping;
+@property (nonatomic, strong) NSObject<MLDatabaseObject> *instance;
+@property (nonatomic, strong) MLPropertyMapping *mapping;
 
 @property (nonatomic, copy) NSString *statement;
 @property (nonatomic, copy) NSArray *statementArgument;
@@ -21,7 +21,7 @@
 
 @implementation MLRowInsertBuilder
 
-- (id)initWithMapping:(MLDbMapping *)mapping instance:(NSObject<MLDbObject> *)instance
+- (id)initWithMapping:(MLPropertyMapping *)mapping instance:(NSObject<MLDatabaseObject> *)instance
 {
     NSParameterAssert(instance != nil);
     NSParameterAssert(mapping != nil);

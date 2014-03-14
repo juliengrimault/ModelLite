@@ -22,9 +22,9 @@
 		F93BE4CF18D2DC7100A63831 /* FMResultSet+ModelLite.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE44C18D2BC3F00A63831 /* FMResultSet+ModelLite.m */; };
 		F93BE4D118D2DC7700A63831 /* MLResultSetBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45118D2BC3F00A63831 /* MLResultSetBuilder.m */; };
 		F93BE4D218D2DC7700A63831 /* MLRowInsertBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45318D2BC3F00A63831 /* MLRowInsertBuilder.m */; };
-		F93BE4D418D2DC8000A63831 /* MLDbMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45918D2BC3F00A63831 /* MLDbMapping.m */; };
-		F93BE4D518D2DC8000A63831 /* MLDbMappingLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45B18D2BC3F00A63831 /* MLDbMappingLoader.m */; };
-		F93BE4D618D2DC8000A63831 /* MLDbPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45D18D2BC3F00A63831 /* MLDbPropertyType.m */; };
+		F93BE4D418D2DC8000A63831 /* MLPropertyMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45918D2BC3F00A63831 /* MLPropertyMapping.m */; };
+		F93BE4D518D2DC8000A63831 /* MLMappingLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45B18D2BC3F00A63831 /* MLMappingLoader.m */; };
+		F93BE4D618D2DC8000A63831 /* MLPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45D18D2BC3F00A63831 /* MLPropertyType.m */; };
 		F93BE4D718D2DC8000A63831 /* MLDatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45F18D2BC3F00A63831 /* MLDatabaseController.m */; };
 		F93BE4D818D2DC8800A63831 /* Integration.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE46C18D2BC5C00A63831 /* Integration.m */; };
 		F93BE4D918D2DC8800A63831 /* JGRComment.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE46E18D2BC5C00A63831 /* JGRComment.m */; };
@@ -73,15 +73,15 @@
 		F93BE45318D2BC3F00A63831 /* MLRowInsertBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRowInsertBuilder.m; sourceTree = "<group>"; };
 		F93BE45518D2BC3F00A63831 /* JGDocumentPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGDocumentPath.h; sourceTree = "<group>"; };
 		F93BE45618D2BC3F00A63831 /* JGDocumentPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGDocumentPath.m; sourceTree = "<group>"; };
-		F93BE45818D2BC3F00A63831 /* MLDbMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDbMapping.h; sourceTree = "<group>"; };
-		F93BE45918D2BC3F00A63831 /* MLDbMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLDbMapping.m; sourceTree = "<group>"; };
-		F93BE45A18D2BC3F00A63831 /* MLDbMappingLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDbMappingLoader.h; sourceTree = "<group>"; };
-		F93BE45B18D2BC3F00A63831 /* MLDbMappingLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLDbMappingLoader.m; sourceTree = "<group>"; };
-		F93BE45C18D2BC3F00A63831 /* MLDbPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDbPropertyType.h; sourceTree = "<group>"; };
-		F93BE45D18D2BC3F00A63831 /* MLDbPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLDbPropertyType.m; sourceTree = "<group>"; };
+		F93BE45818D2BC3F00A63831 /* MLPropertyMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPropertyMapping.h; sourceTree = "<group>"; };
+		F93BE45918D2BC3F00A63831 /* MLPropertyMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPropertyMapping.m; sourceTree = "<group>"; };
+		F93BE45A18D2BC3F00A63831 /* MLMappingLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMappingLoader.h; sourceTree = "<group>"; };
+		F93BE45B18D2BC3F00A63831 /* MLMappingLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMappingLoader.m; sourceTree = "<group>"; };
+		F93BE45C18D2BC3F00A63831 /* MLPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPropertyType.h; sourceTree = "<group>"; };
+		F93BE45D18D2BC3F00A63831 /* MLPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPropertyType.m; sourceTree = "<group>"; };
 		F93BE45E18D2BC3F00A63831 /* MLDatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDatabaseController.h; sourceTree = "<group>"; };
 		F93BE45F18D2BC3F00A63831 /* MLDatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLDatabaseController.m; sourceTree = "<group>"; };
-		F93BE46018D2BC3F00A63831 /* MLDbObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDbObject.h; sourceTree = "<group>"; };
+		F93BE46018D2BC3F00A63831 /* MLDatabaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDatabaseObject.h; sourceTree = "<group>"; };
 		F93BE46B18D2BC5C00A63831 /* Integration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Integration.h; sourceTree = "<group>"; };
 		F93BE46C18D2BC5C00A63831 /* Integration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Integration.m; sourceTree = "<group>"; };
 		F93BE46D18D2BC5C00A63831 /* JGRComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRComment.h; sourceTree = "<group>"; };
@@ -207,12 +207,12 @@
 		F93BE45718D2BC3F00A63831 /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
-				F93BE45818D2BC3F00A63831 /* MLDbMapping.h */,
-				F93BE45918D2BC3F00A63831 /* MLDbMapping.m */,
-				F93BE45A18D2BC3F00A63831 /* MLDbMappingLoader.h */,
-				F93BE45B18D2BC3F00A63831 /* MLDbMappingLoader.m */,
-				F93BE45C18D2BC3F00A63831 /* MLDbPropertyType.h */,
-				F93BE45D18D2BC3F00A63831 /* MLDbPropertyType.m */,
+				F93BE45818D2BC3F00A63831 /* MLPropertyMapping.h */,
+				F93BE45918D2BC3F00A63831 /* MLPropertyMapping.m */,
+				F93BE45A18D2BC3F00A63831 /* MLMappingLoader.h */,
+				F93BE45B18D2BC3F00A63831 /* MLMappingLoader.m */,
+				F93BE45C18D2BC3F00A63831 /* MLPropertyType.h */,
+				F93BE45D18D2BC3F00A63831 /* MLPropertyType.m */,
 			);
 			path = Mapping;
 			sourceTree = "<group>";
@@ -249,10 +249,10 @@
 				F93BE47918D2BC5C00A63831 /* DbControllerFetchSpec.m */,
 				F93BE47A18D2BC5C00A63831 /* DbControllerInitSpec.m */,
 				F93BE47B18D2BC5C00A63831 /* DbControllerUpdateSpec.m */,
-				F93BE47C18D2BC5C00A63831 /* DbMappingSpec.m */,
 				F93BE47D18D2BC5C00A63831 /* DbResultSetBuilderSpec.m */,
 				F93BE47E18D2BC5C00A63831 /* DbRowBuilderSpec.m */,
 				F93BE47F18D2BC5C00A63831 /* RowInsertBuilderSpec.m */,
+				F93BE47C18D2BC5C00A63831 /* DbMappingSpec.m */,
 			);
 			path = Spec;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 				F93BE45718D2BC3F00A63831 /* Mapping */,
 				F93BE45E18D2BC3F00A63831 /* MLDatabaseController.h */,
 				F93BE45F18D2BC3F00A63831 /* MLDatabaseController.m */,
-				F93BE46018D2BC3F00A63831 /* MLDbObject.h */,
+				F93BE46018D2BC3F00A63831 /* MLDatabaseObject.h */,
 			);
 			path = ModelLite;
 			sourceTree = "<group>";
@@ -492,13 +492,13 @@
 				F93BE4D118D2DC7700A63831 /* MLResultSetBuilder.m in Sources */,
 				F93BE4CC18D2DBFA00A63831 /* main.m in Sources */,
 				F93BE4D218D2DC7700A63831 /* MLRowInsertBuilder.m in Sources */,
-				F93BE4D618D2DC8000A63831 /* MLDbPropertyType.m in Sources */,
+				F93BE4D618D2DC8000A63831 /* MLPropertyType.m in Sources */,
 				F93BE4D718D2DC8000A63831 /* MLDatabaseController.m in Sources */,
 				F93BE4CF18D2DC7100A63831 /* FMResultSet+ModelLite.m in Sources */,
 				F93BE4CD18D2DBFA00A63831 /* MLAppDelegate.m in Sources */,
 				F9AC70E418D2E3C700941E1A /* JGDocumentPath.m in Sources */,
-				F93BE4D518D2DC8000A63831 /* MLDbMappingLoader.m in Sources */,
-				F93BE4D418D2DC8000A63831 /* MLDbMapping.m in Sources */,
+				F93BE4D518D2DC8000A63831 /* MLMappingLoader.m in Sources */,
+				F93BE4D418D2DC8000A63831 /* MLPropertyMapping.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

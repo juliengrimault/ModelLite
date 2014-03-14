@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class MLDbMapping;
+@class MLPropertyMapping;
 
 
 @interface JGRComment : NSObject
@@ -21,7 +21,7 @@
 
 @interface JGRComment (SpecFactory)
 
-+ (MLDbMapping *)databaseMapping;
++ (MLPropertyMapping *)databaseMapping;
 
 + (instancetype)commentWithId:(int64_t)id;
 

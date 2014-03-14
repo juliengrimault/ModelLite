@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MLDbObject.h"
+#import "MLDatabaseObject.h"
 #import "MockResultSet.h"
 
-@interface JGRUser : NSObject <MLDbObject>
+@interface JGRUser : NSObject <MLDatabaseObject>
 
 @property (nonatomic) int64_t id;
 @property (nonatomic, copy) NSString *name;
@@ -24,7 +24,7 @@
 
 @interface JGRUser (SpecFactory)
 
-+ (MLDbMapping *)databaseMapping;
++ (MLPropertyMapping *)databaseMapping;
 
 + (instancetype)userWithId:(int64_t)id;
 

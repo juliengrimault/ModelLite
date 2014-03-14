@@ -1,19 +1,19 @@
 //
-//  MLDbMappingLoader.m
+//  MLMappingLoader.m
 //  ModelLite
 //
 //  Created by Julien on 10/3/14.
 //  Copyright (c) 2014 juliengrimault. See included LICENSE file.
 //
 
-#import "MLDbMappingLoader.h"
-#import "MLDbMapping.h"
+#import "MLMappingLoader.h"
+#import "MLPropertyMapping.h"
 
-@interface MLDbMappingLoader ()
+@interface MLMappingLoader ()
 @property (nonatomic, strong) NSDictionary *mappings;
 @end
 
-@implementation MLDbMappingLoader
+@implementation MLMappingLoader
 
 - (id)init
 {
@@ -31,7 +31,7 @@
 	NSMutableDictionary *mappings = [NSMutableDictionary dictionary];
     
 	for (NSString *className in mappingsDictionary) {
-		MLDbMapping *mapping = [[MLDbMapping alloc] initWithClassName:className dictionary:mappingsDictionary[className]];
+		MLPropertyMapping *mapping = [[MLPropertyMapping alloc] initWithClassName:className dictionary:mappingsDictionary[className]];
 		mappings[className] = mapping;
 	}
     
@@ -46,7 +46,7 @@
     return [self.mappings allValues];
 }
 
-- (MLDbMapping *)mappingForClassName:(NSString *)className
+- (MLPropertyMapping *)mappingForClassName:(NSString *)className
 {
     return self.mappings[className];
 }

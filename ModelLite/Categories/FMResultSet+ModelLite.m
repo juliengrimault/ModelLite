@@ -10,26 +10,26 @@
 
 @implementation FMResultSet (ModelLite)
 
-- (id)valueForColumnName:(NSString *)name type:(DbPropertyType)propertyType
+- (id)valueForColumnName:(NSString *)name type:(MLPropertyType)propertyType
 {
     switch (propertyType) {
-        case DbPropertyBOOL:
+        case MLPropertyBOOL:
             return @([self boolForColumn:name]);
             
-        case DbPropertyDate:
+        case MLPropertyDate:
             return [self dateForColumn:name];
             
-        case DbPropertyInt64:
+        case MLPropertyInt64:
             return @([self longForColumn:name]);
             
-        case DbPropertyString:
+        case MLPropertyString:
             return [self stringForColumn:name];
             
-        case DbPropertyNSNumber:
+        case MLPropertyNSNumber:
             return [self objectForColumnName:name];
             
         default:
-            NSAssert1(NO, @"Unknown DbPropertyType %ld", (NSInteger)propertyType);
+            NSAssert1(NO, @"Unknown MLPropertyType %ld", (NSInteger)propertyType);
             break;
     }
     return nil;

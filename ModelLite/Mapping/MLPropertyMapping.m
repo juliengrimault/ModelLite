@@ -6,20 +6,20 @@
 //  Copyright (c) 2014 juliengrimault. See included LICENSE file.
 //
 
-#import "MLDbMapping.h"
+#import "MLPropertyMapping.h"
 @import ObjectiveC.runtime;
 
 NSString *const DbMappingPrimaryKeyName = @"id";
 
-@interface MLDbMapping ()
-@property (nonatomic, strong) Class<MLDbObject> modelClass;
+@interface MLPropertyMapping ()
+@property (nonatomic, strong) Class<MLDatabaseObject> modelClass;
 @property (nonatomic, copy) NSString *tableName;
 @property (nonatomic, copy) NSDictionary *properties;
 @end
 
-@implementation MLDbMapping
+@implementation MLPropertyMapping
 
-- (id)initWithClass:(Class<MLDbObject>)modelClass
+- (id)initWithClass:(Class<MLDatabaseObject>)modelClass
           tableName:(NSString *)tableName
          properties:(NSDictionary *)properties;
 {
@@ -28,8 +28,8 @@ NSString *const DbMappingPrimaryKeyName = @"id";
     NSParameterAssert(properties != nil);
     NSParameterAssert(properties[DbMappingPrimaryKeyName] != nil);
     
-    DbPropertyType primaryKeyType = [properties[DbMappingPrimaryKeyName] integerValue];
-    NSAssert(primaryKeyType == DbPropertyInt64 || primaryKeyType == DbPropertyNSNumber  || primaryKeyType == DbPropertyNSNumber ,
+    MLPropertyType primaryKeyType = (MLPropertyType)[properties[DbMappingPrimaryKeyName] integerValue];
+    NSAssert(primaryKeyType == MLPropertyInt64 || primaryKeyType == MLPropertyNSNumber  || primaryKeyType == MLPropertyNSNumber ,
              @"the primary key type must be either DbPropertyInt64, DbPropertyNSNumber or DbPropertyNSNumber");
     
     self = [super init];
@@ -48,7 +48,7 @@ NSString *const DbMappingPrimaryKeyName = @"id";
 {
     NSMutableDictionary *properties = [NSMutableDictionary dictionary];
     [mappingDictionary[DbMappingKeyProperties] enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, NSString *propertyTypeString, BOOL *stop) {
-        properties[propertyName] = @([propertyTypeString jgr_propertType]);
+        properties[propertyName] = @([propertyTypeString ml_propertType]);
     }];
     
     Class modelClass = NSClassFromString(className);
@@ -58,9 +58,9 @@ NSString *const DbMappingPrimaryKeyName = @"id";
                     properties:properties];
 }
 
-- (DbPropertyType) primaryKeyType
+- (MLPropertyType) primaryKeyType
 {
-    return [self.properties[DbMappingPrimaryKeyName] integerValue];
+    return (MLPropertyType)[self.properties[DbMappingPrimaryKeyName] integerValue];
 }
 
 - (void)verifyMappingValidity
@@ -78,8 +78,8 @@ NSString *const DbMappingPrimaryKeyName = @"id";
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@:%p - tableName: %@\n relationships:(", self.class, self, self.tableName];
     NSMutableArray *propertiesDescriptions = [NSMutableArray array];
     for (NSString *propertyName in self.properties) {
-        DbPropertyType propertyType = [self.properties[propertyName] integerValue];
-        [propertiesDescriptions addObject:[NSString stringWithFormat:@"%@ -> %@", propertyName, NSStringFromDbPropertyType(propertyType)]];
+        MLPropertyType propertyType = (MLPropertyType)[self.properties[propertyName] integerValue];
+        [propertiesDescriptions addObject:[NSString stringWithFormat:@"%@ -> %@", propertyName, NSStringFromMLPropertyType(propertyType)]];
     }
     [description appendFormat:@"%@)>", [propertiesDescriptions componentsJoinedByString:@", "]];
     return description;
@@ -91,10 +91,10 @@ NSString *const DbMappingPrimaryKeyName = @"id";
         return NO;
     }
     
-    return [self isEqualToDbMapping:(MLDbMapping *)object];
+    return [self isEqualToDbMapping:(MLPropertyMapping *)object];
 }
 
-- (BOOL)isEqualToDbMapping:(MLDbMapping *)mapping
+- (BOOL)isEqualToDbMapping:(MLPropertyMapping *)mapping
 {
     return [mapping.tableName isEqualToString:self.tableName] &&
     [mapping.properties isEqualToDictionary:self.properties];

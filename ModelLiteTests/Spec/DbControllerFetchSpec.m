@@ -10,7 +10,7 @@
 #import "JGDocumentPath.h"
 #import <FMDB/FMDatabase.h>
 
-@interface T : NSObject<MLDbObject>
+@interface T : NSObject<MLDatabaseObject>
 @property (nonatomic) int64_t id;
 @end
 

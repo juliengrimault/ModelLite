@@ -1,5 +1,5 @@
 //
-//  MLDbMappingLoader.h
+//  MLMappingLoader.h
 //  ModelLite
 //
 //  Created by Julien on 10/3/14.
@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-@class MLDbMapping;
+@class MLPropertyMapping;
 
-@interface MLDbMappingLoader : NSObject
+@interface MLMappingLoader : NSObject
 
 @property (nonatomic, strong) NSArray *allMappings;
 
 - (id)init; // load file name DbMapping.plist
 - (id)initWithMappingURL:(NSURL *)url;
 
-- (MLDbMapping *)mappingForClassName:(NSString *)className;
+- (MLPropertyMapping *)mappingForClassName:(NSString *)className;
 
 @end

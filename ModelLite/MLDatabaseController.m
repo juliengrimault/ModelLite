@@ -8,11 +8,11 @@
 
 #import "MLDatabaseController.h"
 #import <FMDB/FMDatabase.h>
-#import "MLDbObject.h"
-#import "MLDbMapping.h"
+#import "MLDatabaseObject.h"
+#import "MLPropertyMapping.h"
 #import "FMResultSet+ModelLite.h"
 #import "MLResultSetBuilder.h"
-#import "MLDbMappingLoader.h"
+#import "MLMappingLoader.h"
 #import "MLRowInsertBuilder.h"
 
 NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.databasecontroller.nestedTransactionCount";
@@ -61,9 +61,9 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
 
 - (void)loadMappings
 {
-    MLDbMappingLoader *loader = [[MLDbMappingLoader alloc] initWithMappingURL:self.mappingURL];
+    MLMappingLoader *loader = [[MLMappingLoader alloc] initWithMappingURL:self.mappingURL];
     NSMutableDictionary *mappings = [NSMutableDictionary dictionary];
-    for (MLDbMapping *m in loader.allMappings) {
+    for (MLPropertyMapping *m in loader.allMappings) {
         mappings[(Class<NSCopying>)m.modelClass] = m;
     }
     self.databaseMappings = [mappings copy];
@@ -86,9 +86,9 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
 }
 
 
-- (void)saveInstance:(NSObject<MLDbObject> *)instance
+- (void)saveInstance:(NSObject<MLDatabaseObject> *)instance
 {
-    MLDbMapping *mapping = self.databaseMappings[instance.class];
+    MLPropertyMapping *mapping = self.databaseMappings[instance.class];
     NSAssert1(mapping != nil, @"No database mapping found for class %@", instance.class);
     
     [self runInTransaction:^(FMDatabase *db) {
@@ -106,13 +106,13 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
 
 #pragma mark - Query
 
-- (void)runFetchForClass:(Class<MLDbObject>)klass
+- (void)runFetchForClass:(Class<MLDatabaseObject>)klass
               fetchBlock:(MLDatabaseFetchBlock)fetchBlock
        fetchResultsBlock:(MLDatabaseFetchResultsBlock)fetchResultBlock
 {
     NSParameterAssert(klass); NSParameterAssert(fetchBlock); NSParameterAssert(fetchResultBlock);
     
-    MLDbMapping *mapping = self.databaseMappings[klass];
+    MLPropertyMapping *mapping = self.databaseMappings[klass];
     NSAssert1(mapping != nil, @"No database mapping found for class %@", klass);
     
     dispatch_async(self.serialQueue, ^{
@@ -132,7 +132,7 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
     });
 }
 
-- (NSArray *)databaseObjectsWithResultSet:(FMResultSet *)resultSet mapping:(MLDbMapping *)mapping
+- (NSArray *)databaseObjectsWithResultSet:(FMResultSet *)resultSet mapping:(MLPropertyMapping *)mapping
 {
     NSMapTable *instanceCache = [self instanceCacheForClass:mapping.modelClass];
     MLResultSetBuilder *resultSetBuilder = [[MLResultSetBuilder alloc] initWithInstanceCache:instanceCache mapping:mapping];
@@ -144,7 +144,7 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
 
 // not thread-safe but is only called inside the serial queue
 // hence no concurrent access
-- (NSMapTable *)instanceCacheForClass:(Class<MLDbObject>)klass
+- (NSMapTable *)instanceCacheForClass:(Class<MLDatabaseObject>)klass
 {
     NSMapTable *instanceCache = self.classCache[klass];
     if (instanceCache == nil) {

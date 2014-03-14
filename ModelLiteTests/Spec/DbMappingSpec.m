@@ -6,35 +6,35 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 
-#import "MLDbMapping.h"
+#import "MLPropertyMapping.h"
 #import "JGRUser.h"
 
 SpecBegin(JGRDbMapping)
 
-describe(@"MLDbMapping", ^{
-    __block MLDbMapping *mapping;
+describe(@"MLPropertyMapping", ^{
+    __block MLPropertyMapping *mapping;
     
     describe(@"init", ^{
         describe(@"Errors", ^{
             it(@"raises an error if the modelClass is missing", ^{
                 expect(^{
-                    mapping = [[MLDbMapping alloc] initWithClass:nil
+                    mapping = [[MLPropertyMapping alloc] initWithClass:nil
                                                         tableName:@"User"
-                                                       properties:@{ @"id" : @(DbPropertyInt64)}];
+                                                       properties:@{ @"id" : @(MLPropertyInt64)}];
                 }).to.raiseAny();
             });
             
             it(@"raises an error if tableName is missing", ^{
                 expect(^{
-                    mapping = [[MLDbMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLPropertyMapping alloc] initWithClass:[JGRUser class]
                                                         tableName:nil
-                                                       properties:@{ @"id" : @(DbPropertyInt64)}];
+                                                       properties:@{ @"id" : @(MLPropertyInt64)}];
                 }).to.raiseAny();
             });
             
             it(@"raises an error if properties are missing", ^{
                 expect(^{
-                    mapping = [[MLDbMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLPropertyMapping alloc] initWithClass:[JGRUser class]
                                                         tableName:@"User"
                                                        properties:nil];
                 }).to.raiseAny();
@@ -42,30 +42,30 @@ describe(@"MLDbMapping", ^{
             
             it(@"raises an error if the id property is missing", ^{
                 expect(^{
-                    mapping = [[MLDbMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLPropertyMapping alloc] initWithClass:[JGRUser class]
                                                         tableName:@"User"
-                                                       properties:@{@"someProp" : @(DbPropertyString)}];
+                                                       properties:@{@"someProp" : @(MLPropertyString)}];
                 }).to.raiseAny();
             });
             
             it(@"raises an error if the id property is not either int64, NSNumber * or NSString *", ^{
                 expect(^{
-                    mapping = [[MLDbMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLPropertyMapping alloc] initWithClass:[JGRUser class]
                                                         tableName:@"User"
-                                                       properties:@{@"id" : @(DbPropertyDate)}];
+                                                       properties:@{@"id" : @(MLPropertyDate)}];
                 }).to.raiseAny();
                 
                 expect(^{
-                    mapping = [[MLDbMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLPropertyMapping alloc] initWithClass:[JGRUser class]
                                                         tableName:@"User"
-                                                       properties:@{@"id" : @(DbPropertyBOOL)}];
+                                                       properties:@{@"id" : @(MLPropertyBOOL)}];
                 }).to.raiseAny();
             });
             
             it(@"raises an error when the mapping references a property which does not exist on the model class", ^{
-                NSDictionary *properties = @{@"id" : @(DbPropertyInt64), @"doesNotExist": @(DbPropertyString)};
+                NSDictionary *properties = @{@"id" : @(MLPropertyInt64), @"doesNotExist": @(MLPropertyString)};
                 expect(^{
-                    mapping = [[MLDbMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLPropertyMapping alloc] initWithClass:[JGRUser class]
                                                         tableName:@"User"
                                                        properties:properties];
                 }).to.raiseAny();
@@ -74,10 +74,10 @@ describe(@"MLDbMapping", ^{
         });
         
         describe(@"Success", ^{
-            NSDictionary *properties = @{@"id" : @(DbPropertyInt64),
-                                         @"name" : @(DbPropertyString)};
+            NSDictionary *properties = @{@"id" : @(MLPropertyInt64),
+                                         @"name" : @(MLPropertyString)};
             beforeEach(^{
-                mapping = [[MLDbMapping alloc] initWithClass:[JGRUser class]
+                mapping = [[MLPropertyMapping alloc] initWithClass:[JGRUser class]
                                                     tableName:@"User"
                                                    properties:properties];
             });
@@ -101,7 +101,7 @@ describe(@"MLDbMapping", ^{
         __block NSDictionary *dictionary;
         beforeEach(^{
             dictionary = @{@"tableName" : @"SuperUser", @"properties" : @{@"id" : @"int64", @"name" : @"string"}};
-            mapping = [[MLDbMapping alloc] initWithClassName:@"JGRUser" dictionary:dictionary];
+            mapping = [[MLPropertyMapping alloc] initWithClassName:@"JGRUser" dictionary:dictionary];
         });
         
         it(@"extract table name from the dictionary", ^{
@@ -110,9 +110,9 @@ describe(@"MLDbMapping", ^{
         
         it(@"extract the properties from the dictionary", ^{
             [mapping.properties enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, id object, BOOL *stop) {
-                DbPropertyType propertyType = [object integerValue];
+                MLPropertyType propertyType = (MLPropertyType)[object integerValue];
                 NSString *propertyTypeString = dictionary[@"properties"][propertyName];
-                expect(propertyType).to.equal([propertyTypeString jgr_propertType]);
+                expect(propertyType).to.equal([propertyTypeString ml_propertType]);
             }];
         });
     });

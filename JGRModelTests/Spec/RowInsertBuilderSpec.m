@@ -39,52 +39,7 @@ describe(@"RowInsertBuilder", ^{
         expect(^{
             builder = [[JGRRowInsertBuilder alloc] initWithMapping:[JGRComment databaseMapping] instance:instance];
         }).to.raiseAny();
-    });
-    
-    describe(@"", ^{
-        beforeEach(^{
-            builder = [[JGRRowInsertBuilder alloc] initWithMapping:mapping instance:instance];
-        });
-        
-        describe(@"generate insert statement", ^{
-            it(@"generates the prefix of the statement ", ^{
-                NSString *downcased = [builder.statement lowercaseString];
-                
-                NSString *columnNames = [mapping.properties.allKeys componentsJoinedByString:@", "];
-                NSString *valuePlaceHolders = [[mapping.properties.allKeys jgr_map:^id(id object) {
-                    return @"?";
-                }] componentsJoinedByString:@", "];
-                
-                NSString *statement = [NSString stringWithFormat:@"insert or replace into user (%@) values (%@);",
-                                      columnNames,
-                                      valuePlaceHolders];
-                expect(downcased).to.equal(statement);
-                
-            });
-            
-            
-            it(@"generates the insert value", ^{
-                expect(builder.statementArgument).to.haveCountOf(mapping.properties.count);
-                int i = 0;
-                for (NSString *columnName in [mapping.properties allKeys]) {
-                    id value = [instance valueForKeyPath:columnName];
-                    if (value == nil) {
-                        value = [NSNull null];
-                    }
-                    expect(builder.statementArgument[i]).to.equal(value);
-                    i++;
-                }
-            });
-        });
-        
-        describe(@"execute statement", ^{
-            it(@"executes the statement with the parameters against the db", ^{
-                FMDatabase *mockDb = mock([FMDatabase class]);
-                [builder executeStatement:mockDb];
-                [verify(mockDb) executeUpdate:builder.statement withArgumentsInArray:builder.statementArgument];
-            });
-        });
-    });
+    });    
 });
 
 SpecEnd

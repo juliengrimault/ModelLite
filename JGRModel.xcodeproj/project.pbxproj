@@ -32,7 +32,6 @@
 		F956D60718CD672400011444 /* DbMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F956D60618CD672400011444 /* DbMappingSpec.m */; };
 		F956D60B18CD721100011444 /* DbMappingLoaderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F956D60A18CD721100011444 /* DbMappingLoaderSpec.m */; };
 		F956D60D18CD733D00011444 /* TestMapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = F956D60C18CD733D00011444 /* TestMapping.plist */; };
-		F956D60F18CD774B00011444 /* DbPropertySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F956D60E18CD774B00011444 /* DbPropertySpec.m */; };
 		F956D61518CD777900011444 /* JGRDbPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = F956D61418CD777900011444 /* JGRDbPropertyType.m */; };
 		F956D63218CDBBE300011444 /* MockResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F956D63118CDBBE300011444 /* MockResultSet.m */; };
 		F956D63418CEA29500011444 /* FetchIntegrationTestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F956D63318CEA29500011444 /* FetchIntegrationTestSpec.m */; };
@@ -96,7 +95,6 @@
 		F956D60618CD672400011444 /* DbMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbMappingSpec.m; sourceTree = "<group>"; };
 		F956D60A18CD721100011444 /* DbMappingLoaderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbMappingLoaderSpec.m; sourceTree = "<group>"; };
 		F956D60C18CD733D00011444 /* TestMapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestMapping.plist; sourceTree = "<group>"; };
-		F956D60E18CD774B00011444 /* DbPropertySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbPropertySpec.m; sourceTree = "<group>"; };
 		F956D61318CD777900011444 /* JGRDbPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRDbPropertyType.h; sourceTree = "<group>"; };
 		F956D61418CD777900011444 /* JGRDbPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRDbPropertyType.m; sourceTree = "<group>"; };
 		F956D63018CDBBE300011444 /* MockResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockResultSet.h; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 				F910F7B018CD5AAD00089567 /* DbResultSetBuilderSpec.m */,
 				F910F7B218CD5AC000089567 /* DbRowBuilderSpec.m */,
 				F956D60618CD672400011444 /* DbMappingSpec.m */,
-				F956D60E18CD774B00011444 /* DbPropertySpec.m */,
 				F9B784BA18CF254900D33735 /* RowInsertBuilderSpec.m */,
 			);
 			path = Spec;
@@ -528,7 +525,6 @@
 				F910F7B118CD5AAD00089567 /* DbResultSetBuilderSpec.m in Sources */,
 				F9B784BB18CF254900D33735 /* RowInsertBuilderSpec.m in Sources */,
 				F956D63418CEA29500011444 /* FetchIntegrationTestSpec.m in Sources */,
-				F956D60F18CD774B00011444 /* DbPropertySpec.m in Sources */,
 				F956D63718CEA4C600011444 /* Integration.m in Sources */,
 				F9FC3C0118CC406200F6CA88 /* DatabaseIntegrationSpec.m in Sources */,
 				F9364DE018CC3FA5002F0768 /* DbControllerUpdateSpec.m in Sources */,

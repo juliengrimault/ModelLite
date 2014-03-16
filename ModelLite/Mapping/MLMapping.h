@@ -1,5 +1,5 @@
 //
-//  JGRDatabaseMapping.h
+//  MLMapping.h
 //  ModelLite
 //
 //  Created by Julien on 9/3/14.
@@ -13,7 +13,7 @@
 extern NSString *const DbMappingPrimaryKeyName;
 
 
-@interface MLPropertyMapping : NSObject
+@interface MLMapping : NSObject
 
 @property (nonatomic, strong, readonly) Class<MLDatabaseObject> modelClass;
 
@@ -24,14 +24,19 @@ extern NSString *const DbMappingPrimaryKeyName;
 // the properties persisted to the database - the dictionary is propertyName --> propertyType
 @property (nonatomic, copy, readonly) NSDictionary *properties;
 
-- (id)initWithClass:(Class)modelClass
+
+@property (nonatomic, copy, readonly) NSDictionary *relationships;
+
+- (id)initWithClass:(Class<MLDatabaseObject>)modelClass
           tableName:(NSString *)tableName
-         properties:(NSDictionary *)properties;
+         properties:(NSDictionary *)properties
+      relationships:(NSDictionary *)relationships;
 
 - (id)initWithClassName:(NSString *)className dictionary:(NSDictionary *)mappingDictionary;
 
 
 extern NSString *const DbMappingKeyTableName;
 extern NSString *const DbMappingKeyProperties;
+extern NSString *const DbMappingKeyRelationships;
 
 @end

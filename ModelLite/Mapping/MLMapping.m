@@ -1,27 +1,32 @@
 //
-//  JGRDatabaseMapping.m
+//  MLMapping.m
 //  ModelLite
 //
 //  Created by Julien on 9/3/14.
 //  Copyright (c) 2014 juliengrimault. See included LICENSE file.
 //
 
-#import "MLPropertyMapping.h"
+
+#import "MLMapping.h"   
+#import "MLRelationshipMapping.h"
+
 @import ObjectiveC.runtime;
 
 NSString *const DbMappingPrimaryKeyName = @"id";
 
-@interface MLPropertyMapping ()
+@interface MLMapping ()
 @property (nonatomic, strong) Class<MLDatabaseObject> modelClass;
 @property (nonatomic, copy) NSString *tableName;
 @property (nonatomic, copy) NSDictionary *properties;
+@property (nonatomic, copy) NSDictionary *relationships;
 @end
 
-@implementation MLPropertyMapping
+@implementation MLMapping
 
 - (id)initWithClass:(Class<MLDatabaseObject>)modelClass
           tableName:(NSString *)tableName
-         properties:(NSDictionary *)properties;
+         properties:(NSDictionary *)properties
+      relationships:(NSDictionary *)relationships
 {
     NSParameterAssert(modelClass != nil);
     NSParameterAssert(tableName != nil);
@@ -38,6 +43,7 @@ NSString *const DbMappingPrimaryKeyName = @"id";
     self.modelClass = modelClass;
     self.tableName = tableName;
     self.properties = properties;
+    self.relationships = relationships;
     
     [self verifyMappingValidity];
     
@@ -50,12 +56,21 @@ NSString *const DbMappingPrimaryKeyName = @"id";
     [mappingDictionary[DbMappingKeyProperties] enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, NSString *propertyTypeString, BOOL *stop) {
         properties[propertyName] = @([propertyTypeString ml_propertType]);
     }];
-    
+
+
+    NSMutableDictionary *relationships = [NSMutableDictionary dictionary];
+    [mappingDictionary[DbMappingKeyRelationships] enumerateKeysAndObjectsUsingBlock:^(NSString *relationshipName, NSDictionary *relationshipDict, BOOL *stop) {
+        MLRelationshipMapping *relationshipMapping = [[MLRelationshipMapping alloc] initWithRelationshipName:relationshipName
+                                                                                                  dictionary:relationshipDict];
+        relationships[relationshipName] = relationshipMapping;
+    }];
+
     Class modelClass = NSClassFromString(className);
     
     return [self initWithClass:modelClass
                      tableName:mappingDictionary[DbMappingKeyTableName]
-                    properties:properties];
+                    properties:properties
+                 relationships:relationships];
 }
 
 - (MLPropertyType) primaryKeyType
@@ -65,10 +80,27 @@ NSString *const DbMappingPrimaryKeyName = @"id";
 
 - (void)verifyMappingValidity
 {
+    [self verifyPropertiesValidity];
+    [self verifyRelationshipsValidity];
+}
+
+- (void)verifyPropertiesValidity
+{
     for (NSString *propertyName in self.properties) {
         if (class_getProperty(self.modelClass, propertyName.UTF8String) == NULL) {
             [NSException raise:[NSString stringWithFormat:@"%@Exception", self.class]
                         format:@"Property %@ does not exist on class %@. Mapping: %@", propertyName, self.modelClass, self];
+        }
+    }
+}
+
+- (void)verifyRelationshipsValidity
+{
+    for (NSString *relationship in self.relationships) {
+        id m = self.relationships[relationship];
+        if (![m isKindOfClass:[MLRelationshipMapping class]]) {
+            [NSException raise:[NSString stringWithFormat:@"%@Exception", self.class]
+                        format:@"Relationship entry %@ is not instance of class %@, but %@ insted.", relationship,[MLRelationshipMapping class], [m class]];
         }
     }
 }
@@ -91,10 +123,10 @@ NSString *const DbMappingPrimaryKeyName = @"id";
         return NO;
     }
     
-    return [self isEqualToDbMapping:(MLPropertyMapping *)object];
+    return [self isEqualToDbMapping:(MLMapping *)object];
 }
 
-- (BOOL)isEqualToDbMapping:(MLPropertyMapping *)mapping
+- (BOOL)isEqualToDbMapping:(MLMapping *)mapping
 {
     return [mapping.tableName isEqualToString:self.tableName] &&
     [mapping.properties isEqualToDictionary:self.properties];
@@ -104,3 +136,4 @@ NSString *const DbMappingPrimaryKeyName = @"id";
 
 NSString *const DbMappingKeyTableName = @"tableName";
 NSString *const DbMappingKeyProperties = @"properties";
+NSString *const DbMappingKeyRelationships = @"relationships";

@@ -7,18 +7,19 @@
 //
 @import ObjectiveC.runtime;
 #import "MLResultSetBuilder.h"
-#import "MLPropertyMapping.h"
+#import "MLMapping.h"
 #import "FMResultSet+ModelLite.h"
+#import "MLRowBuilder.h"
 
 @interface MLResultSetBuilder ()
 @property (nonatomic, strong) NSMapTable *instanceCache;
-
-@property (nonatomic, strong) MLPropertyMapping *mapping;
+@property (nonatomic, strong) MLMapping *mapping;
+@property (nonatomic, strong) MLRowBuilder *rowBuilder;
 @end
 
 @implementation MLResultSetBuilder
 
-- (id)initWithInstanceCache:(NSMapTable *)instanceCache mapping:(MLPropertyMapping *)mapping
+- (id)initWithInstanceCache:(NSMapTable *)instanceCache mapping:(MLMapping *)mapping
 {
     NSParameterAssert(instanceCache != nil);
     NSParameterAssert(mapping != nil);
@@ -28,6 +29,7 @@
     
     self.mapping = mapping;
     self.instanceCache = instanceCache;
+    self.rowBuilder = [[MLRowBuilder alloc] initWithMapping:self.mapping];
     
     return self;
 }
@@ -40,7 +42,7 @@
         id<MLDatabaseObject> instance = [self.instanceCache objectForKey:primaryKeyValue];
         
         if (instance == nil) {
-            instance = [self buildInstanceFromRow:resultSet];
+            instance = [self.rowBuilder buildInstanceFromRow:resultSet];
             [self.instanceCache setObject:instance forKey:instance.primaryKeyValue];
         }
         
@@ -51,33 +53,6 @@
 
 }
 
-- (id<MLDatabaseObject>)buildInstanceFromRow:(FMResultSet *)row
-{
-    id instance = [[(Class)self.mapping.modelClass alloc] init];
 
-    for (NSString *propertyName in self.mapping.properties) {
-
-        if (class_getProperty(self.mapping.modelClass, propertyName.UTF8String) == NULL) {
-            [NSException raise:@"DbMappingException" format:@"No property %@ on class %@. DbMapping: %@", propertyName, self.mapping.modelClass, self.mapping];
-            continue;
-        }
-
-        if (row.columnNameToIndexMap[propertyName] == nil) {
-            NSLog(@"Unknown column name %@ in result set %@", propertyName, row);
-            continue;
-        }
-
-        MLPropertyType propertyType = (MLPropertyType)[self.mapping.properties[propertyName] integerValue];
-        id value = [row valueForColumnName:propertyName type:propertyType];
-
-        [instance setValue:value forKey:propertyName];
-    }
-
-    if ([instance respondsToSelector:@selector(awakeFromFetch)]) {
-        [instance awakeFromFetch];
-    }
-
-    return instance;
-}
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "MLMappingLoader.h"
-#import "MLPropertyMapping.h"
+#import "MLMapping.h"
 
 @interface MLMappingLoader ()
 @property (nonatomic, strong) NSDictionary *mappings;
@@ -31,7 +31,7 @@
 	NSMutableDictionary *mappings = [NSMutableDictionary dictionary];
     
 	for (NSString *className in mappingsDictionary) {
-		MLPropertyMapping *mapping = [[MLPropertyMapping alloc] initWithClassName:className dictionary:mappingsDictionary[className]];
+		MLMapping *mapping = [[MLMapping alloc] initWithClassName:className dictionary:mappingsDictionary[className]];
 		mappings[className] = mapping;
 	}
     
@@ -46,7 +46,7 @@
     return [self.mappings allValues];
 }
 
-- (MLPropertyMapping *)mappingForClassName:(NSString *)className
+- (MLMapping *)mappingForClassName:(NSString *)className
 {
     return self.mappings[className];
 }

@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-@class MLPropertyMapping;
+#import "MLDatabaseObject.h"
+@class MLMapping;
+@class FMDatabase;
 
-
-@interface JGRComment : NSObject
+@interface JGRComment : NSObject <MLDatabaseObject>
 
 @property (nonatomic) int64_t id;
 @property (nonatomic, copy) NSString *text;
@@ -21,10 +22,10 @@
 
 @interface JGRComment (SpecFactory)
 
-+ (MLPropertyMapping *)databaseMapping;
-
++ (MLMapping *)databaseMapping;
++ (NSString *)createTableStatement;
 + (instancetype)commentWithId:(int64_t)id;
-
++ (NSArray *)insertInDb:(FMDatabase *)db commentsForUserId:(int64_t)userId count:(NSInteger)count;
 @end
 
 

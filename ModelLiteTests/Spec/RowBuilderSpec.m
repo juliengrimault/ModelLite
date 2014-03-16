@@ -7,21 +7,20 @@
 #import <OCMockito/OCMockito.h>
 
 #import "SpecHelpers.h"
-#import "MLResultSetBuilder.h"
+#import "MLRowBuilder.h"
 
 
 @interface JGRUserSubclass :JGRUser
 @end
 
-SpecBegin(JGRDbRowBuilderSpec)
+SpecBegin(MLRowBuilderSpec)
 
-describe(@"JGRDbRowBuilder", ^{
-    __block MLResultSetBuilder *builder;
+describe(@"RowBuilder", ^{
+    __block MLRowBuilder *builder;
     __block MockResultSet *mockResultSet;
     
     beforeEach(^{
-        builder = [[MLResultSetBuilder alloc] initWithInstanceCache:[NSMapTable strongToWeakObjectsMapTable]
-                                                             mapping:[JGRUser databaseMapping]];
+        builder = [[MLRowBuilder alloc] initWithMapping:[JGRUser databaseMapping]];
     });
     
     describe(@"matching result set", ^{
@@ -57,8 +56,7 @@ describe(@"JGRDbRowBuilder", ^{
         
         describe(@"optional awakeFromFetch", ^{
             it(@"calls awakeFromFetch when implemented", ^{
-                builder = [[MLResultSetBuilder alloc] initWithInstanceCache:[NSMapTable strongToWeakObjectsMapTable]
-                                                                     mapping:[JGRUserSubclass databaseMapping]];
+                builder = [[MLRowBuilder alloc] initWithMapping:[JGRUserSubclass databaseMapping]];
                 JGRUserSubclass *u = [builder buildInstanceFromRow:mockResultSet];
                 expect(u.hasAwakeFromFetchBeenCalled).to.beTruthy();
             });

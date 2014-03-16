@@ -9,7 +9,7 @@
 #import "MLDatabaseController.h"
 #import <FMDB/FMDatabase.h>
 #import "MLDatabaseObject.h"
-#import "MLPropertyMapping.h"
+#import "MLMapping.h"
 #import "FMResultSet+ModelLite.h"
 #import "MLResultSetBuilder.h"
 #import "MLMappingLoader.h"
@@ -63,7 +63,7 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
 {
     MLMappingLoader *loader = [[MLMappingLoader alloc] initWithMappingURL:self.mappingURL];
     NSMutableDictionary *mappings = [NSMutableDictionary dictionary];
-    for (MLPropertyMapping *m in loader.allMappings) {
+    for (MLMapping *m in loader.allMappings) {
         mappings[(Class<NSCopying>)m.modelClass] = m;
     }
     self.databaseMappings = [mappings copy];
@@ -88,7 +88,7 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
 
 - (void)saveInstance:(NSObject<MLDatabaseObject> *)instance
 {
-    MLPropertyMapping *mapping = self.databaseMappings[instance.class];
+    MLMapping *mapping = self.databaseMappings[instance.class];
     NSAssert1(mapping != nil, @"No database mapping found for class %@", instance.class);
     
     [self runInTransaction:^(FMDatabase *db) {
@@ -112,7 +112,7 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
 {
     NSParameterAssert(klass); NSParameterAssert(fetchBlock); NSParameterAssert(fetchResultBlock);
     
-    MLPropertyMapping *mapping = self.databaseMappings[klass];
+    MLMapping *mapping = self.databaseMappings[klass];
     NSAssert1(mapping != nil, @"No database mapping found for class %@", klass);
     
     dispatch_async(self.serialQueue, ^{
@@ -132,7 +132,7 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
     });
 }
 
-- (NSArray *)databaseObjectsWithResultSet:(FMResultSet *)resultSet mapping:(MLPropertyMapping *)mapping
+- (NSArray *)databaseObjectsWithResultSet:(FMResultSet *)resultSet mapping:(MLMapping *)mapping
 {
     NSMapTable *instanceCache = [self instanceCacheForClass:mapping.modelClass];
     MLResultSetBuilder *resultSetBuilder = [[MLResultSetBuilder alloc] initWithInstanceCache:instanceCache mapping:mapping];

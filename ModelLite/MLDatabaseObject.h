@@ -7,7 +7,7 @@
 //
 
 @import Foundation;
-@class MLPropertyMapping;
+@class MLMapping;
 
 @protocol MLDatabaseObject <NSObject, NSCopying>
 

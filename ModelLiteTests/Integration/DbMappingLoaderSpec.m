@@ -7,7 +7,7 @@
 #import <OCMockito/OCMockito.h>
 
 #import "MLMappingLoader.h"
-#import "MLPropertyMapping.h"
+#import "MLMapping.h"
 
 SpecBegin(JGRDbMappingLoader)
 
@@ -28,7 +28,7 @@ describe(@"MLMappingLoader", ^{
     it(@"access the mapping by class name", ^{
         for (NSString *className in loadedDictionary) {
             NSDictionary *dict = loadedDictionary[className];
-            MLPropertyMapping *mapping = [loader mappingForClassName:className];
+            MLMapping *mapping = [loader mappingForClassName:className];
             
             expect(mapping.tableName).to.equal(dict[@"tableName"]);
             expect(mapping.properties).to.haveCountOf([dict[@"properties"] count]);

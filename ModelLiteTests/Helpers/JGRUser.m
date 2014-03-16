@@ -7,8 +7,11 @@
 //
 
 #import "JGRUser.h"
-#import "MLPropertyMapping.h"
+#import "MLMapping.h"
 #import "MockResultSet.h"
+#import "MLRelationshipMapping.h"
+#import "JGRComment.h"
+#import <FMDB/FMDatabase.h>
 
 @implementation JGRUser
 
@@ -27,14 +30,18 @@
 
 @implementation JGRUser (SpecFactory)
 
-+ (MLPropertyMapping *)databaseMapping
++ (MLMapping *)databaseMapping
 {
-    MLPropertyMapping *mapping = [[MLPropertyMapping alloc] initWithClass:[self class]
-                                                      tableName:@"User"
-                                                     properties:@{@"id" : @(MLPropertyInt64),
-                                                                  @"name": @(MLPropertyString),
-                                                                  @"dob" : @(MLPropertyDate),
-                                                                  @"deleted": @(MLPropertyBOOL)}];
+    MLMapping *mapping = [[MLMapping alloc] initWithClass:[self class]
+                                                                tableName:@"User"
+                                                               properties:@{@"id" : @(MLPropertyInt64),
+                                                                            @"name": @(MLPropertyString),
+                                                                            @"dob" : @(MLPropertyDate),
+                                                                            @"deleted": @(MLPropertyBOOL)}
+                                            relationships:@{@"comments" : [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
+                                                                                                                       childClass:[JGRComment class]
+                                                                                                                   parentIdColumn:@"userId"
+                                                                                                                      indexColumn:@"idx"]}];
     return mapping;
 }
 
@@ -50,7 +57,26 @@
 
 + (NSString *)createTableStatement
 {
-    return @"CREATE TABLE User (id INTEGER PRIMARY KEY, name TEXT, dob DATETIME, deleted BOOLEAN);";
+    return @"CREATE TABLE User ("
+                "id INTEGER PRIMARY KEY,"
+                "name TEXT NOT NULL,"
+                "dob DATETIME NOT NULL,"
+                "deleted BOOLEAN NOT NULL"
+            ");";
+}
+
++ (NSArray *)insertInDb:(FMDatabase *)db userCount:(NSInteger)count
+{
+    NSMutableArray *users = [NSMutableArray new];
+    for (int i = 1; i <= count; i++) {
+        JGRUser *user = [self userWithId:i];
+        [users addObject:user];
+        BOOL ok = [db executeUpdate:@"INSERT OR REPLACE INTO User (id, name, dob, deleted) VALUES (?, ?, ?, ?)", @(user.id), user.name, user.dob, @(user.deleted)];
+        if (!ok) {
+            [NSException raise:@"JGRUserSpecException" format:@"Unable to insert test data"];
+        }
+    }
+    return [users copy];
 }
 
 @end

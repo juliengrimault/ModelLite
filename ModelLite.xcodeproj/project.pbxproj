@@ -22,7 +22,7 @@
 		F93BE4CF18D2DC7100A63831 /* FMResultSet+ModelLite.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE44C18D2BC3F00A63831 /* FMResultSet+ModelLite.m */; };
 		F93BE4D118D2DC7700A63831 /* MLResultSetBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45118D2BC3F00A63831 /* MLResultSetBuilder.m */; };
 		F93BE4D218D2DC7700A63831 /* MLRowInsertBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45318D2BC3F00A63831 /* MLRowInsertBuilder.m */; };
-		F93BE4D418D2DC8000A63831 /* MLPropertyMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45918D2BC3F00A63831 /* MLPropertyMapping.m */; };
+		F93BE4D418D2DC8000A63831 /* MLMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45918D2BC3F00A63831 /* MLMapping.m */; };
 		F93BE4D518D2DC8000A63831 /* MLMappingLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45B18D2BC3F00A63831 /* MLMappingLoader.m */; };
 		F93BE4D618D2DC8000A63831 /* MLPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45D18D2BC3F00A63831 /* MLPropertyType.m */; };
 		F93BE4D718D2DC8000A63831 /* MLDatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45F18D2BC3F00A63831 /* MLDatabaseController.m */; };
@@ -36,12 +36,17 @@
 		F93BE4DF18D2DC9000A63831 /* DbControllerFetchSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47918D2BC5C00A63831 /* DbControllerFetchSpec.m */; };
 		F93BE4E018D2DC9000A63831 /* DbControllerInitSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47A18D2BC5C00A63831 /* DbControllerInitSpec.m */; };
 		F93BE4E118D2DC9000A63831 /* DbControllerUpdateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47B18D2BC5C00A63831 /* DbControllerUpdateSpec.m */; };
-		F93BE4E218D2DC9000A63831 /* DbMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47C18D2BC5C00A63831 /* DbMappingSpec.m */; };
-		F93BE4E318D2DC9000A63831 /* DbResultSetBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47D18D2BC5C00A63831 /* DbResultSetBuilderSpec.m */; };
-		F93BE4E418D2DC9000A63831 /* DbRowBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47E18D2BC5C00A63831 /* DbRowBuilderSpec.m */; };
+		F93BE4E218D2DC9000A63831 /* MappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47C18D2BC5C00A63831 /* MappingSpec.m */; };
+		F93BE4E318D2DC9000A63831 /* ResultSetBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47D18D2BC5C00A63831 /* ResultSetBuilderSpec.m */; };
+		F93BE4E418D2DC9000A63831 /* RowBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47E18D2BC5C00A63831 /* RowBuilderSpec.m */; };
 		F93BE4E518D2DC9000A63831 /* RowInsertBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47F18D2BC5C00A63831 /* RowInsertBuilderSpec.m */; };
+		F967DE0A18D464D10097B5C4 /* MLRowBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F967DE0918D464D10097B5C4 /* MLRowBuilder.m */; };
+		F967DE0D18D465BD0097B5C4 /* MLRelationshipBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F967DE0C18D465BD0097B5C4 /* MLRelationshipBuilder.m */; };
+		F967DE0F18D466530097B5C4 /* RelationshipBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F967DE0E18D466530097B5C4 /* RelationshipBuilderSpec.m */; };
 		F9AC70E418D2E3C700941E1A /* JGDocumentPath.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45618D2BC3F00A63831 /* JGDocumentPath.m */; };
 		F9AC70E518D2E71A00941E1A /* TestMapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = F93BE48118D2BC5C00A63831 /* TestMapping.plist */; };
+		F9AC70E918D2FE2B00941E1A /* RelationshipMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AC70E818D2FE2B00941E1A /* RelationshipMappingSpec.m */; };
+		F9AC70EC18D2FE8F00941E1A /* MLRelationshipMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AC70EB18D2FE8F00941E1A /* MLRelationshipMapping.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +78,8 @@
 		F93BE45318D2BC3F00A63831 /* MLRowInsertBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRowInsertBuilder.m; sourceTree = "<group>"; };
 		F93BE45518D2BC3F00A63831 /* JGDocumentPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGDocumentPath.h; sourceTree = "<group>"; };
 		F93BE45618D2BC3F00A63831 /* JGDocumentPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGDocumentPath.m; sourceTree = "<group>"; };
-		F93BE45818D2BC3F00A63831 /* MLPropertyMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPropertyMapping.h; sourceTree = "<group>"; };
-		F93BE45918D2BC3F00A63831 /* MLPropertyMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPropertyMapping.m; sourceTree = "<group>"; };
+		F93BE45818D2BC3F00A63831 /* MLMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMapping.h; sourceTree = "<group>"; };
+		F93BE45918D2BC3F00A63831 /* MLMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMapping.m; sourceTree = "<group>"; };
 		F93BE45A18D2BC3F00A63831 /* MLMappingLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMappingLoader.h; sourceTree = "<group>"; };
 		F93BE45B18D2BC3F00A63831 /* MLMappingLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMappingLoader.m; sourceTree = "<group>"; };
 		F93BE45C18D2BC3F00A63831 /* MLPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPropertyType.h; sourceTree = "<group>"; };
@@ -97,9 +102,9 @@
 		F93BE47918D2BC5C00A63831 /* DbControllerFetchSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbControllerFetchSpec.m; sourceTree = "<group>"; };
 		F93BE47A18D2BC5C00A63831 /* DbControllerInitSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbControllerInitSpec.m; sourceTree = "<group>"; };
 		F93BE47B18D2BC5C00A63831 /* DbControllerUpdateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbControllerUpdateSpec.m; sourceTree = "<group>"; };
-		F93BE47C18D2BC5C00A63831 /* DbMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbMappingSpec.m; sourceTree = "<group>"; };
-		F93BE47D18D2BC5C00A63831 /* DbResultSetBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbResultSetBuilderSpec.m; sourceTree = "<group>"; };
-		F93BE47E18D2BC5C00A63831 /* DbRowBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbRowBuilderSpec.m; sourceTree = "<group>"; };
+		F93BE47C18D2BC5C00A63831 /* MappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingSpec.m; sourceTree = "<group>"; };
+		F93BE47D18D2BC5C00A63831 /* ResultSetBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultSetBuilderSpec.m; sourceTree = "<group>"; };
+		F93BE47E18D2BC5C00A63831 /* RowBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowBuilderSpec.m; sourceTree = "<group>"; };
 		F93BE47F18D2BC5C00A63831 /* RowInsertBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowInsertBuilderSpec.m; sourceTree = "<group>"; };
 		F93BE48018D2BC5C00A63831 /* SpecHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecHelpers.h; sourceTree = "<group>"; };
 		F93BE48118D2BC5C00A63831 /* TestMapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestMapping.plist; sourceTree = "<group>"; };
@@ -113,8 +118,16 @@
 		F93BE4C718D2DBFA00A63831 /* MLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAppDelegate.m; sourceTree = "<group>"; };
 		F93BE4C818D2DBFA00A63831 /* ModelLite-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ModelLite-Info.plist"; sourceTree = "<group>"; };
 		F93BE4C918D2DBFA00A63831 /* ModelLite-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ModelLite-Prefix.pch"; sourceTree = "<group>"; };
+		F967DE0818D464D10097B5C4 /* MLRowBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRowBuilder.h; sourceTree = "<group>"; };
+		F967DE0918D464D10097B5C4 /* MLRowBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRowBuilder.m; sourceTree = "<group>"; };
+		F967DE0B18D465BD0097B5C4 /* MLRelationshipBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipBuilder.h; sourceTree = "<group>"; };
+		F967DE0C18D465BD0097B5C4 /* MLRelationshipBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipBuilder.m; sourceTree = "<group>"; };
+		F967DE0E18D466530097B5C4 /* RelationshipBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationshipBuilderSpec.m; sourceTree = "<group>"; };
 		F9A7A9BE18D2BB3A0079205C /* ModelLiteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ModelLiteTests-Info.plist"; sourceTree = "<group>"; };
 		F9A7A9C018D2BB3A0079205C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F9AC70E818D2FE2B00941E1A /* RelationshipMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationshipMappingSpec.m; sourceTree = "<group>"; };
+		F9AC70EA18D2FE8F00941E1A /* MLRelationshipMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipMapping.h; sourceTree = "<group>"; };
+		F9AC70EB18D2FE8F00941E1A /* MLRelationshipMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipMapping.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,8 +211,12 @@
 			children = (
 				F93BE45018D2BC3F00A63831 /* MLResultSetBuilder.h */,
 				F93BE45118D2BC3F00A63831 /* MLResultSetBuilder.m */,
+				F967DE0818D464D10097B5C4 /* MLRowBuilder.h */,
+				F967DE0918D464D10097B5C4 /* MLRowBuilder.m */,
 				F93BE45218D2BC3F00A63831 /* MLRowInsertBuilder.h */,
 				F93BE45318D2BC3F00A63831 /* MLRowInsertBuilder.m */,
+				F967DE0B18D465BD0097B5C4 /* MLRelationshipBuilder.h */,
+				F967DE0C18D465BD0097B5C4 /* MLRelationshipBuilder.m */,
 			);
 			path = CRUD;
 			sourceTree = "<group>";
@@ -207,8 +224,10 @@
 		F93BE45718D2BC3F00A63831 /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
-				F93BE45818D2BC3F00A63831 /* MLPropertyMapping.h */,
-				F93BE45918D2BC3F00A63831 /* MLPropertyMapping.m */,
+				F93BE45818D2BC3F00A63831 /* MLMapping.h */,
+				F93BE45918D2BC3F00A63831 /* MLMapping.m */,
+				F9AC70EA18D2FE8F00941E1A /* MLRelationshipMapping.h */,
+				F9AC70EB18D2FE8F00941E1A /* MLRelationshipMapping.m */,
 				F93BE45A18D2BC3F00A63831 /* MLMappingLoader.h */,
 				F93BE45B18D2BC3F00A63831 /* MLMappingLoader.m */,
 				F93BE45C18D2BC3F00A63831 /* MLPropertyType.h */,
@@ -249,10 +268,12 @@
 				F93BE47918D2BC5C00A63831 /* DbControllerFetchSpec.m */,
 				F93BE47A18D2BC5C00A63831 /* DbControllerInitSpec.m */,
 				F93BE47B18D2BC5C00A63831 /* DbControllerUpdateSpec.m */,
-				F93BE47D18D2BC5C00A63831 /* DbResultSetBuilderSpec.m */,
-				F93BE47E18D2BC5C00A63831 /* DbRowBuilderSpec.m */,
+				F93BE47D18D2BC5C00A63831 /* ResultSetBuilderSpec.m */,
+				F93BE47E18D2BC5C00A63831 /* RowBuilderSpec.m */,
+				F967DE0E18D466530097B5C4 /* RelationshipBuilderSpec.m */,
 				F93BE47F18D2BC5C00A63831 /* RowInsertBuilderSpec.m */,
-				F93BE47C18D2BC5C00A63831 /* DbMappingSpec.m */,
+				F93BE47C18D2BC5C00A63831 /* MappingSpec.m */,
+				F9AC70E818D2FE2B00941E1A /* RelationshipMappingSpec.m */,
 			);
 			path = Spec;
 			sourceTree = "<group>";
@@ -493,12 +514,15 @@
 				F93BE4CC18D2DBFA00A63831 /* main.m in Sources */,
 				F93BE4D218D2DC7700A63831 /* MLRowInsertBuilder.m in Sources */,
 				F93BE4D618D2DC8000A63831 /* MLPropertyType.m in Sources */,
+				F9AC70EC18D2FE8F00941E1A /* MLRelationshipMapping.m in Sources */,
 				F93BE4D718D2DC8000A63831 /* MLDatabaseController.m in Sources */,
 				F93BE4CF18D2DC7100A63831 /* FMResultSet+ModelLite.m in Sources */,
 				F93BE4CD18D2DBFA00A63831 /* MLAppDelegate.m in Sources */,
 				F9AC70E418D2E3C700941E1A /* JGDocumentPath.m in Sources */,
+				F967DE0A18D464D10097B5C4 /* MLRowBuilder.m in Sources */,
+				F967DE0D18D465BD0097B5C4 /* MLRelationshipBuilder.m in Sources */,
 				F93BE4D518D2DC8000A63831 /* MLMappingLoader.m in Sources */,
-				F93BE4D418D2DC8000A63831 /* MLPropertyMapping.m in Sources */,
+				F93BE4D418D2DC8000A63831 /* MLMapping.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,11 +535,13 @@
 				F93BE4D818D2DC8800A63831 /* Integration.m in Sources */,
 				F93BE4DC18D2DC8C00A63831 /* DatabaseIntegrationSpec.m in Sources */,
 				F93BE4DA18D2DC8800A63831 /* JGRUser.m in Sources */,
-				F93BE4E318D2DC9000A63831 /* DbResultSetBuilderSpec.m in Sources */,
+				F93BE4E318D2DC9000A63831 /* ResultSetBuilderSpec.m in Sources */,
+				F9AC70E918D2FE2B00941E1A /* RelationshipMappingSpec.m in Sources */,
 				F93BE4D918D2DC8800A63831 /* JGRComment.m in Sources */,
-				F93BE4E418D2DC9000A63831 /* DbRowBuilderSpec.m in Sources */,
+				F967DE0F18D466530097B5C4 /* RelationshipBuilderSpec.m in Sources */,
+				F93BE4E418D2DC9000A63831 /* RowBuilderSpec.m in Sources */,
 				F93BE4DD18D2DC8C00A63831 /* DbMappingLoaderSpec.m in Sources */,
-				F93BE4E218D2DC9000A63831 /* DbMappingSpec.m in Sources */,
+				F93BE4E218D2DC9000A63831 /* MappingSpec.m in Sources */,
 				F93BE4E118D2DC9000A63831 /* DbControllerUpdateSpec.m in Sources */,
 				F93BE4DE18D2DC8C00A63831 /* FetchIntegrationTestSpec.m in Sources */,
 				F93BE4DF18D2DC9000A63831 /* DbControllerFetchSpec.m in Sources */,

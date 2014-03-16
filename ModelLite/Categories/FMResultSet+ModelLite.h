@@ -7,7 +7,7 @@
 //
 
 #import <FMDB/FMResultSet.h>
-#import "MLPropertyMapping.h"
+#import "MLMapping.h"
 #import "MLPropertyType.h"
 
 @interface FMResultSet (ModelLite)

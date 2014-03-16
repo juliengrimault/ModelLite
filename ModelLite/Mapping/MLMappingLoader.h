@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class MLPropertyMapping;
+@class MLMapping;
 
 @interface MLMappingLoader : NSObject
 
@@ -16,6 +16,6 @@
 - (id)init; // load file name DbMapping.plist
 - (id)initWithMappingURL:(NSURL *)url;
 
-- (MLPropertyMapping *)mappingForClassName:(NSString *)className;
+- (MLMapping *)mappingForClassName:(NSString *)className;
 
 @end

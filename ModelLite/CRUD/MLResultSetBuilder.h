@@ -8,20 +8,18 @@
 
 @import Foundation;
 #import "MLDatabaseObject.h"
-@class MLPropertyMapping;
+@class MLMapping;
 @class FMResultSet;
 
 @interface MLResultSetBuilder : NSObject
 
-@property (nonatomic, strong, readonly) MLPropertyMapping *mapping;
+@property (nonatomic, strong, readonly) MLMapping *mapping;
 
-- (id)initWithInstanceCache:(NSMapTable *)instanceCache mapping:(MLPropertyMapping *)mapping;
+- (id)initWithInstanceCache:(NSMapTable *)instanceCache mapping:(MLMapping *)mapping;
 
 // Iterate over the entire result to build an array of model instances
 // for each row in the result set, a new instance is built only if it is not already present in the cacheFMResultSet row
 - (NSArray *)buildInstancesFromResultSet:(FMResultSet *)resultSet;
 
-// build a new model instance from the current row of the FMResultSet
-// this method does not move the FMResultSet index (does not call `next`)
-- (id<MLDatabaseObject>)buildInstanceFromRow:(FMResultSet *)row;
+
 @end

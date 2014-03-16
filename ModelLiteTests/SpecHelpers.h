@@ -7,7 +7,7 @@
 //
 
 #import "Integration.h"
-#import "MLPropertyMapping.h"
+#import "MLMapping.h"
 
 #import "JGRDatabaseController_Private.h"
 #import "MockResultSet.h"

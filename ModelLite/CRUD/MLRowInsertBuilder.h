@@ -8,14 +8,14 @@
 
 @import Foundation;
 #import "MLDatabaseObject.h"
-@class MLPropertyMapping, FMDatabase;
+@class MLMapping, FMDatabase;
 
 @interface MLRowInsertBuilder : NSObject
 
 @property (nonatomic, readonly, copy) NSString *statement;
 @property (nonatomic, readonly, copy) NSArray *statementArgument;
 
-- (id)initWithMapping:(MLPropertyMapping *)mapping instance:(NSObject<MLDatabaseObject> *)instance;
+- (id)initWithMapping:(MLMapping *)mapping instance:(NSObject<MLDatabaseObject> *)instance;
 
 - (BOOL)executeStatement:(FMDatabase *)db;
 @end

@@ -13,7 +13,7 @@ SpecBegin(RowInsertBuilderSpec)
 
 describe(@"RowInsertBuilder", ^{
     __unused __block MLRowInsertBuilder *builder;
-    __block MLPropertyMapping *mapping;
+    __block MLMapping *mapping;
     __block JGRUser *instance;
     
     beforeEach(^{

@@ -17,6 +17,32 @@
 			<key>deleted</key>
 			<string>boolean</string>
 		</dict>
+		<key>relationships</key>
+		<dict>
+			<key>comments</key>
+			<dict>
+				<key>childClass</key>
+				<string>JGRComment</string>
+				<key>parentIdColumn</key>
+				<string>userId</string>
+				<key>indexColumn</key>
+				<string>index</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>JGRComment</key>
+	<dict>
+		<key>tableName</key>
+		<string>Comment</string>
+		<key>properties</key>
+		<dict>
+			<key>id</key>
+			<string>int64</string>
+			<key>text</key>
+			<string>string</string>
+			<key>createdAt</key>
+			<string>date</string>
+		</dict>
 	</dict>
 </dict>
 </plist>

@@ -17,6 +17,8 @@
 @property (nonatomic, copy) NSDate *dob;
 @property (nonatomic, getter = isDeleted) BOOL deleted;
 
+@property (nonatomic, copy) NSArray *comments;
+
 
 @property (nonatomic) BOOL hasAwakeFromFetchBeenCalled;
 
@@ -24,11 +26,13 @@
 
 @interface JGRUser (SpecFactory)
 
-+ (MLPropertyMapping *)databaseMapping;
++ (MLMapping *)databaseMapping;
 
 + (instancetype)userWithId:(int64_t)id;
 
 + (NSString *)createTableStatement;
+
++ (NSArray *)insertInDb:(FMDatabase *)db userCount:(NSInteger)count;
 @end
 
 @interface MockResultSet (SpecFactory)

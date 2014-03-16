@@ -42,7 +42,7 @@ describe(@"DbControllerInit", ^{
         it(@"has database mappings", ^{
             MLMappingLoader *mappingLoader = [[MLMappingLoader alloc] initWithMappingURL:mappingURL];
             for (
-MLPropertyMapping *m in mappingLoader.allMappings) {
+MLMapping *m in mappingLoader.allMappings) {
                 expect(controller.databaseMappings[m.modelClass]).to.equal(m);
             }
         });

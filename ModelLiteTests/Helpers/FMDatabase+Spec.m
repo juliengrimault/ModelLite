@@ -7,8 +7,8 @@
 //
 
 #import "FMDatabase+Spec.h"
-#import "JGRUser.h"
-#import "JGRComment.h"
+#import "MLUser.h"
+#import "MLComment.h"
 
 @implementation FMDatabase (Spec)
 
@@ -16,10 +16,10 @@
 {
     BOOL ok = [self open];
     if (ok) {
-        ok = ok && [self executeUpdate:[JGRUser createTableStatement]];
+        ok = ok && [self executeUpdate:[MLUser createTableStatement]];
     }
     if (ok) {
-        ok = ok && [self executeUpdate:[JGRComment createTableStatement]];
+        ok = ok && [self executeUpdate:[MLComment createTableStatement]];
     }
 
     return ok;

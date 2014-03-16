@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>JGRUser</key>
+	<key>MLUser</key>
 	<dict>
 		<key>tableName</key>
 		<string>User</string>
@@ -22,7 +22,7 @@
 			<key>comments</key>
 			<dict>
 				<key>childClass</key>
-				<string>JGRComment</string>
+				<string>MLComment</string>
 				<key>parentIdColumn</key>
 				<string>userId</string>
 				<key>indexColumn</key>
@@ -30,7 +30,7 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>JGRComment</key>
+	<key>MLComment</key>
 	<dict>
 		<key>tableName</key>
 		<string>Comment</string>

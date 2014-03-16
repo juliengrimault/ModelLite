@@ -28,8 +28,8 @@
 		F93BE4D618D2DC8000A63831 /* MLPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45D18D2BC3F00A63831 /* MLPropertyType.m */; };
 		F93BE4D718D2DC8000A63831 /* MLDatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45F18D2BC3F00A63831 /* MLDatabaseController.m */; };
 		F93BE4D818D2DC8800A63831 /* Integration.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE46C18D2BC5C00A63831 /* Integration.m */; };
-		F93BE4D918D2DC8800A63831 /* JGRComment.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE46E18D2BC5C00A63831 /* JGRComment.m */; };
-		F93BE4DA18D2DC8800A63831 /* JGRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47118D2BC5C00A63831 /* JGRUser.m */; };
+		F93BE4D918D2DC8800A63831 /* MLComment.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE46E18D2BC5C00A63831 /* MLComment.m */; };
+		F93BE4DA18D2DC8800A63831 /* MLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47118D2BC5C00A63831 /* MLUser.m */; };
 		F93BE4DC18D2DC8C00A63831 /* DatabaseIntegrationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47518D2BC5C00A63831 /* DatabaseIntegrationSpec.m */; };
 		F93BE4DD18D2DC8C00A63831 /* DbMappingLoaderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47618D2BC5C00A63831 /* DbMappingLoaderSpec.m */; };
 		F93BE4DE18D2DC8C00A63831 /* FetchIntegrationTestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47718D2BC5C00A63831 /* FetchIntegrationTestSpec.m */; };
@@ -91,11 +91,11 @@
 		F93BE46018D2BC3F00A63831 /* MLDatabaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDatabaseObject.h; sourceTree = "<group>"; };
 		F93BE46B18D2BC5C00A63831 /* Integration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Integration.h; sourceTree = "<group>"; };
 		F93BE46C18D2BC5C00A63831 /* Integration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Integration.m; sourceTree = "<group>"; };
-		F93BE46D18D2BC5C00A63831 /* JGRComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRComment.h; sourceTree = "<group>"; };
-		F93BE46E18D2BC5C00A63831 /* JGRComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRComment.m; sourceTree = "<group>"; };
-		F93BE46F18D2BC5C00A63831 /* JGRDatabaseController_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRDatabaseController_Private.h; sourceTree = "<group>"; };
-		F93BE47018D2BC5C00A63831 /* JGRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGRUser.h; sourceTree = "<group>"; };
-		F93BE47118D2BC5C00A63831 /* JGRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGRUser.m; sourceTree = "<group>"; };
+		F93BE46D18D2BC5C00A63831 /* MLComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLComment.h; sourceTree = "<group>"; };
+		F93BE46E18D2BC5C00A63831 /* MLComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLComment.m; sourceTree = "<group>"; };
+		F93BE46F18D2BC5C00A63831 /* MLDatabaseController_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDatabaseController_Private.h; sourceTree = "<group>"; };
+		F93BE47018D2BC5C00A63831 /* MLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLUser.h; sourceTree = "<group>"; };
+		F93BE47118D2BC5C00A63831 /* MLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLUser.m; sourceTree = "<group>"; };
 		F93BE47518D2BC5C00A63831 /* DatabaseIntegrationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseIntegrationSpec.m; sourceTree = "<group>"; };
 		F93BE47618D2BC5C00A63831 /* DbMappingLoaderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbMappingLoaderSpec.m; sourceTree = "<group>"; };
 		F93BE47718D2BC5C00A63831 /* FetchIntegrationTestSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchIntegrationTestSpec.m; sourceTree = "<group>"; };
@@ -241,11 +241,11 @@
 			children = (
 				F93BE46B18D2BC5C00A63831 /* Integration.h */,
 				F93BE46C18D2BC5C00A63831 /* Integration.m */,
-				F93BE46D18D2BC5C00A63831 /* JGRComment.h */,
-				F93BE46E18D2BC5C00A63831 /* JGRComment.m */,
-				F93BE46F18D2BC5C00A63831 /* JGRDatabaseController_Private.h */,
-				F93BE47018D2BC5C00A63831 /* JGRUser.h */,
-				F93BE47118D2BC5C00A63831 /* JGRUser.m */,
+				F93BE46D18D2BC5C00A63831 /* MLComment.h */,
+				F93BE46E18D2BC5C00A63831 /* MLComment.m */,
+				F93BE46F18D2BC5C00A63831 /* MLDatabaseController_Private.h */,
+				F93BE47018D2BC5C00A63831 /* MLUser.h */,
+				F93BE47118D2BC5C00A63831 /* MLUser.m */,
 				F93084A118D5831F00C7718A /* FMDatabase+Spec.h */,
 				F93084A218D5831F00C7718A /* FMDatabase+Spec.m */,
 			);
@@ -534,10 +534,10 @@
 				F93BE4E018D2DC9000A63831 /* DbControllerInitSpec.m in Sources */,
 				F93BE4D818D2DC8800A63831 /* Integration.m in Sources */,
 				F93BE4DC18D2DC8C00A63831 /* DatabaseIntegrationSpec.m in Sources */,
-				F93BE4DA18D2DC8800A63831 /* JGRUser.m in Sources */,
+				F93BE4DA18D2DC8800A63831 /* MLUser.m in Sources */,
 				F93BE4E318D2DC9000A63831 /* ResultSetBuilderSpec.m in Sources */,
 				F9AC70E918D2FE2B00941E1A /* RelationshipMappingSpec.m in Sources */,
-				F93BE4D918D2DC8800A63831 /* JGRComment.m in Sources */,
+				F93BE4D918D2DC8800A63831 /* MLComment.m in Sources */,
 				F967DE0F18D466530097B5C4 /* RelationshipBuilderSpec.m in Sources */,
 				F93BE4E418D2DC9000A63831 /* RowBuilderSpec.m in Sources */,
 				F93084A318D5831F00C7718A /* FMDatabase+Spec.m in Sources */,

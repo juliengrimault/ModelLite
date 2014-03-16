@@ -10,7 +10,7 @@
 #import "MLRowBuilder.h"
 
 
-@interface JGRUserSubclass :JGRUser
+@interface JGRUserSubclass : MLUser
 @end
 
 SpecBegin(MLRowBuilderSpec)
@@ -19,20 +19,20 @@ describe(@"RowBuilder", ^{
     __block FMDatabase *db;
     __block MLRowBuilder *builder;
     __block FMResultSet *rs;
-    __block JGRUser *julien;
+    __block MLUser *julien;
 
     beforeEach(^{
         db = [[FMDatabase alloc] initWithPath:nil];
         [db createSpecTables];
-        builder = [[MLRowBuilder alloc] initWithMapping:[JGRUser databaseMapping]];
+        builder = [[MLRowBuilder alloc] initWithMapping:[MLUser databaseMapping]];
 
-        julien = [JGRUser new];
+        julien = [MLUser new];
         julien.id = 10;
         julien.name = @"Julien";
         julien.dob = [NSDate dateWithTimeIntervalSince1970:0];
         julien.deleted = NO;
 
-        [JGRUser insertInDb:db user:julien];
+        [MLUser insertInDb:db user:julien];
     });
 
     describe(@"matching result set", ^{
@@ -42,12 +42,12 @@ describe(@"RowBuilder", ^{
         });
         
         it(@"assigns the class", ^{
-            expect(builder.mapping).to.equal([JGRUser databaseMapping]);
+            expect(builder.mapping).to.equal([MLUser databaseMapping]);
         });
         
         describe(@"building a model instance", ^{
             it(@"reads each property from the result set row", ^{
-                JGRUser *user = [builder buildInstanceFromRow:rs];
+                MLUser *user = [builder buildInstanceFromRow:rs];
                 expect(user.id).to.equal(julien.id);
                 expect(user.name).to.equal(julien.name);
                 expect(user.dob).to.equal(julien.dob);
@@ -55,7 +55,7 @@ describe(@"RowBuilder", ^{
             });
             
             it(@"has not called awakeFromFetch since it is not implemented", ^{
-                JGRUser *user = [builder buildInstanceFromRow:rs];
+                MLUser *user = [builder buildInstanceFromRow:rs];
                 expect(user.hasAwakeFromFetchBeenCalled).to.beFalsy();
             });
         });
@@ -78,7 +78,7 @@ describe(@"RowBuilder", ^{
         
         
         it(@"reads available properties from the result set row", ^{
-            JGRUser *user = [builder buildInstanceFromRow:rs];
+            MLUser *user = [builder buildInstanceFromRow:rs];
             expect(user.id).to.equal(10);
             expect(user.name).to.beNil();
             expect(user.dob).to.beNil();

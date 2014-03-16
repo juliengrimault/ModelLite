@@ -9,7 +9,7 @@
 #import "Integration.h"
 #import "MLMapping.h"
 
-#import "JGRDatabaseController_Private.h"
+#import "MLDatabaseController_Private.h"
 #import "FMDatabase+Spec.h"
-#import "JGRUser.h"
-#import "JGRComment.h"
+#import "MLUser.h"
+#import "MLComment.h"

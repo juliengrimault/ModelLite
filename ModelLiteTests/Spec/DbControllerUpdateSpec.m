@@ -57,12 +57,12 @@ describe(@"DatabaseController", ^{
     });
     
     describe(@"save instance", ^{
-        __block JGRUser *instance;
+        __block MLUser *instance;
         beforeEach(^{
             // run directly against the db so that it's synchronous
-            [controller.db executeUpdate:[JGRUser createTableStatement]];
+            [controller.db executeUpdate:[MLUser createTableStatement]];
             
-            instance = [[JGRUser alloc] init];
+            instance = [[MLUser alloc] init];
             instance.id = 123;
             instance.name = @"Julien";
             instance.dob = [[@20 years] ago];
@@ -86,7 +86,7 @@ describe(@"DatabaseController", ^{
         it(@"adds the instance to the entity cache", ^{
             [controller saveInstance:instance];
             
-            expect([controller.classCache[[JGRUser class]] objectForKey:@(instance.id)]).willNot.beNil();
+            expect([controller.classCache[[MLUser class]] objectForKey:@(instance.id)]).willNot.beNil();
         });
 
         describe(@"existing row in the db", ^{

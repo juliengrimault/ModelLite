@@ -7,8 +7,8 @@
 #import <OCMockito/OCMockito.h>
 
 #import "MLMapping.h"
-#import "JGRUser.h"
-#import "JGRComment.h"
+#import "MLUser.h"
+#import "MLComment.h"
 #import "MLRelationshipMapping.h"
 
 SpecBegin(MLMapping)
@@ -29,7 +29,7 @@ describe(@"MLMapping", ^{
             
             it(@"raises an error if tableName is missing", ^{
                 expect(^{
-                    mapping = [[MLMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLMapping alloc] initWithClass:[MLUser class]
                                                         tableName:nil
                                                        properties:@{ @"id" : @(MLPropertyInt64)}
                                                          relationships:nil];
@@ -38,7 +38,7 @@ describe(@"MLMapping", ^{
             
             it(@"raises an error if properties are missing", ^{
                 expect(^{
-                    mapping = [[MLMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLMapping alloc] initWithClass:[MLUser class]
                                                              tableName:@"User"
                                                             properties:nil
                                                          relationships:nil];
@@ -47,7 +47,7 @@ describe(@"MLMapping", ^{
             
             it(@"raises an error if the id property is missing", ^{
                 expect(^{
-                    mapping = [[MLMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLMapping alloc] initWithClass:[MLUser class]
                                                              tableName:@"User"
                                                             properties:@{@"someProp" : @(MLPropertyString)}
                                                          relationships:nil];
@@ -56,14 +56,14 @@ describe(@"MLMapping", ^{
             
             it(@"raises an error if the id property is not either int64, NSNumber * or NSString *", ^{
                 expect(^{
-                    mapping = [[MLMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLMapping alloc] initWithClass:[MLUser class]
                                                              tableName:@"User"
                                                             properties:@{@"id" : @(MLPropertyDate)}
                                                          relationships:nil];
                 }).to.raiseAny();
                 
                 expect(^{
-                    mapping = [[MLMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLMapping alloc] initWithClass:[MLUser class]
                                                              tableName:@"User"
                                                             properties:@{@"id" : @(MLPropertyBOOL)}
                                                          relationships:nil];
@@ -73,7 +73,7 @@ describe(@"MLMapping", ^{
             it(@"raises an error when the mapping references a property which does not exist on the model class", ^{
                 NSDictionary *properties = @{@"id" : @(MLPropertyInt64), @"doesNotExist": @(MLPropertyString)};
                 expect(^{
-                    mapping = [[MLMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLMapping alloc] initWithClass:[MLUser class]
                                                              tableName:@"User"
                                                             properties:properties
                                                          relationships:nil];
@@ -84,7 +84,7 @@ describe(@"MLMapping", ^{
             it(@"raises an error when the relationship dictionary does not contain only MLRelationshipMapping", ^{
                 NSDictionary *properties = @{@"id" : @(MLPropertyInt64), @"doesNotExist": @(MLPropertyString)};
                 expect(^{
-                    mapping = [[MLMapping alloc] initWithClass:[JGRUser class]
+                    mapping = [[MLMapping alloc] initWithClass:[MLUser class]
                                                              tableName:@"User"
                                                             properties:properties
                                                          relationships:@{@"comments" : @3}];
@@ -98,20 +98,20 @@ describe(@"MLMapping", ^{
                                          @"name" : @(MLPropertyString)};
 
             NSDictionary *relationships = @{@"comments" : [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
-                                                                                                       childClass:[JGRComment class]
+                                                                                                       childClass:[MLComment class]
                                                                                                    parentIdColumn:@"userId"
                                                                                                       indexColumn:@"index"]};
 
 
             beforeEach(^{
-                mapping = [[MLMapping alloc] initWithClass:[JGRUser class]
+                mapping = [[MLMapping alloc] initWithClass:[MLUser class]
                                                          tableName:@"User"
                                                         properties:properties
                                                      relationships:relationships];
             });
 
             it(@"takes the model class", ^{
-                expect(mapping.modelClass).to.equal([JGRUser class]);
+                expect(mapping.modelClass).to.equal([MLUser class]);
             });
 
             it(@"takes the table name", ^{
@@ -136,13 +136,13 @@ describe(@"MLMapping", ^{
         beforeEach(^{
             dictionary = @{@"tableName" : @"SuperUser",
                            @"properties" : @{@"id" : @"int64", @"name" : @"string"},
-                           @"relationships" : @{ @"comments": @{ @"childClass" : @"JGRComment",
+                           @"relationships" : @{ @"comments": @{ @"childClass" : @"MLComment",
                                                                  @"lookupTable" : @"UsersCommentsLookup",
                                                                  @"parentIdColumn" : @"userId",
                                                                  @"childIdColumn" : @"commentId",
                                                                  @"indexColumn" : @"index"}
                                                  }};
-            mapping = [[MLMapping alloc] initWithClassName:@"JGRUser" dictionary:dictionary];
+            mapping = [[MLMapping alloc] initWithClassName:@"MLUser" dictionary:dictionary];
         });
         
         it(@"extract table name from the dictionary", ^{

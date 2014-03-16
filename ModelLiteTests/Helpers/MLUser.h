@@ -1,5 +1,5 @@
 //
-//  JGRUser.h
+//  MLUser.h
 //  ModelLite
 //
 //  Created by Julien on 10/3/14.
@@ -10,7 +10,7 @@
 #import "MLDatabaseObject.h"
 @class FMDatabase;
 
-@interface JGRUser : NSObject <MLDatabaseObject>
+@interface MLUser : NSObject <MLDatabaseObject>
 
 @property (nonatomic) int64_t id;
 @property (nonatomic, copy) NSString *name;
@@ -24,7 +24,7 @@
 
 @end
 
-@interface JGRUser (SpecFactory)
+@interface MLUser (SpecFactory)
 
 + (MLMapping *)databaseMapping;
 
@@ -33,7 +33,7 @@
 + (NSString *)createTableStatement;
 
 + (NSArray *)insertInDb:(FMDatabase *)db userCount:(NSInteger)count;
-+ (BOOL)insertInDb:(FMDatabase *)db user:(JGRUser *)user;
++ (BOOL)insertInDb:(FMDatabase *)db user:(MLUser *)user;
 @end
 
 

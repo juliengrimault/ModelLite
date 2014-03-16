@@ -1,18 +1,18 @@
 //
-//  JGRUser.m
+//  MLUser.m
 //  ModelLite
 //
 //  Created by Julien on 10/3/14.
 //  Copyright (c) 2014 juliengrimault. See included LICENSE file.
 //
 
-#import "JGRUser.h"
+#import "MLUser.h"
 #import "MLMapping.h"
 #import "MLRelationshipMapping.h"
-#import "JGRComment.h"
+#import "MLComment.h"
 #import <FMDB/FMDatabase.h>
 
-@implementation JGRUser
+@implementation MLUser
 
 #pragma mark - JGRDbObject
 - (id)primaryKeyValue
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation JGRUser (SpecFactory)
+@implementation MLUser (SpecFactory)
 
 + (MLMapping *)databaseMapping
 {
@@ -38,7 +38,7 @@
                                                                             @"dob" : @(MLPropertyDate),
                                                                             @"deleted": @(MLPropertyBOOL)}
                                             relationships:@{@"comments" : [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
-                                                                                                                       childClass:[JGRComment class]
+                                                                                                                       childClass:[MLComment class]
                                                                                                                    parentIdColumn:@"userId"
                                                                                                                       indexColumn:@"idx"]}];
     return mapping;
@@ -46,7 +46,7 @@
 
 + (instancetype)userWithId:(int64_t)id
 {
-    JGRUser *user = [[JGRUser alloc] init];
+    MLUser *user = [[MLUser alloc] init];
     user.id = id;
     user.name = [NSString stringWithFormat:@"user%lld", id];
     user.dob = [NSDate date];
@@ -68,7 +68,7 @@
 {
     NSMutableArray *users = [NSMutableArray new];
     for (int i = 1; i <= count; i++) {
-        JGRUser *user = [self userWithId:i];
+        MLUser *user = [self userWithId:i];
         [users addObject:user];
         BOOL ok = [self insertInDb:db user:user];
         if (!ok) {
@@ -78,7 +78,7 @@
     return [users copy];
 }
 
-+ (BOOL)insertInDb:(FMDatabase *)db user:(JGRUser *)user
++ (BOOL)insertInDb:(FMDatabase *)db user:(MLUser *)user
 {
     return [db executeUpdate:@"INSERT OR REPLACE INTO User (id, name, dob, deleted) VALUES (?, ?, ?, ?)", @(user.id), user.name, user.dob, @(user.deleted)];
 }

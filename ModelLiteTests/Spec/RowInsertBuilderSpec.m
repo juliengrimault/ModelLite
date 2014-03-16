@@ -14,11 +14,11 @@ SpecBegin(RowInsertBuilderSpec)
 describe(@"RowInsertBuilder", ^{
     __unused __block MLRowInsertBuilder *builder;
     __block MLMapping *mapping;
-    __block JGRUser *instance;
+    __block MLUser *instance;
     
     beforeEach(^{
-        mapping = [JGRUser databaseMapping];
-        instance = [JGRUser userWithId:123];
+        mapping = [MLUser databaseMapping];
+        instance = [MLUser userWithId:123];
         instance.dob = nil;
     });
     
@@ -36,7 +36,7 @@ describe(@"RowInsertBuilder", ^{
     
     it(@"raises an exception when mapping is not for the instance class", ^{
         expect(^{
-            builder = [[MLRowInsertBuilder alloc] initWithMapping:[JGRComment databaseMapping] instance:instance];
+            builder = [[MLRowInsertBuilder alloc] initWithMapping:[MLComment databaseMapping] instance:instance];
         }).to.raiseAny();
     });    
 });

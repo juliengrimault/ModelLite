@@ -6,9 +6,7 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 
-#import "JGRDatabaseController_Private.h"
-#import <FMDB/FMDatabase.h>
-#import "JGRUser.h"
+#import "SpecHelpers.h"
 #import "JGDocumentPath.h"
 #import "Integration.h"
 
@@ -45,13 +43,13 @@ describe(@"FetchIntegrationTest", ^{
         controller = [[MLDatabaseController alloc] initWithMappingURL:nil dbURL:dbURL];
         
         //run create and insert directly against the db so that it is synchronous.
-        [controller.db executeUpdate:[JGRUser createTableStatement]];
+        [controller.db executeUpdate:[MLUser createTableStatement]];
         insertUsers(controller.db);
     });
     
 //    it(@"fetches users", ^{
 //        __block NSArray *fetchedUsers = nil;
-//        [controller runFetchForClass:[JGRUser class]
+//        [controller runFetchForClass:[MLUser class]
 //                          fetchBlock:^FMResultSet *(FMDatabase *db) {
 //                              return [db executeQuery:@"SELECT * from User where name = ?", @"Julien"];
 //                          }

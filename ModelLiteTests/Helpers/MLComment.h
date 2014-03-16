@@ -1,5 +1,5 @@
 //
-//  JGRComment.h
+//  MLComment.h
 //  ModelLite
 //
 //  Created by Julien on 11/3/14.
@@ -11,7 +11,7 @@
 @class MLMapping;
 @class FMDatabase;
 
-@interface JGRComment : NSObject <MLDatabaseObject>
+@interface MLComment : NSObject <MLDatabaseObject>
 
 @property (nonatomic) int64_t id;
 @property (nonatomic, copy) NSString *text;
@@ -20,7 +20,7 @@
 @end
 
 
-@interface JGRComment (SpecFactory)
+@interface MLComment (SpecFactory)
 
 + (MLMapping *)databaseMapping;
 + (NSString *)createTableStatement;

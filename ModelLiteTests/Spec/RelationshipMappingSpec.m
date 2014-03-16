@@ -7,8 +7,8 @@
 #import <OCMockito/OCMockito.h>
 
 #import "MLRelationshipMapping.h"
-#import "JGRUser.h"
-#import "JGRComment.h"
+#import "MLUser.h"
+#import "MLComment.h"
 
 SpecBegin(RelationshipMapping)
 
@@ -20,7 +20,7 @@ describe(@"RelationshipMapping", ^{
             it(@"raises an error if relationship name is missing", ^{
                 expect(^{
                     mapping = [[MLRelationshipMapping alloc] initWithRelationshipName:nil
-                                                                           childClass:[JGRUser class]
+                                                                           childClass:[MLUser class]
                                                                        parentIdColumn:@"userId"
                                                                           indexColumn:@"index"];
                 }).to.raiseAny();
@@ -39,7 +39,7 @@ describe(@"RelationshipMapping", ^{
             it(@"raises an error if the parentId column is missing", ^{
                 expect(^{
                     mapping = [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
-                                                                           childClass:[JGRComment class]
+                                                                           childClass:[MLComment class]
                                                                        parentIdColumn:nil
                                                                           indexColumn:@"index"];
                 }).to.raiseAny();
@@ -49,7 +49,7 @@ describe(@"RelationshipMapping", ^{
             it(@"raises an error if indexColumn is missing", ^{
                 expect(^{
                     mapping = [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
-                                                                           childClass:[JGRComment class]
+                                                                           childClass:[MLComment class]
                                                                        parentIdColumn:@"userId"
                                                                           indexColumn:nil];
                 }).to.raiseAny();
@@ -59,7 +59,7 @@ describe(@"RelationshipMapping", ^{
         describe(@"assigns the properties", ^{
             beforeEach(^{
                 mapping = [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
-                                                                       childClass:[JGRComment class]
+                                                                       childClass:[MLComment class]
                                                                    parentIdColumn:@"userId"
                                                                       indexColumn:@"index"];
             });
@@ -69,7 +69,7 @@ describe(@"RelationshipMapping", ^{
             });
 
             it(@"assigns the child class", ^{
-                expect(mapping.childClass).to.equal([JGRComment class]);
+                expect(mapping.childClass).to.equal([MLComment class]);
             });
 
             it(@"assigns the parentId column", ^{
@@ -88,7 +88,7 @@ describe(@"RelationshipMapping", ^{
         beforeEach(^{
             dictionary = @{@"parentIdColumn" : @"userId",
                            @"indexColumn" : @"index",
-                           @"childClass" : @"JGRComment" };
+                           @"childClass" : @"MLComment" };
             mapping = [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
                                                                     dictionary:dictionary];
         });

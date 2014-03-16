@@ -43,7 +43,7 @@ describe(@"DatabaseController Fetch", ^{
         
         it(@"raises an exception if no fetchBlock", ^{
             expect(^{
-                [controller runFetchForClass:[JGRUser class]
+                [controller runFetchForClass:[MLUser class]
                                   fetchBlock:nil
                            fetchResultsBlock:^(NSArray *items) {
                                
@@ -53,7 +53,7 @@ describe(@"DatabaseController Fetch", ^{
         
         it(@"raises an exception if no completionHandler", ^{
             expect(^{
-                [controller runFetchForClass:[JGRUser class]
+                [controller runFetchForClass:[MLUser class]
                                   fetchBlock:^FMResultSet *(FMDatabase *db) {
                                       return nil;
                                   }
@@ -75,11 +75,11 @@ describe(@"DatabaseController Fetch", ^{
         
         describe(@"successful query", ^{
             beforeEach(^{
-                [JGRUser insertInDb:controller.db userCount:5];
+                [MLUser insertInDb:controller.db userCount:5];
             });
 
             it(@"receives the users", ^{
-                [controller runFetchForClass:[JGRUser class]
+                [controller runFetchForClass:[MLUser class]
                                   fetchBlock:^FMResultSet *(FMDatabase *db) {
                                       return [db executeQuery:@"SELECT * FROM User"];
                                   }
@@ -91,7 +91,7 @@ describe(@"DatabaseController Fetch", ^{
 
             it(@"callback is called on the main thread", ^{
                 __block BOOL isCallbackOnMainThread;
-                [controller runFetchForClass:[JGRUser class]
+                [controller runFetchForClass:[MLUser class]
                                   fetchBlock:^FMResultSet *(FMDatabase *db) {
                                       return [db executeQuery:@"SELECT * FROM User"];
                                   }

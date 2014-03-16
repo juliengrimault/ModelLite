@@ -7,15 +7,12 @@
 #import <OCMockito/OCMockito.h>
 #import "Integration.h"
 
-#import <FMDB/FMDatabase.h>
-#import "MLDatabaseController.h"
-#import "JGRDataBaseController_Private.h"
+#import "SpecHelpers.h"
 #import "JGDocumentPath.h"
-#import "JGRUser.h"
 
 void createUserTable(MLDatabaseController *controller) {
     [controller runInTransaction:^(FMDatabase *db) {
-        [db executeUpdate:[JGRUser createTableStatement]];
+        [db executeUpdate:[MLUser createTableStatement]];
     }];
 }
 

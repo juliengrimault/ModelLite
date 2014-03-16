@@ -25,7 +25,7 @@ describe(@"sanity checks", ^{
     it(@"raises exception if instance cache is nil", ^{
         expect(^{
             __unused id b = [[MLResultSetBuilder alloc] initWithInstanceCache:nil
-                                                                         mapping:[JGRUser databaseMapping]];
+                                                                         mapping:[MLUser databaseMapping]];
         }).to.raiseAny();
     });
 });
@@ -36,7 +36,7 @@ describe(@"JGRDbResultSetBuilder", ^{
     __block FMDatabase *db;
 
     __block NSArray *users;
-    __block JGRUser *userInCache;
+    __block MLUser *userInCache;
     
     __block NSArray *fetchedUsers;
     beforeEach(^{
@@ -44,16 +44,16 @@ describe(@"JGRDbResultSetBuilder", ^{
         [db createSpecTables];
 
         instanceCache = [NSMapTable strongToWeakObjectsMapTable];
-        builder = [[MLResultSetBuilder alloc] initWithInstanceCache:instanceCache mapping:[JGRUser databaseMapping]];
+        builder = [[MLResultSetBuilder alloc] initWithInstanceCache:instanceCache mapping:[MLUser databaseMapping]];
     });
     
     it(@"assign the class", ^{
-        expect(builder.mapping).to.equal([JGRUser databaseMapping]);
+        expect(builder.mapping).to.equal([MLUser databaseMapping]);
     });
     
     describe(@"fetching", ^{
         beforeEach(^{
-            users = [JGRUser insertInDb:db userCount:5];
+            users = [MLUser insertInDb:db userCount:5];
 
             userInCache = users.firstObject;
             [instanceCache setObject:userInCache forKey:@(userInCache.id)];
@@ -68,7 +68,7 @@ describe(@"JGRDbResultSetBuilder", ^{
         
         it(@"does not create new instances when the primary key in the cache", ^{
             BOOL foundCachedVersion = NO;
-            for (JGRUser *u in fetchedUsers) {
+            for (MLUser *u in fetchedUsers) {
                 if (u.id == userInCache.id) {
                     expect(u).to.beIdenticalTo(userInCache);
                     foundCachedVersion = YES;
@@ -79,8 +79,8 @@ describe(@"JGRDbResultSetBuilder", ^{
         
         it(@"creates new instance when the primary key is not in the cache", ^{
             NSInteger i = 0;
-            for (JGRUser *fetchedUser in fetchedUsers) {
-                JGRUser *u = users[i];
+            for (MLUser *fetchedUser in fetchedUsers) {
+                MLUser *u = users[i];
                 expect(fetchedUser.id).to.equal(u.id);
                 
                 if (fetchedUser.id != userInCache.id) {
@@ -91,7 +91,7 @@ describe(@"JGRDbResultSetBuilder", ^{
         });
         
         it(@"populate the cache with the entity created", ^{
-            for (JGRUser *u in fetchedUsers) {
+            for (MLUser *u in fetchedUsers) {
                 expect([builder.instanceCache objectForKey:@(u.id)]).notTo.beNil();
             }
         });

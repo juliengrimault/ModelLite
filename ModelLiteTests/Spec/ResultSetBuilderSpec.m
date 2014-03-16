@@ -6,9 +6,8 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 
+#import "SpecHelpers.h"
 #import "MLResultSetBuilder.h"
-#import "JGRUser.h"
-#import "MockResultSet.h"
 
 @interface MLResultSetBuilder ()
 @property (nonatomic, strong) NSMapTable *instanceCache;
@@ -34,12 +33,16 @@ describe(@"sanity checks", ^{
 describe(@"JGRDbResultSetBuilder", ^{
     __block MLResultSetBuilder *builder;
     __block NSMapTable *instanceCache;
-    
+    __block FMDatabase *db;
+
     __block NSArray *users;
     __block JGRUser *userInCache;
     
     __block NSArray *fetchedUsers;
     beforeEach(^{
+        db = [[FMDatabase alloc] initWithPath:nil];
+        [db createSpecTables];
+
         instanceCache = [NSMapTable strongToWeakObjectsMapTable];
         builder = [[MLResultSetBuilder alloc] initWithInstanceCache:instanceCache mapping:[JGRUser databaseMapping]];
     });
@@ -48,16 +51,15 @@ describe(@"JGRDbResultSetBuilder", ^{
         expect(builder.mapping).to.equal([JGRUser databaseMapping]);
     });
     
-    describe(@"Fetching", ^{
+    describe(@"fetching", ^{
         beforeEach(^{
-            NSDictionary *d = [MockResultSet userSet:5];
-            MockResultSet *mockResultSet = d[@"resultSet"];
-            users = d[@"users"];
+            users = [JGRUser insertInDb:db userCount:5];
+
             userInCache = users.firstObject;
-            
             [instanceCache setObject:userInCache forKey:@(userInCache.id)];
-            
-           fetchedUsers = [builder buildInstancesFromResultSet:mockResultSet];
+
+            FMResultSet *resultSet = [db executeQuery:@"select * from User"];
+           fetchedUsers = [builder buildInstancesFromResultSet:resultSet];
         });
         
         it(@"has the expected number of user", ^{

@@ -16,18 +16,29 @@
 SpecBegin(MLRowBuilderSpec)
 
 describe(@"RowBuilder", ^{
+    __block FMDatabase *db;
     __block MLRowBuilder *builder;
-    __block MockResultSet *mockResultSet;
-    
+    __block FMResultSet *rs;
+    __block JGRUser *julien;
+
     beforeEach(^{
+        db = [[FMDatabase alloc] initWithPath:nil];
+        [db createSpecTables];
         builder = [[MLRowBuilder alloc] initWithMapping:[JGRUser databaseMapping]];
+
+        julien = [JGRUser new];
+        julien.id = 10;
+        julien.name = @"Julien";
+        julien.dob = [NSDate dateWithTimeIntervalSince1970:0];
+        julien.deleted = NO;
+
+        [JGRUser insertInDb:db user:julien];
     });
-    
+
     describe(@"matching result set", ^{
         beforeEach(^{
-            mockResultSet = [[MockResultSet alloc] initWithRows:@[@[@10, @"Julien", [NSDate dateWithTimeIntervalSince1970:0], @NO]]
-                                           columnNameToIndexMap:@{@"id" : @0, @"name" : @1, @"dob" : @2, @"deleted" : @3}];
-            [mockResultSet next];//set to first row
+            rs = [db executeQuery:@"select * from User"];
+            [rs next];//set to first row
         });
         
         it(@"assigns the class", ^{
@@ -36,20 +47,15 @@ describe(@"RowBuilder", ^{
         
         describe(@"building a model instance", ^{
             it(@"reads each property from the result set row", ^{
-                JGRUser *user = [builder buildInstanceFromRow:mockResultSet];
-                expect(user.id).to.equal(10);
-                expect(user.name).to.equal(@"Julien");
-                expect(user.dob).to.equal([NSDate dateWithTimeIntervalSince1970:0]);
-                expect(user.deleted).to.equal(NO);
-            });
-            
-            it(@"doest not move the currentIndex", ^{
-                __unused JGRUser *user = [builder buildInstanceFromRow:mockResultSet];
-                expect(mockResultSet.currentRowIndex).to.equal(0);
+                JGRUser *user = [builder buildInstanceFromRow:rs];
+                expect(user.id).to.equal(julien.id);
+                expect(user.name).to.equal(julien.name);
+                expect(user.dob).to.equal(julien.dob);
+                expect(user.deleted).to.equal(julien.deleted);
             });
             
             it(@"has not called awakeFromFetch since it is not implemented", ^{
-                JGRUser *user = [builder buildInstanceFromRow:mockResultSet];
+                JGRUser *user = [builder buildInstanceFromRow:rs];
                 expect(user.hasAwakeFromFetchBeenCalled).to.beFalsy();
             });
         });
@@ -57,7 +63,7 @@ describe(@"RowBuilder", ^{
         describe(@"optional awakeFromFetch", ^{
             it(@"calls awakeFromFetch when implemented", ^{
                 builder = [[MLRowBuilder alloc] initWithMapping:[JGRUserSubclass databaseMapping]];
-                JGRUserSubclass *u = [builder buildInstanceFromRow:mockResultSet];
+                JGRUserSubclass *u = [builder buildInstanceFromRow:rs];
                 expect(u.hasAwakeFromFetchBeenCalled).to.beTruthy();
             });
         });
@@ -66,14 +72,13 @@ describe(@"RowBuilder", ^{
     
     describe(@"not matching result set", ^{
         beforeEach(^{
-            mockResultSet = [[MockResultSet alloc] initWithRows:@[@[@10, @"Yada"]]
-                                           columnNameToIndexMap:@{@"id" : @0, @"yada" : @1}];
-            [mockResultSet next];//set to first row
+            rs = [db executeQuery:@"SELECT id, name AS yada from User"];
+            [rs next];//set to first row
         });
         
         
         it(@"reads available properties from the result set row", ^{
-            JGRUser *user = [builder buildInstanceFromRow:mockResultSet];
+            JGRUser *user = [builder buildInstanceFromRow:rs];
             expect(user.id).to.equal(10);
             expect(user.name).to.beNil();
             expect(user.dob).to.beNil();

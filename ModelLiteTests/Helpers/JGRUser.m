@@ -8,7 +8,6 @@
 
 #import "JGRUser.h"
 #import "MLMapping.h"
-#import "MockResultSet.h"
 #import "MLRelationshipMapping.h"
 #import "JGRComment.h"
 #import <FMDB/FMDatabase.h>
@@ -71,7 +70,7 @@
     for (int i = 1; i <= count; i++) {
         JGRUser *user = [self userWithId:i];
         [users addObject:user];
-        BOOL ok = [db executeUpdate:@"INSERT OR REPLACE INTO User (id, name, dob, deleted) VALUES (?, ?, ?, ?)", @(user.id), user.name, user.dob, @(user.deleted)];
+        BOOL ok = [self insertInDb:db user:user];
         if (!ok) {
             [NSException raise:@"JGRUserSpecException" format:@"Unable to insert test data"];
         }
@@ -79,41 +78,9 @@
     return [users copy];
 }
 
-@end
-
-@implementation FMResultSet (SpecFactory)
-
-
-+ (NSDictionary *)userSet:(NSUInteger)count
++ (BOOL)insertInDb:(FMDatabase *)db user:(JGRUser *)user
 {
-    NSMutableArray *users = [NSMutableArray array];
-    
-    NSDictionary *map = @{@"id" : @0, @"name" : @1, @"dob" : @2, @"deleted": @3};
-    NSMutableArray *rows = [NSMutableArray array];
-    for (NSUInteger i = 0; i < count; i++) {
-        
-        NSMutableArray *row = [NSMutableArray array];
-        for (NSUInteger j = 0; j < map.count; j++) {
-            [row addObject:[NSNull null]];
-        }
-        
-        JGRUser *u = [JGRUser userWithId:i];
-        [users addObject:u];
-        
-        for (NSString *property in map) {
-            id value = [u valueForKeyPath:property];
-            if (value == nil) {
-                value = [NSNull null];
-            }
-            
-            NSUInteger propertyIndex = [map[property] integerValue];
-            row[propertyIndex] = value;
-        }
-        [rows addObject:[row copy]];
-    }
-    MockResultSet *resultSet = [[MockResultSet alloc] initWithRows:rows columnNameToIndexMap:map];
-    
-    return @{@"users" : users, @"resultSet" : resultSet};
+    return [db executeUpdate:@"INSERT OR REPLACE INTO User (id, name, dob, deleted) VALUES (?, ?, ?, ?)", @(user.id), user.name, user.dob, @(user.deleted)];
 }
 
 @end

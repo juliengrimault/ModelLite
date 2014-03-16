@@ -10,6 +10,6 @@
 #import "MLMapping.h"
 
 #import "JGRDatabaseController_Private.h"
-#import "MockResultSet.h"
+#import "FMDatabase+Spec.h"
 #import "JGRUser.h"
 #import "JGRComment.h"

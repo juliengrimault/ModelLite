@@ -17,15 +17,15 @@
 SpecBegin(DatabaseControllerFetch)
 
 describe(@"DatabaseController Fetch", ^{
-    
-    NSURL *dbURL = jg_URLRelativeToUserDocument(@"test.sqlite3");
+
     NSURL *mappingURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"TestMapping" withExtension:@"plist"];
     __block MLDatabaseController *controller;
     
     __block NSArray *receivedItems = nil;
     
     beforeEach(^{
-        controller = [[MLDatabaseController alloc] initWithMappingURL:mappingURL dbURL:dbURL];
+        controller = [[MLDatabaseController alloc] initWithMappingURL:mappingURL dbURL:nil];
+        [controller.db createSpecTables];
     });
     
     describe(@"fetch query", ^{
@@ -74,14 +74,10 @@ describe(@"DatabaseController Fetch", ^{
         });
         
         describe(@"successful query", ^{
-            __block MockResultSet *resultSet;
             beforeEach(^{
-                resultSet = [MockResultSet userSet:2][@"resultSet"];
-                FMDatabase *mockDb = mock([FMDatabase class]);
-                [given([mockDb executeQuery:anything()]) willReturn:resultSet];
-                controller.db = mockDb;
+                [JGRUser insertInDb:controller.db userCount:5];
             });
-            
+
             it(@"receives the users", ^{
                 [controller runFetchForClass:[JGRUser class]
                                   fetchBlock:^FMResultSet *(FMDatabase *db) {

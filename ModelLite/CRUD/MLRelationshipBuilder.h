@@ -22,7 +22,4 @@
 
 - (void)populateRelationshipForInstances:(NSDictionary *)instances withDB:(FMDatabase *)db;
 
-
-- (NSString *)fetchQuery;
-- (NSArray *)queriedColumns;
 @end

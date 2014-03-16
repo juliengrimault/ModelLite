@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MLDatabaseObject.h"
-#import "MockResultSet.h"
+@class FMDatabase;
 
 @interface JGRUser : NSObject <MLDatabaseObject>
 
@@ -33,15 +33,9 @@
 + (NSString *)createTableStatement;
 
 + (NSArray *)insertInDb:(FMDatabase *)db userCount:(NSInteger)count;
++ (BOOL)insertInDb:(FMDatabase *)db user:(JGRUser *)user;
 @end
 
-@interface MockResultSet (SpecFactory)
-
-// returns a dictionary with 2 entries: `users` containing an array of JGRUser
-// and `resultSet` containing the `MockResultSet` for the `users`. The order in
-// the `resultSet` and in `users` is the same.
-+ (NSDictionary *)userSet:(NSUInteger)count;
-@end
 
 
 

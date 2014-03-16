@@ -6,12 +6,10 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 
+#import "SpecHelpers.h"
 #import "MLRelationshipBuilder.h"
-#import "JGRUser.h"
-#import "JGRComment.h"
 #import "MLMapping.h"
 #import "MLRelationshipMapping.h"
-#import <FMDB/FMDatabase.h>
 
 SpecBegin(RelationshipBuilder)
 
@@ -50,10 +48,13 @@ describe(@"RelationshipBuilder", ^{
     });
 
     describe(@"", ^{
+        __block FMDatabase *db;
         __block MLRelationshipBuilder *builder;
         __block NSMapTable *instanceCache;
 
         beforeEach(^{
+            db = [[FMDatabase alloc] initWithPath:nil];
+            [db createSpecTables];
             instanceCache = [NSMapTable strongToWeakObjectsMapTable];
             builder = [[MLRelationshipBuilder alloc] initWithInstanceCache:instanceCache
                                                        relationshipMapping:commentsRelationshipMapping
@@ -69,18 +70,10 @@ describe(@"RelationshipBuilder", ^{
         });
 
         describe(@"populate relationship", ^{
-            __block FMDatabase *db;
             __block NSMutableDictionary *users;
             __block NSMutableDictionary *comments;
             __block NSMutableDictionary *commentsByUser;
             __block JGRComment *cachedComment;
-
-            beforeEach(^{
-                db = [[FMDatabase alloc] initWithPath:nil];
-                [db open];
-                [db executeUpdate:[JGRUser createTableStatement]];
-                [db executeUpdate:[JGRComment createTableStatement]];
-            });
 
             beforeEach(^{
                 comments = [NSMutableDictionary new];

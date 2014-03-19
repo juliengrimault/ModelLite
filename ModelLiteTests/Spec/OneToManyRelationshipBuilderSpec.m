@@ -7,14 +7,14 @@
 #import <OCMockito/OCMockito.h>
 
 #import "SpecHelpers.h"
-#import "MLRelationshipBuilder.h"
+#import "MLRelationshipOneToManyBuilder.h"
 #import "MLMapping.h"
 #import "MLRelationshipMapping.h"
 
-SpecBegin(RelationshipBuilder)
+SpecBegin(OneToManyRelationshipBuilder)
 
-describe(@"RelationshipBuilder", ^{
-    __block MLRelationshipMapping *commentsRelationshipMapping;
+describe(@"OneToManyRelationshipBuilder", ^{
+    __block MLRelationshipMappingOneToMany *commentsRelationshipMapping;
     __block MLMapping *commentMapping;
     beforeEach(^{
         commentsRelationshipMapping = [MLUser databaseMapping].relationships[@"comments"];
@@ -24,7 +24,7 @@ describe(@"RelationshipBuilder", ^{
     describe(@"sanity checks", ^{
         it(@"raises exception if child mapping is nil", ^{
             expect(^{
-                __unused id b = [[MLRelationshipBuilder alloc] initWithInstanceCache:[NSMapTable strongToWeakObjectsMapTable]
+                __unused id b = [[MLRelationshipOneToManyBuilder alloc] initWithInstanceCache:[NSMapTable strongToWeakObjectsMapTable]
                                                                  relationshipMapping:commentsRelationshipMapping
                                                                         childMapping:nil];
             }).to.raiseAny();
@@ -32,7 +32,7 @@ describe(@"RelationshipBuilder", ^{
 
         it(@"raises exception if relationship mapping is nil", ^{
             expect(^{
-                __unused id b = [[MLRelationshipBuilder alloc] initWithInstanceCache:[NSMapTable strongToWeakObjectsMapTable]
+                __unused id b = [[MLRelationshipOneToManyBuilder alloc] initWithInstanceCache:[NSMapTable strongToWeakObjectsMapTable]
                                                                  relationshipMapping:nil
                                                                         childMapping:commentMapping];
             }).to.raiseAny();
@@ -40,7 +40,7 @@ describe(@"RelationshipBuilder", ^{
 
         it(@"raises exception if instance cache is nil", ^{
             expect(^{
-                __unused id b = [[MLRelationshipBuilder alloc] initWithInstanceCache:nil
+                __unused id b = [[MLRelationshipOneToManyBuilder alloc] initWithInstanceCache:nil
                                                                  relationshipMapping:commentsRelationshipMapping
                                                                         childMapping:commentMapping];
             }).to.raiseAny();
@@ -49,14 +49,14 @@ describe(@"RelationshipBuilder", ^{
 
     describe(@"", ^{
         __block FMDatabase *db;
-        __block MLRelationshipBuilder *builder;
+        __block MLRelationshipOneToManyBuilder *builder;
         __block NSMapTable *instanceCache;
 
         beforeEach(^{
             db = [[FMDatabase alloc] initWithPath:nil];
             [db createSpecTables];
             instanceCache = [NSMapTable strongToWeakObjectsMapTable];
-            builder = [[MLRelationshipBuilder alloc] initWithInstanceCache:instanceCache
+            builder = [[MLRelationshipOneToManyBuilder alloc] initWithInstanceCache:instanceCache
                                                        relationshipMapping:commentsRelationshipMapping
                                                               childMapping:commentMapping];
         });

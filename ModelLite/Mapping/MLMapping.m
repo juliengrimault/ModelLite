@@ -34,8 +34,8 @@ NSString *const DbMappingPrimaryKeyName = @"id";
     NSParameterAssert(properties[DbMappingPrimaryKeyName] != nil);
     
     MLPropertyType primaryKeyType = (MLPropertyType)[properties[DbMappingPrimaryKeyName] integerValue];
-    NSAssert(primaryKeyType == MLPropertyInt64 || primaryKeyType == MLPropertyNSNumber  || primaryKeyType == MLPropertyNSNumber ,
-             @"the primary key type must be either DbPropertyInt64, DbPropertyNSNumber or DbPropertyNSNumber");
+    NSAssert(primaryKeyType == MLPropertyInt64 || primaryKeyType == MLPropertyNSNumber  || primaryKeyType == MLPropertyString ,
+             @"the primary key type must be either DbPropertyInt64, DbPropertyNSNumber or DbPropertyString");
     
     self = [super init];
     if (!self) return nil;
@@ -60,8 +60,7 @@ NSString *const DbMappingPrimaryKeyName = @"id";
 
     NSMutableDictionary *relationships = [NSMutableDictionary dictionary];
     [mappingDictionary[DbMappingKeyRelationships] enumerateKeysAndObjectsUsingBlock:^(NSString *relationshipName, NSDictionary *relationshipDict, BOOL *stop) {
-        MLRelationshipMapping *relationshipMapping = [[MLRelationshipMapping alloc] initWithRelationshipName:relationshipName
-                                                                                                  dictionary:relationshipDict];
+        MLRelationshipMapping *relationshipMapping = [MLRelationshipMapping mappingWithRelationshipName:relationshipName dictionary:relationshipDict];
         relationships[relationshipName] = relationshipMapping;
     }];
 

@@ -9,6 +9,7 @@
 #import "FMDatabase+Spec.h"
 #import "MLUser.h"
 #import "MLComment.h"
+#import "MLTag.h"
 
 @implementation FMDatabase (Spec)
 
@@ -20,6 +21,12 @@
     }
     if (ok) {
         ok = ok && [self executeUpdate:[MLComment createTableStatement]];
+    }
+    if (ok) {
+        ok = ok && [self executeUpdate:[MLTag createTableStatement]];
+    }
+    if (ok) {
+        ok = ok && [self executeUpdate:[MLTag createUserTagLookupTableStatement]];
     }
 
     return ok;

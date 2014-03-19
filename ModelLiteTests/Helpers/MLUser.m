@@ -10,6 +10,7 @@
 #import "MLMapping.h"
 #import "MLRelationshipMapping.h"
 #import "MLComment.h"
+#import "MLTag.h"
 #import <FMDB/FMDatabase.h>
 
 @implementation MLUser
@@ -32,15 +33,25 @@
 + (MLMapping *)databaseMapping
 {
     MLMapping *mapping = [[MLMapping alloc] initWithClass:[self class]
-                                                                tableName:@"User"
-                                                               properties:@{@"id" : @(MLPropertyInt64),
-                                                                            @"name": @(MLPropertyString),
-                                                                            @"dob" : @(MLPropertyDate),
-                                                                            @"deleted": @(MLPropertyBOOL)}
-                                            relationships:@{@"comments" : [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
-                                                                                                                       childClass:[MLComment class]
-                                                                                                                   parentIdColumn:@"userId"
-                                                                                                                      indexColumn:@"idx"]}];
+                                                tableName:@"User"
+                                               properties:@{@"id" : @(MLPropertyInt64),
+                                                            @"name": @(MLPropertyString),
+                                                            @"dob" : @(MLPropertyDate),
+                                                            @"deleted": @(MLPropertyBOOL)}
+
+                                            relationships:@{
+                                                            @"comments" : [[MLRelationshipMappingOneToMany alloc] initWithRelationshipName:@"comments"
+                                                                                                                                childClass:[MLComment class]
+                                                                                                                            parentIdColumn:@"userId"
+                                                                                                                               indexColumn:@"idx"],
+
+                                                            @"tags" : [[MLRelationshipMappingManyToMany alloc] initWithRelationshipName:@"tags"
+                                                                                                                            lookupTable:@"UsersTagsLookup"
+                                                                                                                         parentIdColumn:@"userId"
+                                                                                                                             childClass:[MLTag class]
+                                                                                                                          childIdColumn:@"tagId"
+                                                                                                                            indexColumn:@"idx"]
+                                                            }];
     return mapping;
 }
 

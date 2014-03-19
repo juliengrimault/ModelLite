@@ -15,7 +15,7 @@
 #import "MLMappingLoader.h"
 #import "MLRowInsertBuilder.h"
 #import "MLRelationshipMapping.h"
-#import "MLRelationshipBuilder.h"
+#import "MLRelationshipOneToManyBuilder.h"
 
 NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.databasecontroller.nestedTransactionCount";
 @interface MLDatabaseController ()
@@ -159,14 +159,14 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
 {
     for (NSString *relationshipName in mapping.relationships) {
 
-        MLRelationshipMapping *relationship = mapping.relationships[relationshipName];
+        MLRelationshipMappingOneToMany *relationship = mapping.relationships[relationshipName];
 
         MLMapping *childClassMapping = self.databaseMappings[relationship.childClass];
         NSAssert1(childClassMapping != nil, @"No Database Mapping for class %@", relationship.childClass);
 
         NSMapTable *childClassCache = [self instanceCacheForClass:relationship.childClass];
 
-        MLRelationshipBuilder *builder = [[MLRelationshipBuilder alloc] initWithInstanceCache:childClassCache
+        MLRelationshipOneToManyBuilder *builder = [[MLRelationshipOneToManyBuilder alloc] initWithInstanceCache:childClassCache
                                                                           relationshipMapping:relationship
                                                                                  childMapping:childClassMapping];
         [builder populateRelationshipForInstances:instances withDB:self.db];

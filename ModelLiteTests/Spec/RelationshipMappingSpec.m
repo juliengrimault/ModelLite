@@ -10,16 +10,16 @@
 #import "MLUser.h"
 #import "MLComment.h"
 
-SpecBegin(RelationshipMapping)
+SpecBegin(RelationshipMappingOneToMany)
 
-describe(@"RelationshipMapping", ^{
-    __block MLRelationshipMapping *mapping;
+describe(@"RelationshipMappingOneToMany", ^{
+    __block MLRelationshipMappingOneToMany *mapping;
 
     describe(@"init", ^{
         describe(@"Errors", ^{
             it(@"raises an error if relationship name is missing", ^{
                 expect(^{
-                    mapping = [[MLRelationshipMapping alloc] initWithRelationshipName:nil
+                    mapping = [[MLRelationshipMappingOneToMany alloc] initWithRelationshipName:nil
                                                                            childClass:[MLUser class]
                                                                        parentIdColumn:@"userId"
                                                                           indexColumn:@"index"];
@@ -28,7 +28,7 @@ describe(@"RelationshipMapping", ^{
 
             it(@"raises an error if child class is missing", ^{
                 expect(^{
-                    mapping = [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
+                    mapping = [[MLRelationshipMappingOneToMany alloc] initWithRelationshipName:@"comments"
                                                                            childClass:nil
                                                                        parentIdColumn:@"userId"
                                                                           indexColumn:@"index"];
@@ -38,7 +38,7 @@ describe(@"RelationshipMapping", ^{
 
             it(@"raises an error if the parentId column is missing", ^{
                 expect(^{
-                    mapping = [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
+                    mapping = [[MLRelationshipMappingOneToMany alloc] initWithRelationshipName:@"comments"
                                                                            childClass:[MLComment class]
                                                                        parentIdColumn:nil
                                                                           indexColumn:@"index"];
@@ -48,7 +48,7 @@ describe(@"RelationshipMapping", ^{
 
             it(@"raises an error if indexColumn is missing", ^{
                 expect(^{
-                    mapping = [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
+                    mapping = [[MLRelationshipMappingOneToMany alloc] initWithRelationshipName:@"comments"
                                                                            childClass:[MLComment class]
                                                                        parentIdColumn:@"userId"
                                                                           indexColumn:nil];
@@ -58,7 +58,7 @@ describe(@"RelationshipMapping", ^{
 
         describe(@"assigns the properties", ^{
             beforeEach(^{
-                mapping = [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
+                mapping = [[MLRelationshipMappingOneToMany alloc] initWithRelationshipName:@"comments"
                                                                        childClass:[MLComment class]
                                                                    parentIdColumn:@"userId"
                                                                       indexColumn:@"index"];
@@ -89,8 +89,8 @@ describe(@"RelationshipMapping", ^{
             dictionary = @{@"parentIdColumn" : @"userId",
                            @"indexColumn" : @"index",
                            @"childClass" : @"MLComment" };
-            mapping = [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
-                                                                    dictionary:dictionary];
+            mapping = [[MLRelationshipMappingOneToMany alloc] initWithRelationshipName:@"comments"
+                                                                            dictionary:dictionary];
         });
 
 

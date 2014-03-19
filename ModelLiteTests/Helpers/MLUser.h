@@ -18,7 +18,7 @@
 @property (nonatomic, getter = isDeleted) BOOL deleted;
 
 @property (nonatomic, copy) NSArray *comments;
-
+@property (nonatomic, copy) NSArray *tags;
 
 @property (nonatomic) BOOL hasAwakeFromFetchBeenCalled;
 

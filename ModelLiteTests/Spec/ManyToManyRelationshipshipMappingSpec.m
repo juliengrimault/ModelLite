@@ -7,7 +7,7 @@
 #import <OCMockito/OCMockito.h>
 
 #import "SpecHelpers.h"
-#import "MLRelationshipMappingManyToMany.h"
+#import "MLRelationshipMapping.h"
 
 
 SpecBegin(ManyToManyRelationshipshipMapping)
@@ -21,7 +21,6 @@ describe(@"ManyToManyRelationshipshipMapping", ^{
                 expect(^{
                     mapping = [[MLRelationshipMappingManyToMany alloc] initWithRelationshipName:nil
                                                                                     lookupTable:@"UsersTagsLookup"
-                                                                                    parentClass:[MLUser class]
                                                                                  parentIdColumn:@"userId"
                                                                                      childClass:[MLTag class]
                                                                                   childIdColumn:@"tagId"
@@ -33,19 +32,6 @@ describe(@"ManyToManyRelationshipshipMapping", ^{
                 expect(^{
                     mapping = [[MLRelationshipMappingManyToMany alloc] initWithRelationshipName:@"tags"
                                                                                     lookupTable:nil
-                                                                                    parentClass:[MLUser class]
-                                                                                 parentIdColumn:@"userId"
-                                                                                     childClass:[MLTag class]
-                                                                                  childIdColumn:@"tagId"
-                                                                                    indexColumn:@"idx"];
-                }).to.raiseAny();
-            });
-
-            it(@"raises an error if parentClass is missing", ^{
-                expect(^{
-                    mapping = [[MLRelationshipMappingManyToMany alloc] initWithRelationshipName:@"tags"
-                                                                                    lookupTable:@"UsersTagsLookup"
-                                                                                    parentClass:nil
                                                                                  parentIdColumn:@"userId"
                                                                                      childClass:[MLTag class]
                                                                                   childIdColumn:@"tagId"
@@ -57,7 +43,6 @@ describe(@"ManyToManyRelationshipshipMapping", ^{
                 expect(^{
                     mapping = [[MLRelationshipMappingManyToMany alloc] initWithRelationshipName:@"tags"
                                                                                     lookupTable:@"UsersTagsLookup"
-                                                                                    parentClass:[MLUser class]
                                                                                  parentIdColumn:nil
                                                                                      childClass:[MLTag class]
                                                                                   childIdColumn:@"tagId"
@@ -69,7 +54,6 @@ describe(@"ManyToManyRelationshipshipMapping", ^{
                 expect(^{
                     mapping = [[MLRelationshipMappingManyToMany alloc] initWithRelationshipName:@"tags"
                                                                                     lookupTable:@"UsersTagsLookup"
-                                                                                    parentClass:[MLUser class]
                                                                                  parentIdColumn:@"userId"
                                                                                      childClass:nil
                                                                                   childIdColumn:@"tagId"
@@ -81,7 +65,6 @@ describe(@"ManyToManyRelationshipshipMapping", ^{
                 expect(^{
                     mapping = [[MLRelationshipMappingManyToMany alloc] initWithRelationshipName:@"tags"
                                                                                     lookupTable:@"UsersTagsLookup"
-                                                                                    parentClass:[MLUser class]
                                                                                  parentIdColumn:@"userId"
                                                                                      childClass:[MLTag class]
                                                                                   childIdColumn:nil
@@ -93,7 +76,6 @@ describe(@"ManyToManyRelationshipshipMapping", ^{
                 expect(^{
                     mapping = [[MLRelationshipMappingManyToMany alloc] initWithRelationshipName:@"tags"
                                                                                     lookupTable:@"UsersTagsLookup"
-                                                                                    parentClass:[MLUser class]
                                                                                  parentIdColumn:@"userId"
                                                                                      childClass:[MLTag class]
                                                                                   childIdColumn:@"tagId"
@@ -106,7 +88,6 @@ describe(@"ManyToManyRelationshipshipMapping", ^{
             beforeEach(^{
                 mapping = [[MLRelationshipMappingManyToMany alloc] initWithRelationshipName:@"tags"
                                                                                     lookupTable:@"UsersTagsLookup"
-                                                                                    parentClass:[MLUser class]
                                                                                  parentIdColumn:@"userId"
                                                                                      childClass:[MLTag class]
                                                                                   childIdColumn:@"tagId"
@@ -116,10 +97,6 @@ describe(@"ManyToManyRelationshipshipMapping", ^{
 
             it(@"assigns the relationship name", ^{
                 expect(mapping.relationshipName).to.equal(@"tags");
-            });
-
-            it(@"assigns the parent class", ^{
-                expect(mapping.parentClass).to.equal([MLUser class]);
             });
 
             it(@"assigns the parentId column", ^{
@@ -145,7 +122,6 @@ describe(@"ManyToManyRelationshipshipMapping", ^{
         __block NSDictionary *dictionary;
         beforeEach(^{
             dictionary = @{@"lookupTable" : @"UsersTagsLookup",
-                           @"parentClass" : @"MLUser",
                            @"parentIdColumn" : @"userId",
                            @"childClass" : @"MLTag",
                            @"childIdColumn" : @"tagId",
@@ -158,9 +134,6 @@ describe(@"ManyToManyRelationshipshipMapping", ^{
             expect(mapping.lookupTable).to.equal(dictionary[@"lookupTable"]);
         });
 
-        it(@"extract parentClass name from the dictionary", ^{
-            expect(mapping.parentClass).to.equal(NSClassFromString(dictionary[@"parentClass"]));
-        });
 
         it(@"extract parentIdColumn name from the dictionary", ^{
             expect(mapping.parentIdColumn).to.equal(dictionary[@"parentIdColumn"]);

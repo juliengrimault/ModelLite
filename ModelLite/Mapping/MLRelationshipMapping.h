@@ -9,7 +9,18 @@
 @import Foundation;
 #import "MLDatabaseObject.h"
 
+
+
 @interface MLRelationshipMapping : NSObject
+
+/// Class factory method - will instantiate the correct subtype
++ (instancetype)mappingWithRelationshipName:(NSString *)relationshipName dictionary:(NSDictionary *)relationshipDict;
+
+@end
+
+
+/// Represent a one to many relationship with a foreign key in the child entity table
+@interface MLRelationshipMappingOneToMany : MLRelationshipMapping
 
 @property (nonatomic, copy, readonly) NSString *relationshipName;
 
@@ -25,4 +36,23 @@
 - (id)initWithRelationshipName:(NSString *)relationshipName
                     dictionary:(NSDictionary *)dictionary;
 
+@end
+
+
+/// Represents a many to many relationship via a lookup table
+@interface MLRelationshipMappingManyToMany : MLRelationshipMappingOneToMany
+
+@property (nonatomic, copy, readonly) NSString *lookupTable;
+@property (nonatomic, copy, readonly) NSString *childIdColumn;
+
+
+-(id)initWithRelationshipName:(NSString *)relationshipName
+                  lookupTable:(NSString *)lookupTable
+               parentIdColumn:(NSString *)parentIdColumn
+                   childClass:(Class<MLDatabaseObject>)childKlass
+                childIdColumn:(NSString *)childIdColumn
+                  indexColumn:(NSString *)indexColumn;
+
+- (id)initWithRelationshipName:(NSString *)relationshipName
+                    dictionary:(NSDictionary *)dictionary;
 @end

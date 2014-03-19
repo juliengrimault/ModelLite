@@ -28,6 +28,19 @@
 				<key>indexColumn</key>
 				<string>idx</string>
 			</dict>
+			<key>tags</key>
+			<dict>
+				<key>lookupTable</key>
+				<string>UsersTagsLookup</string>
+				<key>childClass</key>
+				<string>MLComment</string>
+				<key>parentIdColumn</key>
+				<string>userId</string>
+				<key>childIdColumn</key>
+				<string>tagId</string>
+				<key>indexColumn</key>
+				<string>idx</string>
+			</dict>
 		</dict>
 	</dict>
 	<key>MLComment</key>
@@ -42,6 +55,18 @@
 			<string>string</string>
 			<key>createdAt</key>
 			<string>date</string>
+		</dict>
+	</dict>
+	<key>MLTag</key>
+	<dict>
+		<key>tableName</key>
+		<string>Tag</string>
+		<key>properties</key>
+		<dict>
+			<key>id</key>
+			<string>string</string>
+			<key>name</key>
+			<string>string</string>
 		</dict>
 	</dict>
 </dict>

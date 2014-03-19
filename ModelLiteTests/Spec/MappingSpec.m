@@ -97,10 +97,10 @@ describe(@"MLMapping", ^{
             NSDictionary *properties = @{@"id" : @(MLPropertyInt64),
                                          @"name" : @(MLPropertyString)};
 
-            NSDictionary *relationships = @{@"comments" : [[MLRelationshipMapping alloc] initWithRelationshipName:@"comments"
-                                                                                                       childClass:[MLComment class]
-                                                                                                   parentIdColumn:@"userId"
-                                                                                                      indexColumn:@"index"]};
+            NSDictionary *relationships = @{@"comments" : [[MLRelationshipMappingOneToMany alloc] initWithRelationshipName:@"comments"
+                                                                                                                childClass:[MLComment class]
+                                                                                                            parentIdColumn:@"userId"
+                                                                                                               indexColumn:@"index"]};
 
 
             beforeEach(^{
@@ -137,10 +137,14 @@ describe(@"MLMapping", ^{
             dictionary = @{@"tableName" : @"SuperUser",
                            @"properties" : @{@"id" : @"int64", @"name" : @"string"},
                            @"relationships" : @{ @"comments": @{ @"childClass" : @"MLComment",
-                                                                 @"lookupTable" : @"UsersCommentsLookup",
                                                                  @"parentIdColumn" : @"userId",
-                                                                 @"childIdColumn" : @"commentId",
-                                                                 @"indexColumn" : @"index"}
+                                                                 @"indexColumn" : @"idx"},
+
+                                                 @"tags": @{ @"childClass" : @"MLTag",
+                                                             @"lookupTable" : @"UsersTagsLookup",
+                                                             @"parentIdColumn" : @"userId",
+                                                             @"childIdColumn" : @"commentId",
+                                                             @"indexColumn" : @"idx"}
                                                  }};
             mapping = [[MLMapping alloc] initWithClassName:@"MLUser" dictionary:dictionary];
         });
@@ -163,6 +167,11 @@ describe(@"MLMapping", ^{
             [mapping.relationships enumerateKeysAndObjectsUsingBlock:^(NSString *relationshipName, id relationship, BOOL *stop) {
                 expect(relationship).to.beKindOf([MLRelationshipMapping class]);
             }];
+        });
+
+        it(@"instantiate the correct relationship mapping subclass", ^{
+            expect(mapping.relationships[@"tags"]).to.beKindOf([MLRelationshipMappingManyToMany class]);
+            expect(mapping.relationships[@"comments"]).to.beKindOf([MLRelationshipMapping class]);
         });
     });
 });

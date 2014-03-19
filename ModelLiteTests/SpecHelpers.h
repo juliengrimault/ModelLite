@@ -13,3 +13,4 @@
 #import "FMDatabase+Spec.h"
 #import "MLUser.h"
 #import "MLComment.h"
+#import "MLTag.h"

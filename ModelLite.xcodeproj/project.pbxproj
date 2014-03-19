@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4A7697A40C3C4CE9A61C5D22 /* libPods-ModelLiteTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D7D8EC0DDB4B4FA161F8E0 /* libPods-ModelLiteTests.a */; };
 		F2BAD8F215DB48DD99E94C83 /* libPods-ModelLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7ECAF27D4AB4B6BAC948129 /* libPods-ModelLite.a */; };
+		F91124CA18D853B500F64698 /* MLRelationshipMappingManyToMany.m in Sources */ = {isa = PBXBuildFile; fileRef = F91124C918D853B500F64698 /* MLRelationshipMappingManyToMany.m */; };
+		F91124CC18D8540100F64698 /* ManyToManyRelationshipshipMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F91124CB18D8540100F64698 /* ManyToManyRelationshipshipMappingSpec.m */; };
+		F91124CF18D854B500F64698 /* MLTag.m in Sources */ = {isa = PBXBuildFile; fileRef = F91124CE18D854B500F64698 /* MLTag.m */; };
 		F93084A318D5831F00C7718A /* FMDatabase+Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93084A218D5831F00C7718A /* FMDatabase+Spec.m */; };
 		F93BE49818D2DB7E00A63831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAA18CC2FC8002F0768 /* Foundation.framework */; };
 		F93BE49918D2DB7E00A63831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAC18CC2FC8002F0768 /* CoreGraphics.framework */; };
@@ -66,6 +69,11 @@
 		D8D7D8EC0DDB4B4FA161F8E0 /* libPods-ModelLiteTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ModelLiteTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC42243600514E2AAA28FC7A /* Pods-ModelLite.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelLite.xcconfig"; path = "Pods/Pods-ModelLite.xcconfig"; sourceTree = "<group>"; };
 		EFA5C2E1498A428C9EF55F3A /* Pods-ModelLiteTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelLiteTests.xcconfig"; path = "Pods/Pods-ModelLiteTests.xcconfig"; sourceTree = "<group>"; };
+		F91124C818D853B500F64698 /* MLRelationshipMappingManyToMany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipMappingManyToMany.h; sourceTree = "<group>"; };
+		F91124C918D853B500F64698 /* MLRelationshipMappingManyToMany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipMappingManyToMany.m; sourceTree = "<group>"; };
+		F91124CB18D8540100F64698 /* ManyToManyRelationshipshipMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManyToManyRelationshipshipMappingSpec.m; sourceTree = "<group>"; };
+		F91124CD18D854B500F64698 /* MLTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTag.h; sourceTree = "<group>"; };
+		F91124CE18D854B500F64698 /* MLTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTag.m; sourceTree = "<group>"; };
 		F93084A118D5831F00C7718A /* FMDatabase+Spec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+Spec.h"; sourceTree = "<group>"; };
 		F93084A218D5831F00C7718A /* FMDatabase+Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+Spec.m"; sourceTree = "<group>"; };
 		F9364DAA18CC2FC8002F0768 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -228,6 +236,8 @@
 				F93BE45918D2BC3F00A63831 /* MLMapping.m */,
 				F9AC70EA18D2FE8F00941E1A /* MLRelationshipMapping.h */,
 				F9AC70EB18D2FE8F00941E1A /* MLRelationshipMapping.m */,
+				F91124C818D853B500F64698 /* MLRelationshipMappingManyToMany.h */,
+				F91124C918D853B500F64698 /* MLRelationshipMappingManyToMany.m */,
 				F93BE45A18D2BC3F00A63831 /* MLMappingLoader.h */,
 				F93BE45B18D2BC3F00A63831 /* MLMappingLoader.m */,
 				F93BE45C18D2BC3F00A63831 /* MLPropertyType.h */,
@@ -248,6 +258,8 @@
 				F93BE47118D2BC5C00A63831 /* MLUser.m */,
 				F93084A118D5831F00C7718A /* FMDatabase+Spec.h */,
 				F93084A218D5831F00C7718A /* FMDatabase+Spec.m */,
+				F91124CD18D854B500F64698 /* MLTag.h */,
+				F91124CE18D854B500F64698 /* MLTag.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -274,6 +286,7 @@
 				F93BE47F18D2BC5C00A63831 /* RowInsertBuilderSpec.m */,
 				F93BE47C18D2BC5C00A63831 /* MappingSpec.m */,
 				F9AC70E818D2FE2B00941E1A /* RelationshipMappingSpec.m */,
+				F91124CB18D8540100F64698 /* ManyToManyRelationshipshipMappingSpec.m */,
 			);
 			path = Spec;
 			sourceTree = "<group>";
@@ -512,6 +525,7 @@
 			files = (
 				F93BE4D118D2DC7700A63831 /* MLResultSetBuilder.m in Sources */,
 				F93BE4CC18D2DBFA00A63831 /* main.m in Sources */,
+				F91124CA18D853B500F64698 /* MLRelationshipMappingManyToMany.m in Sources */,
 				F93BE4D218D2DC7700A63831 /* MLRowInsertBuilder.m in Sources */,
 				F93BE4D618D2DC8000A63831 /* MLPropertyType.m in Sources */,
 				F9AC70EC18D2FE8F00941E1A /* MLRelationshipMapping.m in Sources */,
@@ -533,10 +547,12 @@
 				F93BE4E518D2DC9000A63831 /* RowInsertBuilderSpec.m in Sources */,
 				F93BE4E018D2DC9000A63831 /* DbControllerInitSpec.m in Sources */,
 				F93BE4D818D2DC8800A63831 /* Integration.m in Sources */,
+				F91124CF18D854B500F64698 /* MLTag.m in Sources */,
 				F93BE4DC18D2DC8C00A63831 /* DatabaseIntegrationSpec.m in Sources */,
 				F93BE4DA18D2DC8800A63831 /* MLUser.m in Sources */,
 				F93BE4E318D2DC9000A63831 /* ResultSetBuilderSpec.m in Sources */,
 				F9AC70E918D2FE2B00941E1A /* RelationshipMappingSpec.m in Sources */,
+				F91124CC18D8540100F64698 /* ManyToManyRelationshipshipMappingSpec.m in Sources */,
 				F93BE4D918D2DC8800A63831 /* MLComment.m in Sources */,
 				F967DE0F18D466530097B5C4 /* RelationshipBuilderSpec.m in Sources */,
 				F93BE4E418D2DC9000A63831 /* RowBuilderSpec.m in Sources */,

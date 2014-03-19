@@ -75,7 +75,10 @@ describe(@"DatabaseController Fetch", ^{
         
         describe(@"successful query", ^{
             beforeEach(^{
-                [MLUser insertInDb:controller.db userCount:5];
+                NSArray *insertedUsers = [MLUser insertInDb:controller.db userCount:5];
+                for (MLUser *u in insertedUsers) {
+                    [MLComment insertInDb:controller.db commentsForUserId:u.id count:u.id];
+                }
             });
 
             it(@"receives the users", ^{
@@ -85,6 +88,20 @@ describe(@"DatabaseController Fetch", ^{
                                   }
                            fetchResultsBlock:^(NSArray *items) {
                                receivedItems = items;
+                           }];
+                expect(receivedItems).willNot.beNil();
+            });
+
+            it(@"populates the relationships", ^{
+                [controller runFetchForClass:[MLUser class]
+                                  fetchBlock:^FMResultSet *(FMDatabase *db) {
+                                      return [db executeQuery:@"SELECT * FROM User"];
+                                  }
+                           fetchResultsBlock:^(NSArray *items) {
+                               receivedItems = items;
+                               for (MLUser *user in items) {
+                                   expect(user.comments).to.haveCountOf(user.id);
+                               }
                            }];
                 expect(receivedItems).willNot.beNil();
             });

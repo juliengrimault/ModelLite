@@ -14,6 +14,8 @@
 #import "MLResultSetBuilder.h"
 #import "MLMappingLoader.h"
 #import "MLRowInsertBuilder.h"
+#import "MLRelationshipMapping.h"
+#import "MLRelationshipBuilder.h"
 
 NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.databasecontroller.nestedTransactionCount";
 @interface MLDatabaseController ()
@@ -125,18 +127,50 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
             return;
         }
         
-        NSArray *fetchedObjects = [self databaseObjectsWithResultSet:rs mapping:mapping];
+        NSArray *fetchedObjects = [self hidratedDatabaseObjectsWithResultSet:rs mapping:mapping];
         dispatch_async(dispatch_get_main_queue(), ^{
             fetchResultBlock(fetchedObjects);
         });
     });
 }
 
-- (NSArray *)databaseObjectsWithResultSet:(FMResultSet *)resultSet mapping:(MLMapping *)mapping
+- (NSArray *)hidratedDatabaseObjectsWithResultSet:(FMResultSet *)resultSet mapping:(MLMapping *)mapping
+{
+    NSArray *instances= [self buildInstancesFromResultSet:resultSet mapping:mapping];
+
+    NSMutableDictionary *instancesDictionary = [NSMutableDictionary dictionary];
+    for (id<MLDatabaseObject> instance in instances) {
+        instancesDictionary[instance.primaryKeyValue] = instance;
+    }
+
+    [self populateRelationshipsForInstances:instancesDictionary mapping:mapping];
+
+    return instances;
+}
+
+- (NSArray *)buildInstancesFromResultSet:(FMResultSet *)resultSet mapping:(MLMapping *)mapping
 {
     NSMapTable *instanceCache = [self instanceCacheForClass:mapping.modelClass];
     MLResultSetBuilder *resultSetBuilder = [[MLResultSetBuilder alloc] initWithInstanceCache:instanceCache mapping:mapping];
     return [resultSetBuilder buildInstancesFromResultSet:resultSet];
+}
+
+- (void)populateRelationshipsForInstances:(NSDictionary *)instances mapping:(MLMapping *)mapping
+{
+    for (NSString *relationshipName in mapping.relationships) {
+
+        MLRelationshipMapping *relationship = mapping.relationships[relationshipName];
+
+        MLMapping *childClassMapping = self.databaseMappings[relationship.childClass];
+        NSAssert1(childClassMapping != nil, @"No Database Mapping for class %@", relationship.childClass);
+
+        NSMapTable *childClassCache = [self instanceCacheForClass:relationship.childClass];
+
+        MLRelationshipBuilder *builder = [[MLRelationshipBuilder alloc] initWithInstanceCache:childClassCache
+                                                                          relationshipMapping:relationship
+                                                                                 childMapping:childClassMapping];
+        [builder populateRelationshipForInstances:instances withDB:self.db];
+    }
 }
 
 

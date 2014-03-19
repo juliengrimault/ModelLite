@@ -26,7 +26,7 @@
 				<key>parentIdColumn</key>
 				<string>userId</string>
 				<key>indexColumn</key>
-				<string>index</string>
+				<string>idx</string>
 			</dict>
 		</dict>
 	</dict>

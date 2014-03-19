@@ -12,9 +12,13 @@
 		F91124CC18D8540100F64698 /* ManyToManyRelationshipshipMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F91124CB18D8540100F64698 /* ManyToManyRelationshipshipMappingSpec.m */; };
 		F91124CF18D854B500F64698 /* MLTag.m in Sources */ = {isa = PBXBuildFile; fileRef = F91124CE18D854B500F64698 /* MLTag.m */; };
 		F91124D418D94D4300F64698 /* ManyToManyRelationshipBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F91124D318D94D4300F64698 /* ManyToManyRelationshipBuilderSpec.m */; };
-		F91124D718D94D7300F64698 /* MLRelationshipManyToManyBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F91124D618D94D7300F64698 /* MLRelationshipManyToManyBuilder.m */; };
-		F91E9DD818D977910019140D /* MLRelationshipBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F91E9DD718D977910019140D /* MLRelationshipBuilder.m */; };
 		F91E9DDB18D995990019140D /* NSArray+ModelLite.m in Sources */ = {isa = PBXBuildFile; fileRef = F91E9DDA18D995990019140D /* NSArray+ModelLite.m */; };
+		F91E9DDF18D9D3830019140D /* MLRelationshipMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F91E9DDE18D9D3830019140D /* MLRelationshipMapping.m */; };
+		F91E9DE218D9D3A40019140D /* MLRelationshipMappingOneToMany.m in Sources */ = {isa = PBXBuildFile; fileRef = F91E9DE118D9D3A40019140D /* MLRelationshipMappingOneToMany.m */; };
+		F91E9DE518D9D3B60019140D /* MLRelationshipMappingManyToMany.m in Sources */ = {isa = PBXBuildFile; fileRef = F91E9DE418D9D3B60019140D /* MLRelationshipMappingManyToMany.m */; };
+		F91E9DED18D9D52F0019140D /* MLRelationshipBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F91E9DE818D9D52F0019140D /* MLRelationshipBuilder.m */; };
+		F91E9DEE18D9D52F0019140D /* MLRelationshipManyToManyBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F91E9DEA18D9D52F0019140D /* MLRelationshipManyToManyBuilder.m */; };
+		F91E9DEF18D9D52F0019140D /* MLRelationshipOneToManyBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F91E9DEC18D9D52F0019140D /* MLRelationshipOneToManyBuilder.m */; };
 		F93084A318D5831F00C7718A /* FMDatabase+Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93084A218D5831F00C7718A /* FMDatabase+Spec.m */; };
 		F93BE49818D2DB7E00A63831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAA18CC2FC8002F0768 /* Foundation.framework */; };
 		F93BE49918D2DB7E00A63831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9364DAC18CC2FC8002F0768 /* CoreGraphics.framework */; };
@@ -47,12 +51,10 @@
 		F93BE4E418D2DC9000A63831 /* RowBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47E18D2BC5C00A63831 /* RowBuilderSpec.m */; };
 		F93BE4E518D2DC9000A63831 /* RowInsertBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE47F18D2BC5C00A63831 /* RowInsertBuilderSpec.m */; };
 		F967DE0A18D464D10097B5C4 /* MLRowBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F967DE0918D464D10097B5C4 /* MLRowBuilder.m */; };
-		F967DE0D18D465BD0097B5C4 /* MLRelationshipOneToManyBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F967DE0C18D465BD0097B5C4 /* MLRelationshipOneToManyBuilder.m */; };
 		F967DE0F18D466530097B5C4 /* OneToManyRelationshipBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F967DE0E18D466530097B5C4 /* OneToManyRelationshipBuilderSpec.m */; };
 		F9AC70E418D2E3C700941E1A /* JGDocumentPath.m in Sources */ = {isa = PBXBuildFile; fileRef = F93BE45618D2BC3F00A63831 /* JGDocumentPath.m */; };
 		F9AC70E518D2E71A00941E1A /* TestMapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = F93BE48118D2BC5C00A63831 /* TestMapping.plist */; };
 		F9AC70E918D2FE2B00941E1A /* RelationshipMappingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AC70E818D2FE2B00941E1A /* RelationshipMappingSpec.m */; };
-		F9AC70EC18D2FE8F00941E1A /* MLRelationshipMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AC70EB18D2FE8F00941E1A /* MLRelationshipMapping.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,12 +78,20 @@
 		F91124CD18D854B500F64698 /* MLTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTag.h; sourceTree = "<group>"; };
 		F91124CE18D854B500F64698 /* MLTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTag.m; sourceTree = "<group>"; };
 		F91124D318D94D4300F64698 /* ManyToManyRelationshipBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManyToManyRelationshipBuilderSpec.m; sourceTree = "<group>"; };
-		F91124D518D94D7300F64698 /* MLRelationshipManyToManyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipManyToManyBuilder.h; sourceTree = "<group>"; };
-		F91124D618D94D7300F64698 /* MLRelationshipManyToManyBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipManyToManyBuilder.m; sourceTree = "<group>"; };
-		F91E9DD618D977910019140D /* MLRelationshipBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipBuilder.h; sourceTree = "<group>"; };
-		F91E9DD718D977910019140D /* MLRelationshipBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipBuilder.m; sourceTree = "<group>"; };
 		F91E9DD918D995990019140D /* NSArray+ModelLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ModelLite.h"; sourceTree = "<group>"; };
 		F91E9DDA18D995990019140D /* NSArray+ModelLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ModelLite.m"; sourceTree = "<group>"; };
+		F91E9DDD18D9D3830019140D /* MLRelationshipMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipMapping.h; sourceTree = "<group>"; };
+		F91E9DDE18D9D3830019140D /* MLRelationshipMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipMapping.m; sourceTree = "<group>"; };
+		F91E9DE018D9D3A40019140D /* MLRelationshipMappingOneToMany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipMappingOneToMany.h; sourceTree = "<group>"; };
+		F91E9DE118D9D3A40019140D /* MLRelationshipMappingOneToMany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipMappingOneToMany.m; sourceTree = "<group>"; };
+		F91E9DE318D9D3B60019140D /* MLRelationshipMappingManyToMany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipMappingManyToMany.h; sourceTree = "<group>"; };
+		F91E9DE418D9D3B60019140D /* MLRelationshipMappingManyToMany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipMappingManyToMany.m; sourceTree = "<group>"; };
+		F91E9DE718D9D52F0019140D /* MLRelationshipBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipBuilder.h; sourceTree = "<group>"; };
+		F91E9DE818D9D52F0019140D /* MLRelationshipBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipBuilder.m; sourceTree = "<group>"; };
+		F91E9DE918D9D52F0019140D /* MLRelationshipManyToManyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipManyToManyBuilder.h; sourceTree = "<group>"; };
+		F91E9DEA18D9D52F0019140D /* MLRelationshipManyToManyBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipManyToManyBuilder.m; sourceTree = "<group>"; };
+		F91E9DEB18D9D52F0019140D /* MLRelationshipOneToManyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipOneToManyBuilder.h; sourceTree = "<group>"; };
+		F91E9DEC18D9D52F0019140D /* MLRelationshipOneToManyBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipOneToManyBuilder.m; sourceTree = "<group>"; };
 		F93084A118D5831F00C7718A /* FMDatabase+Spec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+Spec.h"; sourceTree = "<group>"; };
 		F93084A218D5831F00C7718A /* FMDatabase+Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+Spec.m"; sourceTree = "<group>"; };
 		F9364DAA18CC2FC8002F0768 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -136,14 +146,10 @@
 		F93BE4C918D2DBFA00A63831 /* ModelLite-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ModelLite-Prefix.pch"; sourceTree = "<group>"; };
 		F967DE0818D464D10097B5C4 /* MLRowBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRowBuilder.h; sourceTree = "<group>"; };
 		F967DE0918D464D10097B5C4 /* MLRowBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRowBuilder.m; sourceTree = "<group>"; };
-		F967DE0B18D465BD0097B5C4 /* MLRelationshipOneToManyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipOneToManyBuilder.h; sourceTree = "<group>"; };
-		F967DE0C18D465BD0097B5C4 /* MLRelationshipOneToManyBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipOneToManyBuilder.m; sourceTree = "<group>"; };
 		F967DE0E18D466530097B5C4 /* OneToManyRelationshipBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneToManyRelationshipBuilderSpec.m; sourceTree = "<group>"; };
 		F9A7A9BE18D2BB3A0079205C /* ModelLiteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ModelLiteTests-Info.plist"; sourceTree = "<group>"; };
 		F9A7A9C018D2BB3A0079205C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F9AC70E818D2FE2B00941E1A /* RelationshipMappingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationshipMappingSpec.m; sourceTree = "<group>"; };
-		F9AC70EA18D2FE8F00941E1A /* MLRelationshipMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRelationshipMapping.h; sourceTree = "<group>"; };
-		F9AC70EB18D2FE8F00941E1A /* MLRelationshipMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRelationshipMapping.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F91E9DDC18D9D3830019140D /* Relationships */ = {
+			isa = PBXGroup;
+			children = (
+				F91E9DDD18D9D3830019140D /* MLRelationshipMapping.h */,
+				F91E9DDE18D9D3830019140D /* MLRelationshipMapping.m */,
+				F91E9DE018D9D3A40019140D /* MLRelationshipMappingOneToMany.h */,
+				F91E9DE118D9D3A40019140D /* MLRelationshipMappingOneToMany.m */,
+				F91E9DE318D9D3B60019140D /* MLRelationshipMappingManyToMany.h */,
+				F91E9DE418D9D3B60019140D /* MLRelationshipMappingManyToMany.m */,
+			);
+			path = Relationships;
+			sourceTree = "<group>";
+		};
+		F91E9DE618D9D52F0019140D /* Relationships */ = {
+			isa = PBXGroup;
+			children = (
+				F91E9DE718D9D52F0019140D /* MLRelationshipBuilder.h */,
+				F91E9DE818D9D52F0019140D /* MLRelationshipBuilder.m */,
+				F91E9DE918D9D52F0019140D /* MLRelationshipManyToManyBuilder.h */,
+				F91E9DEA18D9D52F0019140D /* MLRelationshipManyToManyBuilder.m */,
+				F91E9DEB18D9D52F0019140D /* MLRelationshipOneToManyBuilder.h */,
+				F91E9DEC18D9D52F0019140D /* MLRelationshipOneToManyBuilder.m */,
+			);
+			path = Relationships;
+			sourceTree = "<group>";
+		};
 		F9364D9E18CC2FC8002F0768 = {
 			isa = PBXGroup;
 			children = (
@@ -227,16 +259,11 @@
 		F93BE44F18D2BC3F00A63831 /* CRUD */ = {
 			isa = PBXGroup;
 			children = (
+				F91E9DE618D9D52F0019140D /* Relationships */,
 				F93BE45018D2BC3F00A63831 /* MLResultSetBuilder.h */,
 				F93BE45118D2BC3F00A63831 /* MLResultSetBuilder.m */,
 				F967DE0818D464D10097B5C4 /* MLRowBuilder.h */,
 				F967DE0918D464D10097B5C4 /* MLRowBuilder.m */,
-				F91E9DD618D977910019140D /* MLRelationshipBuilder.h */,
-				F91E9DD718D977910019140D /* MLRelationshipBuilder.m */,
-				F967DE0B18D465BD0097B5C4 /* MLRelationshipOneToManyBuilder.h */,
-				F967DE0C18D465BD0097B5C4 /* MLRelationshipOneToManyBuilder.m */,
-				F91124D518D94D7300F64698 /* MLRelationshipManyToManyBuilder.h */,
-				F91124D618D94D7300F64698 /* MLRelationshipManyToManyBuilder.m */,
 				F93BE45218D2BC3F00A63831 /* MLRowInsertBuilder.h */,
 				F93BE45318D2BC3F00A63831 /* MLRowInsertBuilder.m */,
 			);
@@ -246,10 +273,9 @@
 		F93BE45718D2BC3F00A63831 /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
+				F91E9DDC18D9D3830019140D /* Relationships */,
 				F93BE45818D2BC3F00A63831 /* MLMapping.h */,
 				F93BE45918D2BC3F00A63831 /* MLMapping.m */,
-				F9AC70EA18D2FE8F00941E1A /* MLRelationshipMapping.h */,
-				F9AC70EB18D2FE8F00941E1A /* MLRelationshipMapping.m */,
 				F93BE45A18D2BC3F00A63831 /* MLMappingLoader.h */,
 				F93BE45B18D2BC3F00A63831 /* MLMappingLoader.m */,
 				F93BE45C18D2BC3F00A63831 /* MLPropertyType.h */,
@@ -538,18 +564,20 @@
 			files = (
 				F93BE4D118D2DC7700A63831 /* MLResultSetBuilder.m in Sources */,
 				F93BE4CC18D2DBFA00A63831 /* main.m in Sources */,
+				F91E9DEF18D9D52F0019140D /* MLRelationshipOneToManyBuilder.m in Sources */,
 				F93BE4D218D2DC7700A63831 /* MLRowInsertBuilder.m in Sources */,
 				F93BE4D618D2DC8000A63831 /* MLPropertyType.m in Sources */,
-				F9AC70EC18D2FE8F00941E1A /* MLRelationshipMapping.m in Sources */,
+				F91E9DED18D9D52F0019140D /* MLRelationshipBuilder.m in Sources */,
+				F91E9DE218D9D3A40019140D /* MLRelationshipMappingOneToMany.m in Sources */,
 				F93BE4D718D2DC8000A63831 /* MLDatabaseController.m in Sources */,
+				F91E9DEE18D9D52F0019140D /* MLRelationshipManyToManyBuilder.m in Sources */,
 				F93BE4CF18D2DC7100A63831 /* FMResultSet+ModelLite.m in Sources */,
 				F93BE4CD18D2DBFA00A63831 /* MLAppDelegate.m in Sources */,
 				F91E9DDB18D995990019140D /* NSArray+ModelLite.m in Sources */,
 				F9AC70E418D2E3C700941E1A /* JGDocumentPath.m in Sources */,
-				F91E9DD818D977910019140D /* MLRelationshipBuilder.m in Sources */,
+				F91E9DDF18D9D3830019140D /* MLRelationshipMapping.m in Sources */,
 				F967DE0A18D464D10097B5C4 /* MLRowBuilder.m in Sources */,
-				F91124D718D94D7300F64698 /* MLRelationshipManyToManyBuilder.m in Sources */,
-				F967DE0D18D465BD0097B5C4 /* MLRelationshipOneToManyBuilder.m in Sources */,
+				F91E9DE518D9D3B60019140D /* MLRelationshipMappingManyToMany.m in Sources */,
 				F93BE4D518D2DC8000A63831 /* MLMappingLoader.m in Sources */,
 				F93BE4D418D2DC8000A63831 /* MLMapping.m in Sources */,
 			);

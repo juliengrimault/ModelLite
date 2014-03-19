@@ -8,7 +8,7 @@
 
 #import "MLRelationshipOneToManyBuilder.h"
 #import "MLMapping.h"
-#import "MLRelationshipMapping.h"
+#import "MLRelationshipMappingManyToMany.h"
 #import <FMDB/FMDatabase.h>
 #import "MLDatabaseObject.h"
 #import "MLRowBuilder.h"

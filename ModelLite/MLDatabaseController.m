@@ -159,16 +159,16 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
 {
     for (NSString *relationshipName in mapping.relationships) {
 
-        MLRelationshipMappingOneToMany *relationship = mapping.relationships[relationshipName];
+        id<MLRelationshipMapping> relationship = mapping.relationships[relationshipName];
 
         MLMapping *childClassMapping = self.databaseMappings[relationship.childClass];
         NSAssert1(childClassMapping != nil, @"No Database Mapping for class %@", relationship.childClass);
 
         NSMapTable *childClassCache = [self instanceCacheForClass:relationship.childClass];
 
-        MLRelationshipOneToManyBuilder *builder = [[MLRelationshipOneToManyBuilder alloc] initWithInstanceCache:childClassCache
-                                                                          relationshipMapping:relationship
-                                                                                 childMapping:childClassMapping];
+        id<MLRelationshipBuilder> builder = [MLRelationshipBuilder builderWithRelationshipMapping:relationship
+                                                                                     childMapping:childClassMapping
+                                                                                    instanceCache:childClassCache];
         [builder populateRelationshipForInstances:instances withDB:self.db];
     }
 }

@@ -7,7 +7,7 @@
 #import <OCMockito/OCMockito.h>
 
 #import "SpecHelpers.h"
-#import "MLRelationshipMapping.h"
+#import "MLRelationshipMappingManyToMany.h"
 
 
 SpecBegin(ManyToManyRelationshipshipMapping)

@@ -97,9 +97,9 @@ NSString *const DbMappingPrimaryKeyName = @"id";
 {
     for (NSString *relationship in self.relationships) {
         id m = self.relationships[relationship];
-        if (![m isKindOfClass:[MLRelationshipMapping class]]) {
+        if (![m conformsToProtocol:@protocol(MLRelationshipMapping)]) {
             [NSException raise:[NSString stringWithFormat:@"%@Exception", self.class]
-                        format:@"Relationship entry %@ is not instance of class %@, but %@ insted.", relationship,[MLRelationshipMapping class], [m class]];
+                        format:@"Relationship entry %@ does not conform to protocol %@, class: %@.", relationship,@protocol(MLRelationshipMapping), [m class]];
         }
     }
 }

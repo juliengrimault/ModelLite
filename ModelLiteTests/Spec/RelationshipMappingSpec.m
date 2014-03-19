@@ -6,7 +6,7 @@
 #import <OCHamcrest/OCHamcrest.h>
 #import <OCMockito/OCMockito.h>
 
-#import "MLRelationshipMapping.h"
+#import "MLRelationshipMappingOneToMany.h"
 #import "MLUser.h"
 #import "MLComment.h"
 

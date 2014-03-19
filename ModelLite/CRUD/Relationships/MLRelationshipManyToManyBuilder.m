@@ -8,7 +8,7 @@
 
 #import "MLRelationshipManyToManyBuilder.h"
 #import "MLMapping.h"
-#import "MLRelationshipMapping.h"
+#import "MLRelationshipMappingManyToMany.h"
 #import <FMDB/FMDatabase.h>
 #import "FMResultSet+ModelLite.h"
 #import "MLResultSetBuilder.h"

@@ -33,7 +33,7 @@
 				<key>lookupTable</key>
 				<string>UsersTagsLookup</string>
 				<key>childClass</key>
-				<string>MLComment</string>
+				<string>MLTag</string>
 				<key>parentIdColumn</key>
 				<string>userId</string>
 				<key>childIdColumn</key>

@@ -8,7 +8,7 @@
 
 #import "MLUser.h"
 #import "MLMapping.h"
-#import "MLRelationshipMapping.h"
+#import "MLRelationshipMappingManyToMany.h"
 #import "MLComment.h"
 #import "MLTag.h"
 #import <FMDB/FMDatabase.h>

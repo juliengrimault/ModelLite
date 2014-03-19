@@ -61,7 +61,9 @@
     "  userId INTEGER NOT NULL,"
     "  tagId TEXT NOT NULL,"
     "  idx INTEGER NOT NULL,"
-    "  PRIMARY KEY (userId, tagId)"
+    "  PRIMARY KEY (userId, tagId),"
+    "  FOREIGN KEY (userId) REFERENCES User(id),"
+    "  FOREIGN KEY (tagId) REFERENCES Tag(id)"
     ");";
 
 }

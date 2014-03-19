@@ -10,6 +10,7 @@
 #import "MLUser.h"
 #import "MLComment.h"
 #import "MLRelationshipMapping.h"
+#import "MLRelationshipMappingManyToMany.h"
 
 SpecBegin(MLMapping)
 
@@ -165,13 +166,13 @@ describe(@"MLMapping", ^{
         it(@"extract the relationships from the dictionary", ^{
             expect(mapping.relationships).to.haveCountOf([dictionary[@"relationships"] count]);
             [mapping.relationships enumerateKeysAndObjectsUsingBlock:^(NSString *relationshipName, id relationship, BOOL *stop) {
-                expect(relationship).to.beKindOf([MLRelationshipMapping class]);
+                expect(relationship).to.conformTo(@protocol(MLRelationshipMapping));
             }];
         });
 
         it(@"instantiate the correct relationship mapping subclass", ^{
             expect(mapping.relationships[@"tags"]).to.beKindOf([MLRelationshipMappingManyToMany class]);
-            expect(mapping.relationships[@"comments"]).to.beKindOf([MLRelationshipMapping class]);
+            expect(mapping.relationships[@"comments"]).to.beKindOf([MLRelationshipMappingOneToMany class]);
         });
     });
 });

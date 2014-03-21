@@ -100,8 +100,10 @@ NSString *const DatabaseControllerNestedTransactionCount = @"com.juliengrimault.
         [cache setObject:instance forKey:instance.primaryKeyValue];
         
         // insert in the db
+        // make a copy of the instance, ensure consistent saving
+        NSObject<MLDatabaseObject> *instanceCopy = [instance copy];
         MLRowInsertBuilder *builder = [[MLRowInsertBuilder alloc] initWithMapping:mapping
-                                                                           instance:instance];
+                                                                           instance:instanceCopy];
         [builder executeStatement:db];
     }];
 }
